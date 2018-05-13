@@ -1,3 +1,4 @@
+///front end index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 
