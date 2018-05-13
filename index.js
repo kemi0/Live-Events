@@ -30,17 +30,21 @@ app.get('/api/user-data',(req, res)=>{
   res.send(user);
 });
 
-app.get('/', function (req, res){
-  res.send ('<h1>Hello Katy!</h1>')
-})
+// app.get('/', function (req, res){
+//   res.send ('<h1>Hello Katy!</h1>')
+// })
 
+
+
+
+////do not touch code below////
 
 ///last end point 
 app.get('*',(req, res)=>{
   res.sendFile(resolve(__dirname, 'client', 'dist', 'index.html'));
 })
 
-////do not touch code below////
+
 app.listen( PORT, function(){
   console.log('Express Server running at localhost! ' + PORT);
 }).on('error', (err)=>{

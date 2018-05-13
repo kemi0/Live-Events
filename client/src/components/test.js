@@ -12,7 +12,7 @@ class Test extends Component{
     console.log('user data response:', response);
   }
   render(){
-    return <h1> Testing </h1>
+    return <h1> Somthing!!! </h1>
   }
 
 }
