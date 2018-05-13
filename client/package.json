@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Setup Client side for live music finder",
   "main": "index.js",
+  "proxy":{
+    "/api/*":{
+      "target": "http://localhost:8000"
+    }
+  },
   "scripts": {
     "start": "node dev_server.js",
     "dev": "npm run dev --prefix ..",

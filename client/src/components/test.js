@@ -8,7 +8,7 @@ class Test extends Component{
 
   //requesting data from server: 
   async getUserData(){
-    const response = await axios.get('http://localhost:8000/user-data');
+    const response = await axios.get('/api/user-data');
     console.log('user data response:', response);
   }
   render(){

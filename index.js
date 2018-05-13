@@ -1,14 +1,28 @@
 ///back-end index.js
 const express = require('express'); 
 const cors = require('cors');
+//setup back end to handle React 
+const { resolve } = require('path'); 
 const PORT = process.env.PORT || 8000;
 
-const app = express(); 
+const app = express();
+//when doing get 
 app.use(cors());
+//when doing POST
+app.use(express.json());
+//for the React statily serve a folder
+app.use(express.static(resolve(__dirname,'client','dist')));
 
-//using .get  creating end points;
 
-app.get('/user-data',(req, res)=>{
+
+//MAKING POST request///////////////
+
+
+
+
+//MAKING get request /////////////// 
+
+app.get('/api/user-data',(req, res)=>{
   const user ={
    name : 'Jim Bob',
    email: 'jimhebob@gmail.com'
@@ -21,7 +35,10 @@ app.get('/', function (req, res){
 })
 
 
-
+///last end point 
+app.get('*',(req, res)=>{
+  res.sendFile(resolve(__dirname, 'client', 'dist', 'index.html'));
+})
 
 ////do not touch code below////
 app.listen( PORT, function(){
