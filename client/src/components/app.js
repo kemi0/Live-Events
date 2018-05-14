@@ -1,12 +1,10 @@
 import React from 'react';
-import '../assets/css/app.css';
-import Test from './test';
+import '../assets/css/stylesheet.css';
+import mobileHeader from './mobileHeader';
 
 const App = () => (
-    <div>
-        <div className="app">
-           <Test/>
-        </div>
+    <div class="container">
+        </mobileHeader> 
     </div>
 );
 
