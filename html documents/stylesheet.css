@@ -3,41 +3,37 @@
         margin:0;
         padding:0;
 }
+
+
 /* HEADER*/
-.container-fluid{
-    width:100vw;
-    height:auto;
-    display:flex;
-    background-color:lightcyan
-}
 
 header {
     border: solid black 1px;
-    display:flex;
-    width:100%;
-    height:10%;
+    width:100vw;
+    height:8vh;
     padding: 0.5%;
-    justify-content: center;
-    background-color: pink;
+    background: linear-gradient(to bottom right,lightcyan,plum,pink);
+}
+.nav{
+    margin-top:2%;
+}
+.event-container{
+    width:100%;
+    height:100%;
+    background-color:lightcyan;
 }
 
 .left-nav,.right-nav{
     border: solid black 1px;
-    float:left; 
     height:100%;
-    width:30%;
-    display:flex; 
-    flex-wrap:wrap; 
-    background-color:lightgrey;
-    
+    padding-top:2%;
 }
 
 .center-nav{
-    width:40%;
-    text-align:center;
     border: solid black 1px;
-    background-color:lightgrey;
-    margin:0 1% 0 1%;
+    font-size:1.1em;
+    color:white;
+    padding-top:2%;
 }
 
 
@@ -47,6 +43,7 @@ header {
     text-align: center;
     margin-top: 1%;
     background-color: yellow;
+    padding-top:1%;
 }
 
 .carousel-container{
@@ -54,116 +51,102 @@ header {
     height:26em;
     border: solid black 1px;
     margin-top:1%;
-    display:flex;
     background-color:lightgreen;
+    background-image: url("./images/artist_image_example.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+img{
+    width:100%;   
 }
 
 .carousel-info{
-    width:50%;
-    height:25%;
+    height:min-content;
     border: solid black 1px;
     margin-top:1%;
-    display:flex;
     position:relative;
     bottom:-18.5em;
-    background-color: bisque
+    background-color:lightgrey;
+    text-overflow:hidden;
+    opacity:0.7;
 }
+
+.carousel-date-info{
+    height:35%;
+    border: solid black 1px;
+    margin-top:1%;
+    background-color: lightgrey;
+    text-overflow:hidden;
+    opacity:0.7;
+    position:relative;
+    bottom:-18.5em;
+}
+
+.carousel-day{
+    font-size:0.8em;
+}
+
+.carousel-month, .carousel-date{
+    display:inline-block;
+}
+
 .carousel-date{
-    width:50%;
-    height:25%;
-    border: solid black 1px;
-    margin-top:1%;
-    display:flex;
-    position:relative;
-    bottom:-18.5em;
-    background-color: bisque
+    font-size:1em;
 }
 
-.carousel-date {
-    padding-left:5%;
-    display:block;
+.carousel-month{
+    font-size:1em;
 }
 
-.carousel-info {
-    padding-left:5%;
-    display:block;
-}
-
-
-/* EVENTS CONTAINER */
+/* EVENTS DISPLAY AREA */
 
 .event-container{
     border:solid black 1px;
     background-color: powderblue;
-    display:flex;
-    flex-wrap:wrap;
-    width:100%;
-    height:10em;
+    height:8em;
     margin-top:2%;
-    display:flex;
-
+    display: flex;
+    flex-direction: row;  
 }
 
 .event-artist-photo{
     border: solid black 1px;
     height:100%;
-    width:20%;
-    display:flex;     
+    display: flex;
 }
 
-.image-container{
-    background-color:white;
-    height:98%;
-    width:70%;
-    border-radius:1em;
-    border:solid 1px grey;
-    position: relative;
-    top: 0.1em;
-    left: 2em;
-    display:flex;
-}
+img{
+    max-width:100%;
+    max-height:100%;
+}       
 
 .event-info{
     border:solid black 1px;
     height:100%;
-    width:60%;
 }
 
-.event-info p{
-    text-align:center;
-    margin-top:2.5%;
-}
-
-.calendar-block{
+.calendar-info{
     border:solid black 1px;
-    height:100%;
-    width:20%;
-}
-
-.white-event-cal{
     background-color:white;
+    border-radius:10%;
+    opacity:0.9;
+    box-shadow: grey 2px 3px 5px;
     height:80%;
-    width:50%;
-    border-radius:1em;
-    border:solid 1px grey;
-    position: relative;
-    left: 5em;
-    top: 1em;
+    margin-top:2%;
 }
 
-.white-event-cal p{
-    text-align:center;
-    margin-top:0.5%;
-}
+.event-text{
+    padding-top:9%;
+} 
 
 /* SHOW MORE */
 
 .show-more{
     border:solid black 1px;
-    text-align: center;
     margin-top: 1%;
     background-color: yellow;
-    height: 7em;
+    height: 5em;
 }
 .show-more button{
     position: relative;
@@ -175,50 +158,58 @@ header {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 25px;
  }
 
- /*CONCERT SUGGESTIONS*/
+ /*SUGGESTED EVENTS*/
 .concert-suggestions-container{
     width:100%;
-    height:30em;
+    height:10em;
     border: solid black 1px;
     margin-top:1%;
-    display:flex;
-    background-color:lightgreen;
-    display:flex;
-   
-
+    background-image:url("./images/artist_image_example.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
 }
- .concert-suggestion{
-     height:100%;
-     width:30%;
-     margin-left:2%;
-     margin-right:2%;
-     border:solid black 1px;
-     display:flex;
- }
 
  .suggested-event-name{
-     height:20%;
+     height:100%;
      width:70%;
      border:solid black 1px;
-     position:relative;
-     bottom:-20.8em;
+     background-color:peachpuff;
+     opacity:0.7;
  }
 
- .suggested-event-cal{
-    height:20%;
-    width:30%;
-    border:solid black 1px;
+
+.suggested-event-cal{
+    margin:0;
+    padding:0;
     position:relative;
-    bottom:-20.8em;
+    bottom: 2em;
+    left: -0.3em;
+    background-color:white;
+    border: solid grey 1px;
+    text-align: start;
+    flex-direction:row;
+    height:3em;
+    border-radius:10%;
+    text-align: center;
+    font-size:0.7em;
 }
 
 .suggested-event-cal p{
-    margin:0;
-    padding:0;
+font-size:1em;
+line-height: 1;
+padding-top: 0.4em;
 }
+
+/*HARD CODED DOTS*/
+.dot {
+    height: 0.5em;
+    width: 0.5em;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
 
 /*FOOTER*/
 
@@ -228,15 +219,24 @@ footer{
     border: solid black 1px;
     margin-top:1%;
     display:flex;
-    background-color:lightgreen;
+    background: linear-gradient(to bottom right,lightcyan,plum,pink);
     display:flex;
 }
 
 .social-media-icons{
     display:inline-block;
-    justify-content: center;
 }
+.fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
+    color: white;
+    size:2em;
+  }
 
 
 
 
+/* COMMENTS: NEED TO FIX DIVS EQUAL HEIGHT & POSITION DIV AT END OF PARENT
+- used row-eq-height
+- used align-items-end
+- used align-self-end
+
+ABOVE DID NOt WORK */

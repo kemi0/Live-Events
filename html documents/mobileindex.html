@@ -1,3 +1,10 @@
+<!-- VIEW IN MOBILE ONLY
+    FIXES: 
+    CAROUSEL INFO EQUAL HEIGHT DIVS
+    SUGGESTED ARTISTS INFO EQUAL HEIGHT DIVS
+    OFFSET BETWEEN SUGGESTED ARTISTS IN BOOTSTRAP-->
+    
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,169 +20,214 @@
 </head>
 
 <body>
-<!-- HEADER IS NAV BAR -->
+    <!-- HEADER IS NAV BAR -->
     <header>
         <div class="container-fluid">
-            <div class="left-nav nav">
-                    <p>MENU</p>    
+            <div class="row row-eq-height">
+                <div class="col-xs-2 text-center left-nav nav">
+                    <p><i class="fa fa-bars "></i></p>
+                </div>
+                <div class="col-xs-8 text-center center-nav nav">
+                    <p>LOGO</p>
+                </div>
+                <div class="col-xs-2 text-center right-nav nav">
+                    <p><i class="fa fa-search "></i>
+
+                    </p>
+                </div>
             </div>
-            <div class="center-nav nav">
-                <p>LOGO</p>
-            </div>
-            <div class="right-nav nav">               
-                    <p>SEARCH</p>
-            </div>
-        </div> 
+        </div>
     </header>
 
-<!-- CAROUSEL PHOTO -->
+    <!-- CAROUSEL PHOTO -->
     <div class="top-display-text">
         <p>TOP</p>
     </div>
-
-    <div class="carousel-container">
-        <div class="carousel-info">
-                <p class="artist-title">BTS</p>
-                <p class="time">9:00PM</p>
-                <p class="venue">Staples Center</p>        
-        </div>
-        <div class="carousel-date">
-                <p class="day">DAY</p>
-                <p class="month">MONTH</p>
-                <p class="date">01</p>
-
+<!-- FIX NOTE: ADJUST FOR EQUAL HEIGHT -->
+    <div class="container-fluid image carousel-container">
+        <div class="row align-items-end">
+            <div class="col-xs-6 text-center carousel-info">
+                    <p class="artist-title">BTS</p>
+                    <p class="time">9:00PM</p>
+                    <p class="venue">Staples Center</p>
+            </div>
+            <div class="col-xs-6 text-center carousel-date-info">
+                <p class="carousel-day">DAY</p>
+                <p class="carousel-month">MONTH</p>
+                <p class="carousel-date">19</p>
+            </div>
         </div>
     </div>
+    </div>
 
-<!-- EVENTS DISPLAY AREA -->
+    <!-- HARD CODED DOTS -->
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+    <!-- EVENTS DISPLAY AREA -->
     <div class="event-display-text">
         <p>upcoming events</p>
     </div>
 
-   <div class="event-container">       
-        <div class="event-artist-photo">
-            <div class="image-container">
-                <img src="">
+    <div class="container-fluid event-container">
+        <div class="row">
+            <div class="col-xs-4 event-artist-photo">
+                <img src="./images/artist_info_image.jpg">
             </div>
-        </div>
-        <div class="event-info">
-           
-                <p class="event-name">Event Name</p>
-                <p class="event-time">Time</p>
-                <p class="event-location">Location</p>
-           
-        </div>
-        <div class="calendar-block">
-            <div class="white-event-cal">              
-                    <p class="day">Day</p>
-                    <p class="date">Date</p>
-                    <p class= "time">Time</p>
+            <div class="col-xs-5 text-center event-info">
+                <div class="event-text">
+                    <p class="event-name">Event Name</p>
+                    <p class="event-time">Time</p>
+                    <p class="event-location">Location</p>
+                </div>
             </div>
-        </div>
-   </div>
-
-   <div class="event-container">       
-        <div class="event-artist-photo">
-            <div class="image-container">
-                <img src="">
+            <div class="col-xs-3 text-center calendar-info">
+               
+                    <p class="event-day">Day</p>
+                    <p class="event-date">Date</p>
+                    <p class="event-time">Time</p>
+                   
             </div>
-        </div>
-        <div class="event-info">
-           
-                <p class="event-name">Event Name</p>
-                <p class="event-time">Time</p>
-                <p class="event-location">Location</p>
-           
-        </div>
-        <div class="calendar-block">
-            <div class="white-event-cal">              
-                    <p class="day">Day</p>
-                    <p class="date">Date</p>
-                    <p class= "time">Time</p>
-            </div>
-        </div>
-   </div>
-   
-   <div class="event-container">       
-        <div class="event-artist-photo">
-            <div class="image-container">
-                <img src="">
-            </div>
-        </div>
-        <div class="event-info">
-           
-                <p class="event-name">Event Name</p>
-                <p class="event-time">Time</p>
-                <p class="event-location">Location</p>
-           
-        </div>
-        <div class="calendar-block">
-            <div class="white-event-cal">              
-                    <p class="day">Day</p>
-                    <p class="date">Date</p>
-                    <p class= "time">Time</p>
-            </div>
-        </div>
-   </div>
-
-    <div class="show-more">
-            <button>Show More</button>
         </div>
     </div>
 
+    <div class="container-fluid event-container">
+            <div class="row">
+                <div class="col-xs-4 event-artist-photo">
+                    <img src="./images/artist_info_image.jpg">
+                </div>
+                <div class="col-xs-5 text-center event-info">
+                    <div class="event-text">
+                        <p class="event-name">Event Name</p>
+                        <p class="event-time">Time</p>
+                        <p class="event-location">Location</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 text-center calendar-info">
+                   
+                        <p class="event-day">Day</p>
+                        <p class="event-date">Date</p>
+                        <p class="event-time">Time</p>
+                       
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid event-container">
+                <div class="row">
+                    <div class="col-xs-4 event-artist-photo">
+                        <img src="./images/artist_info_image.jpg">
+                    </div>
+                    <div class="col-xs-5 text-center event-info">
+                        <div class="event-text">
+                            <p class="event-name">Event Name</p>
+                            <p class="event-time">Time</p>
+                            <p class="event-location">Location</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 text-center calendar-info">
+                       
+                            <p class="event-day">Day</p>
+                            <p class="event-date">Date</p>
+                            <p class="event-time">Time</p>
+                           
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- SHOW MORE -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center show-more">
+                <button type = "button" class = "btn btn-success">Show More</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--SUGGESTED EVENTS -->
     <div class="concerts-text">
         <p>concerts you may like</p>
     </div>
+    <div class="container-fluid">
+        <div class="row row-eq-height">
+            <div class="col-xs-4 concert-suggestions-container">
+                <!-- <img src="./images/artist_image_example.jpg"> -->
+            </div>
 
-    <div class="concert-suggestions-container">
-        <div class="concert-suggestion">
-            <div class="suggested-event-name">
-                <p>EVENT NAME</p>
-            </div>
-            <div class="suggested-event-cal">
-                <p>DAY</p>
-                <p>DATE</p>
-                <p>TIME</p>
-            </div>
-        </div>
-
-        <div class="concert-suggestion">
-            <div class="suggested-event-name">
-                <p>EVENT NAME</p>
-            </div>
-            <div class="suggested-event-cal">
-                <p>DAY</p>
-                <p>DATE</p>
-                <p>TIME</p>
-            </div>
-        </div>
-
-        <div class="concert-suggestion">
-            <div class="suggested-event-name">
-                <p>EVENT NAME</p>
-            </div>
-            <div class="suggested-event-cal">
-                <p>DAY</p>
-                <p>DATE</p>
-                <p>TIME</p>
-            </div>
+            <div class="col-xs-4 concert-suggestions-container">
+            </div>  
+            
+            <div class="col-xs-4 concert-suggestions-container">
+            </div>   
         </div>
     </div>
 
-<!--FOOTER-->
-<footer>
-    <div class="footer-container">
-        <div class="social-media-icon">
-            <i class="fa fa-cloud"></i>
-            <i class="fa fa-heart"></i>
-            <i class="fa fa-car"></i>
-            <i class="fa fa-file"></i>
-            <i class="fa fa-bars"></i>
+<!--FIX NOTE: RECONFIGURE THIS PART --> 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3 suggested-event-name">
+                <p>EVENT</p>
+            </div>
+            <div class="col-xs-1 suggested-event-cal">
+                    <p>AUG 19</p>
+                </div>
+            <div class="col-xs-3 suggested-event-name">
+                    <p>EVENT</p>
+            </div>
+            <div class="col-xs-1 suggested-event-cal">
+                    <p>AUG 19</p>
+                </div>
+            <div class="col-xs-3 suggested-event-name">
+                    <p>EVENT</p>
+            </div>
+            <div class="col-xs-1 suggested-event-cal">
+                    <p>AUG 19</p>
+                </div>
         </div>
     </div>
-</footer>
 
-
+    <!-- HARD CODED DOTS -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+            </div>
+        </div>
+    </div>
     
+    <!--FOOTER-->
+    <footer>
+        <div class="container-fluid"> 
+        <div class="row">
+            <div class="col-xs-12 text-right footer-container">
+                    <div class="social-media-icon">
+                        <i class="fa fa-cloud"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-car"></i>
+                        <i class="fa fa-file"></i>
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
+        </div>
+        </div>
+        
+    </footer>
+
+
+
 </body>
+
 </html>
