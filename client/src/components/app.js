@@ -3,10 +3,8 @@ import '../assets/css/app.css';
 import Test from './test';
 
 const App = () => (
-    <div>
-        <div className="app">
-           <Test/>
-        </div>
+    <div className="container">
+         <Test/>
     </div>
 );
 

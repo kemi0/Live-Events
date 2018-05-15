@@ -1,0 +1,262 @@
+*{ 
+        box-sizing:content-box;
+        margin:0;
+        padding:0;
+}
+
+
+/* HEADER*/
+
+header {
+    border: solid black 1px;
+    width:100vw;
+    height:8vh;
+    padding: 0.5%;
+    background: linear-gradient(to bottom right,lightcyan,plum,pink);
+}
+.nav{
+    margin-top:2%;
+}
+.event-container{
+    width:100%;
+    height:100%;
+    background-color:lightcyan;
+}
+
+.left-nav,.right-nav{
+    border: solid black 1px;
+    height:100%;
+    padding-top:2%;
+}
+
+.center-nav{
+    border: solid black 1px;
+    font-size:1.1em;
+    color:white;
+    padding-top:2%;
+}
+
+
+/* DISPLAY FOR CAROUSEL */
+.top-display-text, .event-display-text, .concerts-text{
+    border:solid black 1px;
+    text-align: center;
+    margin-top: 1%;
+    background-color: yellow;
+    padding-top:1%;
+}
+
+.carousel-container{
+    width:100%;
+    height: 20em;
+    border: solid black 1px;
+    margin-top:1%;
+    background-color:lightgreen;
+    background-image: url("./images/artist_image_example.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+img{
+    width:100%;   
+}
+
+.info-row{
+    position: relative;
+    bottom: -12em;
+    background-color: mediumvioletred;
+    height: 40%;
+}
+
+.carousel-info{
+    height:100%;
+    border: solid black 1px;
+    margin-top:1%;
+    position:relative;
+    /* bottom:-18.5em; */
+    background-color:lightgrey;
+    text-overflow:hidden;
+    opacity:0.7;
+}
+
+.carousel-date-info{
+    height:100%;
+    border: solid black 1px;
+    margin-top:1%;
+    background-color: lightgrey;
+    text-overflow:hidden;
+    opacity:0.7;
+    position:relative;
+    /* bottom:-18.5em; */
+}
+.day-row{
+    background-color: pink;
+    height: 50%;
+}
+.month-date{
+    width: 100%;
+    background-color: orange;
+    display: flex;
+}
+.inter-box{
+    width: 50%;
+    height: 50%;
+    float: left;
+
+}
+.carousel-day{
+    font-size:0.8em;
+}
+
+.carousel-month, .carousel-date{
+    display:inline-block;
+}
+
+.carousel-date{
+    font-size:1em;
+}
+
+.carousel-month{
+    font-size:1em;
+}
+
+/* EVENTS DISPLAY AREA */
+
+.event-container{
+    border:solid black 1px;
+    background-color: powderblue;
+    height:8em;
+    margin-top:2%;
+    display: flex;
+    flex-direction: row;  
+}
+
+.event-artist-photo{
+    border: solid black 1px;
+    height:100%;
+    display: flex;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
+}       
+
+.event-info{
+    border:solid black 1px;
+    height:100%;
+}
+
+.calendar-info{
+    border:solid black 1px;
+    background-color:white;
+    border-radius:10%;
+    opacity:0.9;
+    box-shadow: grey 2px 3px 5px;
+    height:80%;
+    margin-top:2%;
+}
+
+.event-text{
+    padding-top:9%;
+} 
+
+/* SHOW MORE */
+
+.show-more{
+    border:solid black 1px;
+    margin-top: 1%;
+    background-color: yellow;
+    height: 5em;
+}
+.show-more button{
+    position: relative;
+    top:0.7em;
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+ }
+
+ /*SUGGESTED EVENTS*/
+.concert-suggestions-container{
+    width:100%;
+    height:10em;
+    border: solid black 1px;
+    margin-top:1%;
+    background-image:url("./images/artist_image_example.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+}
+
+ .suggested-event-name{
+     height:100%;
+     width:70%;
+     border:solid black 1px;
+     background-color:pe;
+     opacity:0.7;
+ }
+
+
+.suggested-event-cal{
+    margin:0;
+    padding:0;
+    position:relative;
+    bottom: 2em;
+    left: -0.3em;
+    background-color:white;
+    border: solid grey 1px;
+    text-align: start;
+    flex-direction:row;
+    height:3em;
+    border-radius:10%;
+    text-align: center;
+    font-size:0.7em;
+}
+
+.suggested-event-cal p{
+font-size:1em;
+line-height: 1;
+padding-top: 0.4em;
+}
+
+/*HARD CODED DOTS*/
+.dot {
+    height: 0.5em;
+    width: 0.5em;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+/*FOOTER*/
+
+footer{
+    width:100%;
+    height:26em;
+    border: solid black 1px;
+    margin-top:1%;
+    display:flex;
+    background: linear-gradient(to bottom right,lightcyan,plum,pink);
+    display:flex;
+}
+
+.social-media-icons{
+    display:inline-block;
+}
+.fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
+    color: white;
+    size:2em;
+  }
+
+
+
+/* COMMENTS: NEED TO FIX DIVS EQUAL HEIGHT & POSITION DIV AT END OF PARENT
+- used row-eq-height
+- used align-items-end
+- used align-self-end
+
+ABOVE DID NOt WORK */

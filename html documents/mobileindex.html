@@ -1,0 +1,236 @@
+<!-- VIEW IN MOBILE ONLY
+    FIXES: 
+    CAROUSEL INFO EQUAL HEIGHT DIVS
+    SUGGESTED ARTISTS INFO EQUAL HEIGHT DIVS
+    OFFSET BETWEEN SUGGESTED ARTISTS IN BOOTSTRAP-->
+    
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alabama Live 1st Mobile Page</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- HEADER IS NAV BAR -->
+    <header>
+        <div class="container-fluid">
+            <div class="row row-eq-height">
+                <div class="col-xs-2 text-center left-nav nav">
+                    <p><i class="fa fa-bars "></i></p>
+                </div>
+                <div class="col-xs-8 text-center center-nav nav">
+                    <p>LOGO</p>
+                </div>
+                <div class="col-xs-2 text-center right-nav nav">
+                    <p><i class="fa fa-search "></i>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CAROUSEL PHOTO -->
+    <div class="top-display-text">
+        <p>TOP</p>
+    </div>
+<!-- FIX NOTE: ADJUST FOR EQUAL HEIGHT -->
+    <div class="container-fluid image carousel-container">
+        <div class="row info-row">
+            <div class="col-xs-6 text-center carousel-info">
+                    <p class="artist-title">BTS</p>
+                    <p class="time">9:00PM</p>
+                    <p class="venue">Staples Center</p>
+            </div>
+            <div class="col-xs-6 text-center carousel-date-info">
+                <div class = "day-row"><p class="carousel-day">DAY</p></div>
+                <div class ="month-date">
+                    <div class="inter-box"><p class="carousel-month">MONTH</p></div>
+                    <div class="inter-box"><p class="carousel-month">19</p></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- HARD CODED DOTS -->
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+    <!-- EVENTS DISPLAY AREA -->
+    <div class="event-display-text">
+        <p>upcoming events</p>
+    </div>
+
+    <div class="container-fluid event-container">
+        <div class="row">
+            <div class="col-xs-4 event-artist-photo">
+                <img src="./images/artist_info_image.jpg">
+            </div>
+            <div class="col-xs-5 text-center event-info">
+                <div class="event-text">
+                    <p class="event-name">Event Name</p>
+                    <p class="event-time">Time</p>
+                    <p class="event-location">Location</p>
+                </div>
+            </div>
+            <div class="col-xs-3 text-center calendar-info">
+               
+                    <p class="event-day">Day</p>
+                    <p class="event-date">Date</p>
+                    <p class="event-time">Time</p>
+                   
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid event-container">
+            <div class="row">
+                <div class="col-xs-4 event-artist-photo">
+                    <img src="./images/artist_info_image.jpg">
+                </div>
+                <div class="col-xs-5 text-center event-info">
+                    <div class="event-text">
+                        <p class="event-name">Event Name</p>
+                        <p class="event-time">Time</p>
+                        <p class="event-location">Location</p>
+                    </div>
+                </div>
+                <div class="col-xs-3 text-center calendar-info">
+                   
+                        <p class="event-day">Day</p>
+                        <p class="event-date">Date</p>
+                        <p class="event-time">Time</p>
+                       
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid event-container">
+                <div class="row">
+                    <div class="col-xs-4 event-artist-photo">
+                        <img src="./images/artist_info_image.jpg">
+                    </div>
+                    <div class="col-xs-5 text-center event-info">
+                        <div class="event-text">
+                            <p class="event-name">Event Name</p>
+                            <p class="event-time">Time</p>
+                            <p class="event-location">Location</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 text-center calendar-info">
+                       
+                            <p class="event-day">Day</p>
+                            <p class="event-date">Date</p>
+                            <p class="event-time">Time</p>
+                           
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- SHOW MORE -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center show-more">
+                <button type = "button" class = "btn btn-success">Show More</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--SUGGESTED EVENTS -->
+    <div class="concerts-text">
+        <p>concerts you may like</p>
+    </div>
+    <div class="container-fluid">
+        <div class="row row-eq-height">
+            <div class="col-xs-4 concert-suggestions-container">
+                <!-- <img src="./images/artist_image_example.jpg"> -->
+            </div>
+
+            <div class="col-xs-4 concert-suggestions-container">
+            </div>  
+            
+            <div class="col-xs-4 concert-suggestions-container">
+            </div>   
+        </div>
+    </div>
+
+<!--FIX NOTE: RECONFIGURE THIS PART --> 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3 suggested-event-name">
+                <p>EVENT</p>
+            </div>
+            <div class="col-xs-1 suggested-event-cal">
+                    <p>AUG 19</p>
+                </div>
+            <div class="col-xs-3 suggested-event-name">
+                    <p>EVENT</p>
+            </div>
+            <div class="col-xs-1 suggested-event-cal">
+                    <p>AUG 19</p>
+                </div>
+            <div class="col-xs-3 suggested-event-name">
+                    <p>EVENT</p>
+            </div>
+            <div class="col-xs-1 suggested-event-cal">
+                    <p>AUG 19</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- HARD CODED DOTS -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+    
+    <!--FOOTER-->
+    <footer>
+        <div class="container-fluid"> 
+        <div class="row">
+            <div class="col-xs-12 text-right footer-container">
+                    <div class="social-media-icon">
+                        <i class="fa fa-cloud"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-car"></i>
+                        <i class="fa fa-file"></i>
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
+        </div>
+        </div>
+        
+    </footer>
+
+
+
+</body>
+
+</html>
