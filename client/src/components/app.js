@@ -1,10 +1,10 @@
 import React from 'react';
-import '../assets/css/app.css';
-import Test from './test';
+import '../assets/css/stylesheet.css';
+import Header from './header';
 
 const App = () => (
     <div className="container">
-         <Test/>
+        <Header/>
     </div>
 );
 
