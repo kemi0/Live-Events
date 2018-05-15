@@ -1,9 +1,9 @@
 const mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'c3.18db',
+  user     : '[your user name]',
+  password : '[your password]',
+  database : '',
   port: '3307'
 });
 connection.connect((err)=>{
@@ -13,6 +13,11 @@ connection.connect((err)=>{
   }
   console.log('Mysql is connected as id ' + connection.threadId);
 });
+
+
+
+
+
 
 
 // connection.end();

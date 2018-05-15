@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Setup Client side for live music finder",
   "main": "index.js",
-  "proxy":{
-    "/api/*":{
+  "proxy": {
+    "/api/*": {
       "target": "http://localhost:8000"
     }
   },

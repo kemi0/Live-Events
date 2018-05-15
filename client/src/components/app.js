@@ -1,8 +1,9 @@
 import React from 'react';
-import '../assets/css/stylesheet.css';
+import '../assets/css/app.css';
+import Test from './test';
 
 const App = () => (
-    <div class="container">
+    <div className="container">
          <Test/>
     </div>
 );
