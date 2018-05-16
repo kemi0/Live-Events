@@ -1,23 +1,28 @@
 import React from 'react';
-import { Container, Row, Col, Grid } from 'react-bootstrap';
+
 
 export default class Header extends React.Component {
     render() {
         return (
-            <Grid>
-                <Row className="show-grid">
-                    <Col lg={4}>
-                        <h1>hello</h1>
-                        welcome to hello world
-                    </Col>
-                    <Col lg={4}>
-                        <h1>hello</h1>
-                    </Col>
-                    <Col sml={4}>
-                        <h1>hello</h1>
-                    </Col>
-                </Row>
-            </Grid>
+            <header>
+            <div className="container-fluid">
+                <div className="row row-eq-height">
+                    <div className="col-xs-2 text-center left-nav nav">
+                        <p>
+                            <i className="fa fa-bars "></i>
+                        </p>
+                    </div>
+                    <div className="col-xs-8 text-center center-nav nav">
+                        <p>LOGO</p>
+                    </div>
+                    <div className="col-xs-2 text-center right-nav nav">
+                        <p>
+                            <i className="fa fa-search "></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
         )
     }
 }

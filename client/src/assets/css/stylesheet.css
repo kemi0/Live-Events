@@ -1,16 +1,9 @@
-*{ 
-        box-sizing:content-box;
-        margin:0;
-        padding:0;
-}
-
-
 /* HEADER*/
 
 header {
     border: solid black 1px;
-    width:100vw;
-    height:8vh;
+    /* width:100vw; */
+    /* height:8vh; */
     padding: 0.5%;
     background: linear-gradient(to bottom right,lightcyan,plum,pink);
 }
@@ -52,7 +45,7 @@ header {
     border: solid black 1px;
     margin-top:1%;
     background-color:lightgreen;
-    background-image: url("./images/artist_image_example.jpg");
+    /* background-image: url("./images/artist_image_example.jpg"); */
     background-repeat: no-repeat;
     background-size:100%;
 }
@@ -166,7 +159,7 @@ img{
     height:10em;
     border: solid black 1px;
     margin-top:1%;
-    background-image:url("./images/artist_image_example.jpg");
+    /* background-image:url("./images/artist_image_example.jpg"); */
     background-size:100%;
     background-repeat: no-repeat;
 }
@@ -220,7 +213,6 @@ footer{
     margin-top:1%;
     display:flex;
     background: linear-gradient(to bottom right,lightcyan,plum,pink);
-    display:flex;
 }
 
 .social-media-icons{
@@ -229,7 +221,7 @@ footer{
 .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
     color: white;
     size:2em;
-  }
+}
 
 
 
