@@ -1,6 +1,7 @@
+//how to get require data from front_end to back_end; getting data from back_end database; 
 import React, { Component } from 'react'; 
 import axios from 'axios';
-import helperList from './helperList';
+// import helperList from './helperList';
 class Test extends Component{
     componentDidMount(){
       this.getUserData();
@@ -9,10 +10,8 @@ class Test extends Component{
   //requesting data from server by using '/api/user-data' : 
   async getUserData(){
     const response = await axios.get('/api/user-data');
-    console.log(' data response from database (testing connection only! not the actually database; please only use the dummy data at this point):', response.data);
-    <helperList/>
-    // const name = response.data.name;
-    // console.log(name);
+    console.log('data from database', response.data);
+    // <helperList/>
   }
 
   render(){

@@ -1,11 +1,11 @@
-import React from 'react';
-import dummydata from './dummydata'; 
-const helperList = ()=>{
+// import React from 'react';
+// // import dummydata from './dummydata'; 
+// const helperList = ()=>{
 
-  console.log(`From dummydata.js: ` , dummydata )
-}
+//   // console.log(`From dummydata.js: ` , dummydata )
+// }
 
-helperList();
+// helperList();
 
 
-export default helperList;
+// export default helperList;
