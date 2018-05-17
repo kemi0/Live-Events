@@ -10,7 +10,7 @@ export default class Header extends React.Component {
                 <div className="row row-eq-height">
                     <div className="col-xs-2 text-center left-nav nav">
                         <p>
-                            <i className="fa fa-bars "></i>
+                            <i className="fa fa-bars"></i>
                         </p>
                     </div>
                     <div className="col-xs-8 text-center center-nav nav">
@@ -18,7 +18,7 @@ export default class Header extends React.Component {
                     </div>
                     <div className="col-xs-2 text-center right-nav nav">
                         <p>
-                            <i className="fa fa-search "></i>
+                            <i className="fa fa-search"></i>
                         </p>
                     </div>
                 </div>
