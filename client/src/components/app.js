@@ -15,6 +15,7 @@ const App = () => {
         <div>
             <Header/>
             <MainCarousel/>
+            <Events/>
             <ShowMoreButton/>
             <Test/>
             <Footer />
