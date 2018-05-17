@@ -17,7 +17,7 @@ const App = () => {
             <MainCarousel/>
             <Events/>
             <ShowMoreButton/>
-            <Test/>  {/* do not remove <Test/> */}
+            {/* <Test/>do not remove  */}
             <Footer />
         </div>
     );
