@@ -4,4 +4,3 @@ node_modules
 .atom
 .vscode
 config/db-connection.js
-
