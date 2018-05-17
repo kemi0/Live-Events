@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 //setup back end to handle React 
 const { resolve } = require('path'); 
+//setup port for deploy else use 8000 as port; 
 const PORT = process.env.PORT || 8000;
 
 const app = express();
@@ -23,12 +24,21 @@ app.use(express.static(resolve(__dirname,'client','dist')));
 //MAKING get request /////////////// 
 
 app.get('/api/user-data',(req, res)=>{
-  const user ={
-   name : 'Jim Bob',
-   email: 'jimhebob@gmail.com'
- }
-  res.send(user);
-});
+  const testData = require('./sql-module/testingSQL');
+  //calling the testData function from testingSQL.js here 
+  testData(function callback(responeFromDB){
+    //sending to the front_end;
+    res.send(responeFromDB);
+//   const user ={
+//    name : 'Jim Bob',
+//    email: 'jimhebob@gmail.com'
+//  } 
+// });
+
+  })
+})
+
+
 
 // app.get('/', function (req, res){
 //   res.send ('<h1>Hello Katy!</h1>')
