@@ -1,7 +1,12 @@
 import dummydata from './dummydata'; 
 
-function evetFullToloalData(){
-  console.log(dummydata);
+const helperList = ()=>{
+
+  console.log(`From dummydata.js: ` , dummydata );
+  
 }
 
-evetFullToloalData();
+helperList();
+
+
+export default helperList;
