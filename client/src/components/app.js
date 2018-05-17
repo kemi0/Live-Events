@@ -5,8 +5,8 @@ import '../assets/css/stylesheet.css';
 
 const App = () => (
     <div>
-        <Events />
-        {/* <Footer /> */}
+        {/* <Events /> */}
+        <Footer />
     </div>
 );
 
