@@ -7,8 +7,7 @@ const testData = (callback)=>{
   connection.query("SELECT * FROM customers",(error, results, fields)=>{
     if (error) throw error;
      const result = JSON.stringify(results,null,3)
-    console.log('The solution is: ', result );
-   
+    console.log('The solution from database: ', result );
     callback(result);
   })
 };

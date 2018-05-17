@@ -9,7 +9,7 @@ class Test extends Component{
     //requesting data from server: 
     async getUserData(){
       const response = await axios.get('/api/user-data');
-      console.log('user data response:', response.data);
+      console.log('user data response from database:', response.data);
       <helperList/>
       // const name = response.data.name;
       // console.log(name);
