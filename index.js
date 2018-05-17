@@ -16,17 +16,30 @@ app.use(express.static(resolve(__dirname,'client','dist')));
 
 
 
+
+//console out the data getting back from evetfull api 
+  const getEvents = require('./fetch-data-api/fetch-data');
+  getEvents(function callback(responeFromAPI){
+    // const result = JSON.stringify(responeFromAPI,null,3)
+    // console.log('data response from eventfull',result);
+  })
+
 //MAKING POST request///////////////
 
 
 
-
 //MAKING get request /////////////// 
-
 app.get('/api/user-data',(req, res)=>{
-  const testData = require('./sql-module/testingSQL');
+  //this will show the eventful-api result to client/user ( not need)
+      // const getEvents = require('./fetch-data-api/fetch-data');
+      // getEvents(function callback(responeFromAPI){
+      // //   res.send(responeFromAPI)
+      // })
+
+//this is getting data from our own DB;     
+  const getDataFromDB = require('./sql-module/testingSQL');
   //calling the testData function from testingSQL.js here 
-  testData(function callback(responeFromDB){
+  getDataFromDB(function callback(responeFromDB){
     //sending to the front_end;
     res.send(responeFromDB);
 //   const user ={
