@@ -6,9 +6,10 @@ const testData = (callback)=>{
   
   connection.query("SELECT * FROM customers",(error, results, fields)=>{
     if (error) throw error;
-  
-    console.log('The solution is: ', JSON.stringify(results));
-    callback(results);
+     const result = JSON.stringify(results,null,3)
+    console.log('The solution is: ', result );
+   
+    callback(result);
   })
 };
 

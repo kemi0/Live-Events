@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 //setup back end to handle React 
 const { resolve } = require('path'); 
+//setup port for deploy else use 8000 as port; 
 const PORT = process.env.PORT || 8000;
 
 const app = express();
