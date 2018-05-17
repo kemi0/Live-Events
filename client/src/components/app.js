@@ -5,6 +5,7 @@ import Header from './header';
 import MainCarousel from "./mainCarousel";
 import ShowMoreButton from "./showMoreButton";
 import Test from '../../helper/test'; //do not remove Test.
+import helperList from '../../helper/helperList';
 import '../assets/css/stylesheet.css';
 
 
@@ -17,7 +18,7 @@ const App = () => {
             <MainCarousel/>
             <Events/>
             <ShowMoreButton/>
-            {/* <Test/>do not remove  */}
+            <Test/>
             <Footer />
         </div>
     );
