@@ -9,7 +9,7 @@ class Test extends Component{
   //requesting data from server by using '/api/user-data' : 
   async getUserData(){
     const response = await axios.get('/api/user-data');
-    console.log('user data response from database:', response.data);
+    console.log(' data response from database (testing connection only! not the actually database; please only use the dummy data at this point):', response.data);
     <helperList/>
     // const name = response.data.name;
     // console.log(name);
