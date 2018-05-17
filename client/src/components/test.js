@@ -16,7 +16,7 @@ class Test extends Component{
   }
 
   render(){
-    return <h1> hihi </h1>
+    return <h1> testing </h1>
   }
 
 }
