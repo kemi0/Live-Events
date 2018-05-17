@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; 
 import axios from 'axios';
-import helperList from '../../helper/helperList';
+import helperList from './helperList';
 class Test extends Component{
     componentDidMount(){
       this.getUserData();
