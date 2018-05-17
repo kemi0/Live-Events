@@ -14,8 +14,9 @@ class Test extends Component{
     // const name = response.data.name;
     // console.log(name);
   }
+
   render(){
-    return <h1> testing </h1>
+    return <h1> hihi </h1>
   }
 
 }
