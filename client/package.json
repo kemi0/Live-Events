@@ -24,8 +24,10 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap3": "^3.3.5",
+    "font-awesome-icons": "^1.4.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2"
   },

@@ -1,15 +1,14 @@
-*{ 
-        margin:0;
-        padding:0;
+/* HEADER*/
+*{
+    margin: 0px;
+    padding: 0px;
 }
 
 
-/* HEADER*/
-
-.header {
+header {
     border: solid black 1px;
-    width:100vw;
-    height:8vh;
+    /* width:100vw; */
+    /* height:8vh; */
     padding: 0.5%;
     background: linear-gradient(to bottom right,lightcyan,plum,pink);
 }
@@ -152,6 +151,9 @@ img{
 .event-text{
     padding-top:9%;
 } 
+.list-unstyled {
+    padding-left: 15px;
+}
 
 /* SHOW MORE */
 
@@ -233,7 +235,6 @@ footer{
     margin-top:1%;
     /* display:flex; */
     background: linear-gradient(to bottom right,lightcyan,plum,pink);
-    /* display:flex; */
 }
 
 .social-media-icons{
