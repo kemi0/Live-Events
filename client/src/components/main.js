@@ -3,12 +3,10 @@ import React from 'react';
 
 export default props => {
     return(
-    <div className="container-fluid">
-                
+    <div className="container-fluid">             
         <div className="top-display-text">
             <p>TOP</p>
         </div>
-    
         <div className="container-fluid image carousel-container">
             <div className="row info-row">
                 <div className="col-xs-6 text-center carousel-info">
@@ -26,9 +24,6 @@ export default props => {
                 </div>
             </div>
         </div>
-       
-
-     
         <div className="container-fluid">
             <div className="row">
                 <div className="col-xs-12 text-center">
@@ -39,17 +34,13 @@ export default props => {
                 </div>
             </div>
         </div>
-
-       
         <div className="event-display-text">
             <p>upcoming events</p>
         </div>
-
         <div className="container-fluid event-container">
             <div className="row">
                 <div className="col-xs-4 event-artist-photo">
-                    <img src="./images/artist_info_image.jpg">
-                
+                    <img src="./images/artist_info_image.jpg"/>                    
                 </div>
                 <div className="col-xs-5 text-center event-info">
                     <div className="event-text">
@@ -67,11 +58,10 @@ export default props => {
                 </div>
             </div>
         </div>
-
         <div className="container-fluid event-container">
                 <div className="row">
                     <div className="col-xs-4 event-artist-photo">
-                        <img src="./images/artist_info_image.jpg">
+                        <img src="./images/artist_info_image.jpg"/>
                     </div>
                     <div className="col-xs-5 text-center event-info">
                         <div className="event-text">
@@ -88,12 +78,11 @@ export default props => {
                         
                     </div>
                 </div>
-            </div>
-
-            <div className="container-fluid event-container">
+        </div>
+        <div className="container-fluid event-container">
                     <div className="row">
                         <div className="col-xs-4 event-artist-photo">
-                            <img src="./images/artist_info_image.jpg">
+                            <img src="./images/artist_info_image.jpg"/>
                         </div>
                         <div className="col-xs-5 text-center event-info">
                             <div className="event-text">
@@ -110,9 +99,7 @@ export default props => {
                             
                         </div>
                     </div>
-            </div>
-
-
+        </div>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-xs-12 text-center show-more">
@@ -120,15 +107,13 @@ export default props => {
                 </div>
             </div>
         </div>
-
-
         <div className="concerts-text">
             <p>concerts you may like</p>
         </div>
         <div className="container-fluid">
             <div className="row row-eq-height">
                 <div className="col-xs-4 concert-suggestions-container">
-                    <!-- <img src="./images/artist_image_example.jpg"> -->
+                    {/* <img src="./images/artist_image_example.jpg"> */}
                 </div>
 
                 <div className="col-xs-4 concert-suggestions-container">
@@ -138,7 +123,6 @@ export default props => {
                 </div>   
             </div>
         </div>
-
         <div className="container-fluid">
             <div className="row">
                 <div className="col-xs-3 suggested-event-name">
@@ -161,7 +145,6 @@ export default props => {
                 </div>
             </div>
         </div>
-
         <div className="container-fluid">
             <div className="row">
                 <div className="col-xs-12 text-center">
@@ -172,8 +155,7 @@ export default props => {
                 </div>
             </div>
         </div>
-        </div>
     </div>
-    );
+    // </div> 
+    )
 }
-
