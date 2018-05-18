@@ -24,30 +24,30 @@ app.use(express.static(resolve(__dirname,'client','dist')));
 
 
 
-
 let dataArray= [];
- function getDataFromApi(){
+function getDataFromApi(){
      const genreArray = ['music_blues','music_classical','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_latin','music_newage','music_opera','music_rb','music_reggae','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative','music_childrens'];
-
      let genreData;
      for (let genreIndex=0; genreIndex<genreArray.length; genreIndex++){
          const genre = genreArray[genreIndex];
          axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=2018051300-2018081400&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`).then(response => {
              console.log(genre + '**************************************************************************************************************');
              genreData = response.data.events.event;
-             dataArray.push(genreData);
-             //console.log(dataArray);
+             console.log(genreData.length);
+             // dataArray.push(genreData);
+             console.log(dataArray);
          }).catch(error => {
-             //console.log(error);
+             console.log(error);
          });
 
      }
- }
+
+}
 
 axios.all([getDataFromApi()]).then(function(response){
-
+    console.log(dataArray);
 })
-//getDataFromApi();
+
 
 
 
