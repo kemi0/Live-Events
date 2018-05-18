@@ -31,13 +31,46 @@ function getDataFromApi(){
      for (let genreIndex=0; genreIndex<genreArray.length; genreIndex++){
          const genre = genreArray[genreIndex];
          axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=2018051300-2018081400&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`).then(response => {
-             console.log(genre + '**************************************************************************************************************');
              genreData = response.data.events.event;
-             console.log(genreData.length);
-             // dataArray.push(genreData);
-             console.log(dataArray);
+             for (let resultIndex=0; genreData.length; resultIndex++ ){
+
+                 // making event object including the genre name
+                 if(genreData[resultIndex].popularity) {popularity = genreData[resultIndex].popularity;}
+                 if(genreData[resultIndex].latitude) {latitude = genreData[resultIndex].latitude;}
+                 if(genreData[resultIndex].longitude) {longitude = genreData[resultIndex].longitude;}
+                 if(genreData[resultIndex].postal_code) {postal_code = genreData[resultIndex].postal_code;}
+                 if(genreData[resultIndex].start_time) {start_time = genreData[resultIndex].start_time;}
+                 if(genreData[resultIndex].title) {title = genreData[resultIndex].title;}
+                 if(genreData[resultIndex].venue_name) {venue_name = genreData[resultIndex].venue_name;}
+                 if(genreData[resultIndex].venue_address) {venue_address = genreData[resultIndex].venue_address;}
+                 if(genreData[resultIndex].image.blackborder500) {image500px = genreData[resultIndex].image.blackborder500;}
+                 if(genreData[resultIndex].image.blackborder250) {image250px = genreData[resultIndex].image.blackborder250;}
+                 if(genreData[resultIndex].owner) {owner = genreData[resultIndex].owner;}
+                 if(genreData[resultIndex].description) {description = genreData[resultIndex].description;}
+                 if(genreData[resultIndex].performers.performer.name) {performers = genreData[resultIndex].performers.performer.name;}
+                 eventObject = {
+                     genre: genre,
+                     popularity: popularity,
+                     latitude: latitude,
+                     longitude: longitude,
+                     postal_code: postal_code,
+                     start_time: start_time,
+                     title: title,
+                     venue_name: venue_name,
+                     venue_address: venue_address,
+                     image500px: image500px,
+                     image250px: image250px,
+                     owner: owner,
+                     description: description,
+                     performers: performers,
+                 }
+                 console.log(eventObject);
+             }
+
+             //dataArray.push(eventObject);
+             //console.log(dataArray);
          }).catch(error => {
-             console.log(error);
+             //console.log(error);
          });
 
      }
@@ -45,8 +78,41 @@ function getDataFromApi(){
 }
 
 axios.all([getDataFromApi()]).then(function(response){
-    console.log(dataArray);
+    //console.log(dataArray);
 })
+
+// Data to fetch //////////////
+// popularity: '0047',
+// latitude: '33.497336',
+// longitude: '-86.793077',
+// postal_code: '35205',
+// start_time: '2018-05-31 21:00:00',
+// title: 'Southern Avenue W/ Lamont Landers',
+// venue_name: 'Zydeco',
+// venue_address: '2001 15th Avenue South',
+// image:
+//     { blackborder500:
+//     { width: '500',
+//         url: 'http://d1marr3m5x4iac.cloudfront.net/images/blackborder500/I0-001/039/618/098-3.jpeg_/southern-avenue-w-lamont-landers-98.jpeg',
+//         height: '500' },
+//         block250:
+//         { width: '250',
+//             url: 'http://d1marr3m5x4iac.cloudfront.net/images/block250/I0-001/039/618/098-3.jpeg_/southern-avenue-w-lamont-landers-98.jpeg',
+//             height: '250' } },
+//
+//
+// owner: 'evdb',
+//
+//     description: null,
+//
+//     performers:
+//         { performer:
+//         { creator: 'southernswinger',
+//     linker: 'evdb',
+//     name: 'Big Bad Voodoo Daddy',
+//     url: 'http://concerts.eventful.com/Big-Bad-Voodoo-Daddy?utm_source=apis&utm_medium=apim&utm_campaign=apic',
+//     id: 'P0-001-000020830-0',
+//     short_bio: 'Big Band Voodoo Daddy'
 
 
 
