@@ -24,31 +24,31 @@ app.use(express.static(resolve(__dirname,'client','dist')));
 
 
 
-let dataArray= [];
+var dataArray= [];
 function getDataFromApi(){
+
      const genreArray = ['music_blues','music_classical','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_latin','music_newage','music_opera','music_rb','music_reggae','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative','music_childrens'];
      let genreData;
      for (let genreIndex=0; genreIndex<genreArray.length; genreIndex++){
          const genre = genreArray[genreIndex];
-         axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=2018051300-2018081400&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`).then(response => {
+         axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=2018060100-2018070100&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`).then(response => {
              genreData = response.data.events.event;
-             for (let resultIndex=0; genreData.length; resultIndex++ ){
-
+             for (let resultIndex=0; resultIndex<genreData.length; resultIndex++ ){
                  // making event object including the genre name
-                 if(genreData[resultIndex].popularity) {popularity = genreData[resultIndex].popularity;}
-                 if(genreData[resultIndex].latitude) {latitude = genreData[resultIndex].latitude;}
-                 if(genreData[resultIndex].longitude) {longitude = genreData[resultIndex].longitude;}
-                 if(genreData[resultIndex].postal_code) {postal_code = genreData[resultIndex].postal_code;}
-                 if(genreData[resultIndex].start_time) {start_time = genreData[resultIndex].start_time;}
-                 if(genreData[resultIndex].title) {title = genreData[resultIndex].title;}
-                 if(genreData[resultIndex].venue_name) {venue_name = genreData[resultIndex].venue_name;}
-                 if(genreData[resultIndex].venue_address) {venue_address = genreData[resultIndex].venue_address;}
-                 if(genreData[resultIndex].image.blackborder500) {image500px = genreData[resultIndex].image.blackborder500;}
-                 if(genreData[resultIndex].image.blackborder250) {image250px = genreData[resultIndex].image.blackborder250;}
-                 if(genreData[resultIndex].owner) {owner = genreData[resultIndex].owner;}
-                 if(genreData[resultIndex].description) {description = genreData[resultIndex].description;}
-                 if(genreData[resultIndex].performers.performer.name) {performers = genreData[resultIndex].performers.performer.name;}
-                 eventObject = {
+                 if(genreData[resultIndex].popularity) {var popularity = genreData[resultIndex].popularity;}
+                 if(genreData[resultIndex].latitude) {var latitude = genreData[resultIndex].latitude;}
+                 if(genreData[resultIndex].longitude) {var longitude = genreData[resultIndex].longitude;}
+                 if(genreData[resultIndex].postal_code) {var postal_code = genreData[resultIndex].postal_code;}
+                 if(genreData[resultIndex].start_time) {var start_time = genreData[resultIndex].start_time;}
+                 if(genreData[resultIndex].title) {var title = genreData[resultIndex].title;}
+                 if(genreData[resultIndex].venue_name) {var venue_name = genreData[resultIndex].venue_name;}
+                 if(genreData[resultIndex].venue_address) {var venue_address = genreData[resultIndex].venue_address;}
+                 if(genreData[resultIndex].image.blackborder500) {var image500px = genreData[resultIndex].image.blackborder500;}
+                 if(genreData[resultIndex].image.block250) {var image250px = genreData[resultIndex].image.block250;}
+                 if(genreData[resultIndex].owner) {var owner = genreData[resultIndex].owner;}
+                 if(genreData[resultIndex].description) {var description = genreData[resultIndex].description;}
+                 if(genreData[resultIndex].performers.performer.name) {var performers = genreData[resultIndex].performers.performer.name;}
+                 let eventObject = {
                      genre: genre,
                      popularity: popularity,
                      latitude: latitude,
@@ -64,11 +64,9 @@ function getDataFromApi(){
                      description: description,
                      performers: performers,
                  }
-                 console.log(eventObject);
+                 dataArray.push(eventObject);
+                 console.log(dataArray.length);
              }
-
-             //dataArray.push(eventObject);
-             //console.log(dataArray);
          }).catch(error => {
              //console.log(error);
          });
@@ -78,7 +76,7 @@ function getDataFromApi(){
 }
 
 axios.all([getDataFromApi()]).then(function(response){
-    //console.log(dataArray);
+    console.log(dataArray);
 })
 
 // Data to fetch //////////////
