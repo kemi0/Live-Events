@@ -65,7 +65,7 @@ function getDataFromApi(){
                      performers: performers,
                  }
                  dataArray.push(eventObject);
-                 console.log(dataArray.length);
+                 console.log(dataArray);
              }
          }).catch(error => {
              //console.log(error);
@@ -78,44 +78,6 @@ function getDataFromApi(){
 axios.all([getDataFromApi()]).then(function(response){
     console.log(dataArray);
 })
-
-// Data to fetch //////////////
-// popularity: '0047',
-// latitude: '33.497336',
-// longitude: '-86.793077',
-// postal_code: '35205',
-// start_time: '2018-05-31 21:00:00',
-// title: 'Southern Avenue W/ Lamont Landers',
-// venue_name: 'Zydeco',
-// venue_address: '2001 15th Avenue South',
-// image:
-//     { blackborder500:
-//     { width: '500',
-//         url: 'http://d1marr3m5x4iac.cloudfront.net/images/blackborder500/I0-001/039/618/098-3.jpeg_/southern-avenue-w-lamont-landers-98.jpeg',
-//         height: '500' },
-//         block250:
-//         { width: '250',
-//             url: 'http://d1marr3m5x4iac.cloudfront.net/images/block250/I0-001/039/618/098-3.jpeg_/southern-avenue-w-lamont-landers-98.jpeg',
-//             height: '250' } },
-//
-//
-// owner: 'evdb',
-//
-//     description: null,
-//
-//     performers:
-//         { performer:
-//         { creator: 'southernswinger',
-//     linker: 'evdb',
-//     name: 'Big Bad Voodoo Daddy',
-//     url: 'http://concerts.eventful.com/Big-Bad-Voodoo-Daddy?utm_source=apis&utm_medium=apim&utm_campaign=apic',
-//     id: 'P0-001-000020830-0',
-//     short_bio: 'Big Band Voodoo Daddy'
-
-
-
-
-
 
 
 
