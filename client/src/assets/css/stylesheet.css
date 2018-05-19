@@ -37,7 +37,7 @@ header {
 
 
 /* DISPLAY FOR CAROUSEL */
-.top-display-text, .event-display-text, .concerts-text{
+.top-display-text, .event-display-text, .concerts-text, .genre-Label {
     border:solid black 1px;
     text-align: center;
     margin-top: 1%;
