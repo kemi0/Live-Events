@@ -1,21 +1,21 @@
 import React from 'react';
+import '../assets/css/stylesheet.css';
+import Main from './main';
+import { Route } from 'react-router-dom';
+import Test from '../../helper/test'; // do not remove test
+import Header from './header';
 import Footer from './footer';
 import Events from './events';
-import Header from './header';
-import MainCarousel from "./mainCarousel";
-import ShowMoreButton from "./showMoreButton";
-import '../assets/css/stylesheet.css';
 
 // THIS IS THE MAIN CAROUSEL FOR THE FIRST PAGE
 
 const App = () => {
     return(
-        <div>
-            <Header />
-            <MainCarousel />
-            <Events />
-            <ShowMoreButton />
-            <Footer />
+        <div className="container-fluid">
+            <Header/>
+            <Main/>
+            <Test/>    
+            <Footer/>           
         </div>
     );
 }

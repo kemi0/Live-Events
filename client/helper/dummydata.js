@@ -50,12 +50,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/032/796/946-3.jpeg_/david-lee-ultimate-elvis-46.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/032/796/946-3.jpeg_/david-lee-ultimate-elvis-46.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/032/796/946-3.jpeg_/david-lee-ultimate-elvis-46.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/032/796/946-3.jpeg_/david-lee-ultimate-elvis-46.jpeg",
                         "height": "250"
                     }
                 },
@@ -113,7 +113,7 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/040/185/635-1.jpeg_/nora-jane-struthers-party-line-35.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/040/185/635-1.jpeg_/nora-jane-struthers-party-line-35.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
@@ -281,12 +281,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/039/970/995-6.jpeg_/ken-envoy-single-release-concert-sound-journey-95.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/039/970/995-6.jpeg_/ken-envoy-single-release-concert-sound-journey-95.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/039/970/995-6.jpeg_/ken-envoy-single-release-concert-sound-journey-95.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/039/970/995-6.jpeg_/ken-envoy-single-release-concert-sound-journey-95.jpeg",
                         "height": "250"
                     }
                 },
@@ -483,7 +483,7 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/004/361/766-6.jpeg_/russell-dickerson-66.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/004/361/766-6.jpeg_/russell-dickerson-66.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
@@ -600,12 +600,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/037/008/041-6.jpeg_/jobe-fortner-w-tyler-braden-clay-barker-41.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/037/008/041-6.jpeg_/jobe-fortner-w-tyler-braden-clay-barker-41.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/037/008/041-6.jpeg_/jobe-fortner-w-tyler-braden-clay-barker-41.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/037/008/041-6.jpeg_/jobe-fortner-w-tyler-braden-clay-barker-41.jpeg",
                         "height": "250"
                     }
                 },
@@ -682,12 +682,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/014/629/803-4.jpeg_/jj-grey-mofro-03.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/014/629/803-4.jpeg_/jj-grey-mofro-03.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/014/629/803-4.jpeg_/jj-grey-mofro-03.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/014/629/803-4.jpeg_/jj-grey-mofro-03.jpeg",
                         "height": "250"
                     }
                 },
@@ -719,12 +719,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/039/894/992-8.jpeg_/alex-guthrie-w-raquel-lily-92.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/039/894/992-8.jpeg_/alex-guthrie-w-raquel-lily-92.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/039/894/992-8.jpeg_/alex-guthrie-w-raquel-lily-92.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/039/894/992-8.jpeg_/alex-guthrie-w-raquel-lily-92.jpeg",
                         "height": "250"
                     }
                 },
@@ -765,12 +765,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/000/405/565-4.jpg_/caddle-65.jpg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/000/405/565-4.jpg_/caddle-65.jpg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/000/405/565-4.jpg_/caddle-65.jpg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/000/405/565-4.jpg_/caddle-65.jpg",
                         "height": "250"
                     }
                 },
@@ -837,12 +837,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/004/340/729-0.jpeg_/volk-29.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/004/340/729-0.jpeg_/volk-29.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/004/340/729-0.jpeg_/volk-29.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/004/340/729-0.jpeg_/volk-29.jpeg",
                         "height": "250"
                     }
                 },
@@ -929,12 +929,12 @@ export default [
                 "image": {
                     "block100": {
                         "width": "100",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/039/936/963-3.jpeg_/birmingham-erotic-art-party-63.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/block100/I0-001/039/936/963-3.jpeg_/birmingham-erotic-art-party-63.jpeg",
                         "height": "100"
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/039/936/963-3.jpeg_/birmingham-erotic-art-party-63.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/039/936/963-3.jpeg_/birmingham-erotic-art-party-63.jpeg",
                         "height": "250"
                     }
                 },

@@ -4,11 +4,11 @@ const connection = require('../config/db-connection');
 //making a function() with callback function that has query in it; 
 const testData = (callback)=>{
   
-  connection.query("SELECT * FROM customers",(error, results, fields)=>{
+  connection.query("SELECT * FROM users",(error, results, fields)=>{
     if (error) throw error;
-  
-    console.log('The solution is: ', JSON.stringify(results));
-    callback(results);
+     const result = JSON.stringify(results,null,3)
+    console.log('The solution from database: ', result );
+    callback(result);
   })
 };
 
