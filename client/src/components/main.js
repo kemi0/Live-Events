@@ -1,8 +1,20 @@
 import React from 'react';
+import Events from './events';
+import dummyData from '../../helper/dummydata';
 
 
 export default props => {
+
+
+    const allEvents = dummyData.map((item, index)=>{
+        return(
+            <Events title={item.title} venue_name={item.venue_name} time={item.start_time} key={index}/>
+        )
+    })
+
+
     return(
+    
     <div className="container-fluid">             
         <div className="top-display-text">
             <p>TOP</p>
@@ -34,117 +46,9 @@ export default props => {
                 </div>
             </div>
         </div>
-        <div className="event-display-text">
-            <p>upcoming events</p>
-        </div>
-        <div className="container-fluid event-container">
-            <div className="row">
-                <div className="col-xs-4 event-artist-photo">
-                    <img src="./images/artist_info_image.jpg"/>                    
-                </div>
-                <div className="col-xs-5 text-center event-info">
-                    <div className="event-text">
-                        <p className="event-name">Event Name</p>
-                        <p className="event-time">Time</p>
-                        <p className="event-location">Location</p>
-                    </div>
-                </div>
-                <div className="col-xs-3 text-center calendar-info">
-                
-                        <p className="event-day">Day</p>
-                        <p className="event-date">Date</p>
-                        <p className="event-time">Time</p>
-                    
-                </div>
-            </div>
-        </div>
-        <div className="container-fluid event-container">
-                <div className="row">
-                    <div className="col-xs-4 event-artist-photo">
-                        <img src="./images/artist_info_image.jpg"/>
-                    </div>
-                    <div className="col-xs-5 text-center event-info">
-                        <div className="event-text">
-                            <p className="event-name">Event Name</p>
-                            <p className="event-time">Time</p>
-                            <p className="event-location">Location</p>
-                        </div>
-                    </div>
-                    <div className="col-xs-3 text-center calendar-info">
-                    
-                            <p className="event-day">Day</p>
-                            <p className="event-date">Date</p>
-                            <p className="event-time">Time</p>
-                        
-                    </div>
-                </div>
-        </div>
-        <div className="container-fluid event-container">
-                    <div className="row">
-                        <div className="col-xs-4 event-artist-photo">
-                            <img src="./images/artist_info_image.jpg"/>
-                        </div>
-                        <div className="col-xs-5 text-center event-info">
-                            <div className="event-text">
-                                <p className="event-name">Event Name</p>
-                                <p className="event-time">Time</p>
-                                <p className="event-location">Location</p>
-                            </div>
-                        </div>
-                        <div className="col-xs-3 text-center calendar-info">
-                        
-                                <p className="event-day">Day</p>
-                                <p className="event-date">Date</p>
-                                <p className="event-time">Time</p>
-                            
-                        </div>
-                    </div>
-        </div>
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-xs-12 text-center show-more">
-                    <button type = "button" className = "btn btn-success">Show More</button>
-                </div>
-            </div>
-        </div>
-        <div className="concerts-text">
-            <p>concerts you may like</p>
-        </div>
-        <div className="container-fluid">
-            <div className="row row-eq-height">
-                <div className="col-xs-4 concert-suggestions-container">
-                    {/* <img src="./images/artist_image_example.jpg"> */}
-                </div>
+        {allEvents}
+       {/* <Events title={dummyData[0].title}/> */}
 
-                <div className="col-xs-4 concert-suggestions-container">
-                </div>  
-                
-                <div className="col-xs-4 concert-suggestions-container">
-                </div>   
-            </div>
-        </div>
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-xs-3 suggested-event-name">
-                    <p>EVENT</p>
-                </div>
-                <div className="col-xs-1 suggested-event-cal">
-                        <p>AUG 19</p>
-                </div>
-                <div className="col-xs-3 suggested-event-name">
-                        <p>EVENT</p>
-                </div>
-                <div className="col-xs-1 suggested-event-cal">
-                        <p>AUG 19</p>
-                    </div>
-                <div className="col-xs-3 suggested-event-name">
-                        <p>EVENT</p>
-                </div>
-                <div className="col-xs-1 suggested-event-cal">
-                        <p>AUG 19</p>
-                </div>
-            </div>
-        </div>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-xs-12 text-center">
