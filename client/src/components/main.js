@@ -39,9 +39,9 @@ export default props => {
         <div>
             <Top city_name={dummyData[0].city_name} />
             <CarouselInfo title={dummyData[0].title} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
-            {/* {carouselMainInfo} */}
+            {/* {carouselMainInfo} << TO POPULATE NON HARD CODED*/}
             {allEvents}
-            {/* <Events title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/> */}
+            {/* <Events title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
 
             <div className="container-fluid">
                 <div className="row">

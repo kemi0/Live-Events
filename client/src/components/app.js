@@ -6,13 +6,14 @@ import Test from '../../helper/test'; // do not remove test
 import Header from './header';
 import Footer from './footer';
 import Events from './events';
+import EventDetails from './eventDetails';
 
-// THIS IS THE MAIN CAROUSEL FOR THE FIRST PAGE
 
 const App = () => {
     return(
         <div className="container-fluid">
             <Header/>
+            <Route path="/eventDetails" component={EventDetails}/>
             <Main/>
             <Test/>    
             <Footer/>           
