@@ -51,7 +51,6 @@ header {
     border: solid black 1px;
     margin-top:1%;
     background-color:lightgreen;
-    /* background-image: url("./images/artist_image_example.jpg"); */
     background-repeat: no-repeat;
     background-size:100%;
 }
@@ -181,7 +180,6 @@ img{
     height:10em;
     border: solid black 1px;
     margin-top:1%;
-    /* background-image:url("./images/artist_image_example.jpg"); */
     background-size:100%;
     background-repeat: no-repeat;
 }
@@ -247,13 +245,3 @@ footer{
 .list-unstyled {
     display: inline-flex;
 }
-
-
-
-
-/* COMMENTS: NEED TO FIX DIVS EQUAL HEIGHT & POSITION DIV AT END OF PARENT
-- used row-eq-height
-- used align-items-end
-- used align-self-end
-
-ABOVE DID NOt WORK */

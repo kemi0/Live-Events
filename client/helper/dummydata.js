@@ -118,7 +118,7 @@ export default [
                     },
                     "blackborder250": {
                         "width": "250",
-                        "url": "//d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/040/185/635-1.jpeg_/nora-jane-struthers-party-line-35.jpeg",
+                        "url": "https://d1marr3m5x4iac.cloudfront.net/images/blackborder250/I0-001/040/185/635-1.jpeg_/nora-jane-struthers-party-line-35.jpeg",
                         "height": "250"
                     }
                 },
