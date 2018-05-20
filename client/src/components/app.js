@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import Test from '../../helper/test'; // do not remove test
 import Header from './header';
 import Footer from './footer';
-import Events from './events';
+import Event from './event_item';
 import EventDetails from './eventDetails';
 
 
@@ -13,9 +13,9 @@ const App = () => {
     return(
         <div className="container-fluid">
             <Header/>
+            <Route exact path="/" component={Main} />
             <Route path="/eventDetails" component={EventDetails}/>
-            <Main/>
-            <Test/>    
+            {/* <Test/>     */}
             <Footer/>           
         </div>
     );

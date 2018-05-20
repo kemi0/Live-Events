@@ -10,11 +10,7 @@ class CarouselInfo extends Component {
     }
     render() {
         console.log(this.props)
-        return (
-            <section>
-                {/* <div className="top-display-text">
-                    <p>TOP</p>
-                </div> */}
+        return (       
                 <div className="container-fluid image carousel-container">
                     {/* <img id="Carousel-Image" src={ImageExample} alt="carousel_image" /> */}
                     <div className="row info-row">
@@ -33,7 +29,6 @@ class CarouselInfo extends Component {
                         </div>
                     </div>
                 </div>
-            </section>
         );
     }
 }

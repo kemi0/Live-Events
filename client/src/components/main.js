@@ -1,5 +1,5 @@
 import React from 'react';
-import Events from './events';
+import Event from './event_item';
 import dummyData from '../../helper/dummydata';
 import CarouselInfo from '../components/mainCarousel';
 import Top from './top';
@@ -10,12 +10,12 @@ export default props => {
     const allEvents = dummyData.map((item, index) => {
         if (item.image !== null) {
             return (
-                <Events title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
+                <Event title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
 
             )
         } else {
             return (
-                <Events title={item.title} venue_name={item.venue_name} time={item.start_time} image={Corgi} key={index} />
+                <Event title={item.title} venue_name={item.venue_name} time={item.start_time} image={Corgi} key={index} />
             )
         }
 
@@ -41,7 +41,7 @@ export default props => {
             <CarouselInfo title={dummyData[0].title} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
             {/* {carouselMainInfo} << TO POPULATE NON HARD CODED*/}
             {allEvents}
-            {/* <Events title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
+            {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
 
             <div className="container-fluid">
                 <div className="row">

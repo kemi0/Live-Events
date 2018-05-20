@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import DummyImage from '../assets/images/wale.jpg'
+import { NavLink } from 'react-router-dom'
 
-class Events extends Component {
+
+class Event extends Component {
     constructor (props){ 
         super (props);   
     }
@@ -13,14 +14,16 @@ class Events extends Component {
                 <div className="event-container">
                     <div className="event-artist-photo">
                         <div className="img-con col-xs-4">
-                            <img src={this.props.image} />
+                        <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"><img src={this.props.image} /></NavLink>           
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
                             <p className="time">{this.props.time}</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
+                        
                         <button className="event-btn btn btn-primary col-xs-3 offset-1 ">
+                        <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
                             <div>
                                 <p>Tues</p>
                             </div>
@@ -30,7 +33,9 @@ class Events extends Component {
                             <div>
                                 <p>Aug</p>
                             </div>
+                            </NavLink>
                         </button>
+
                     </div>
                 </div>
             </div>
@@ -38,4 +43,4 @@ class Events extends Component {
     }
 }
 
-export default Events;
+export default Event;

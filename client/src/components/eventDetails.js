@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-// SECOND PAGE
+// SECOND PAGE NEEDS TO BE BROKEN DOWN FURTHER INTO COMPONENTS
 export default props =>{
     return(
         <div className="container">
