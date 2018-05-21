@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'root',
-  database : 'c3.18db',
+  database : 'livemusicfinder',
   port: '3307'
 });
 connection.connect((err)=>{

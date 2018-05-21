@@ -6,6 +6,7 @@ const { resolve } = require('path');
 //setup port for deploy else use 8000 as port;
 const PORT = process.env.PORT || 8000;
 const axios = require('axios');
+var mysql = require('mysql');
 
 const app = express();
 //when doing get
@@ -109,7 +110,8 @@ axios.all(promises).then(function(resp) {
     })
     //console.log(dataArray.length);
     //console.log(dataArray);
-    console.log('number of registered events in a year: ',counter);
+    //console.log('number of registered events in a year: ',counter);
+    addDataToDatabase(dataArray);
 
 }).catch(err => {
     console.log('ERROR:', err.message);
@@ -117,7 +119,51 @@ axios.all(promises).then(function(resp) {
 });
 
 
+function addDataToDatabase(dataArray){
+    const connection = require('./config/db-connection');
 
+
+    for (let dataArrayIndex=0 ; dataArrayIndex<dataArray.length-1 ;dataArrayIndex++){
+
+        //console.log('dataArray', dataArray[dataArrayIndex].venue_address);
+
+        // connection.query("SELECT event_id FROM events", function (err, result, fields) {
+        //     if (!include(result,dataArray.id)){
+        //
+        //         var sqlInsert = "INSERT INTO address (street_name, city, zipcode) VALUES (dataArray.venue_address, dataArray.city_name, dataArray.postal_code)";
+        //         connection.query(sql, function (err, result) {
+        //             if (err) throw err;
+        //             console.log("1 record inserted");
+        //         });
+        //
+        //         var sqlInsert = "INSERT INTO bands (band_name) VALUES (dataArray.performer)";
+        //         connection.query(sql, function (err, result) {
+        //             if (err) throw err;
+        //             console.log("1 record inserted");
+        //         });
+
+        //         splitDateTime = dataArray[dataArrayIndex].start_time.split(" ");
+        //         start_time = splitDateTime[1];
+        //         event_date = splitDateTime[0];
+
+        //         var sqlInsert = "INSERT INTO events (event_id, event_name, event_date, start_time, event_detail ) VALUES (dataArray.id, dataArray.title, start_time, event_date, dataArray.description)";
+        //         connection.query(sql, function (err, result) {
+        //             if (err) throw err;
+        //             console.log("1 record inserted");
+        //         });
+        //
+        //         var sqlInsert = "INSERT INTO genres (genre_name) VALUES (dataArray.genre)";
+        //         connection.query(sql, function (err, result) {
+        //             if (err) throw err;
+        //             console.log("1 record inserted");
+        //         });
+        //
+        //     }
+        //       if (err) throw err;
+        //     //console.log(result);
+        // });
+    }
+}
 
 
 // var counter = 0;
