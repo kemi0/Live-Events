@@ -16,7 +16,7 @@ export default props => {
     <div className="container-fluid event-container">
         <div className="row">
             <div className="col-xs-4 event-artist-photo">
-                {/* <img src="./images/artist_info_image.jpg"/> */}
+                <img src="./images/artist_info_image.jpg"/>
             </div>
             <div className="col-xs-5 text-center event-info">
                 <div className="event-text">

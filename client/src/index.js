@@ -7,16 +7,20 @@ import ReactDOM from 'react-dom';
 import App from './components/app';
 import EventDetails from './components/event_details';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/header';
+import Footer from './components/footer';
 
 
 
 
 ReactDOM.render(
     <Router>
-    <div>
-        <App/>
-        <EventDetails/>
-    </div>
+        <div>
+            <Header />
+            <App />
+            <Footer />
+        </div>
     </Router>,
+
     document.getElementById('root')
 );

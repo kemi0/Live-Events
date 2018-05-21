@@ -11,12 +11,10 @@ import EventDetails from './event_details';
 
 const App = () => {
     return(
-        <div className="container-fluid">
-            <Header/>
-            <Route exact path="/" component={Main} />
-            <Route path="/event_details" component={EventDetails}/>
-            {/* <Test/>     */}
-            {/* <Footer/>            */}
+        <div className="container-fluid">      
+                <Route exact path="/" component={Main} />
+                <Route path="/eventDetails" component={EventDetails}/>
+                {/* <Test/>     */}      
         </div>
     );
 }

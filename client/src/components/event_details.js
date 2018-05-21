@@ -5,9 +5,12 @@ import EventDetails from './event_details_info';
 import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
 import Map from './google_maps';
-import SuggestedEvent from './similar_event_suggestion'
-import EventItem from './event_item';
+import Youtube from './youtube_artist';
+import Event from "./event_item";
+import SuggestedEvent from './similar_event_suggestion';
+// import SuggestedEvent from './similar_event_suggestion'
 import Dots from './hard_coded_dots';
+import Footer from './footer';
 
 
 
@@ -18,8 +21,10 @@ export default props =>{
            <SocialMedia/>
            <AboutEvent/>
            <Map/>
-           <EventItem/>
-           <Dots/>,
+           <Youtube/>
+            <SuggestedEvent/>
+           <Dots/>
+           <Footer/>,
            
     </div>
     )

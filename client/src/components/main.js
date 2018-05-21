@@ -8,6 +8,7 @@ import Footer from './footer';
 
 
 export default props => {
+    
     const allEvents = dummyData.map((item, index) => {
         if (item.image !== null) {
             return (
@@ -39,7 +40,7 @@ export default props => {
     return (
         <div>
             <Top city_name={dummyData[0].city_name} />
-            <CarouselInfo title={dummyData[0].title} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
+            <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
             {/* {carouselMainInfo} << TO POPULATE NON HARD CODED*/}
             {allEvents}
             {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
