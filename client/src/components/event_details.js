@@ -14,8 +14,7 @@ import Dots from './hard_coded_dots';
 export default props =>{
     return(
         <div className="container">
-           <EventTitle/>
-           
+           <EventTitle/>  
            <SocialMedia/>
            <AboutEvent/>
            <Map/>
