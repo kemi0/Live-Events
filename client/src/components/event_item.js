@@ -21,9 +21,9 @@ class Event extends Component {
                             <p className="time">{this.props.time}</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
-                        
+
                         <button className="event-btn btn btn-primary col-xs-3 offset-1 ">
-                        <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
+                        <NavLink to="/event_details" className="nav-link" activeClassName="active selected">
                             <div>
                                 <p>Tues</p>
                             </div>

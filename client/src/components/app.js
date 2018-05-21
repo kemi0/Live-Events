@@ -6,7 +6,7 @@ import Test from '../../helper/test'; // do not remove test
 import Header from './header';
 import Footer from './footer';
 import Event from './event_item';
-import EventDetails from './eventDetails';
+import EventDetails from './event_details';
 
 
 const App = () => {
@@ -14,9 +14,9 @@ const App = () => {
         <div className="container-fluid">
             <Header/>
             <Route exact path="/" component={Main} />
-            <Route path="/eventDetails" component={EventDetails}/>
+            <Route path="/event_details" component={EventDetails}/>
             {/* <Test/>     */}
-            <Footer/>           
+            {/* <Footer/>            */}
         </div>
     );
 }

@@ -4,6 +4,7 @@ import dummyData from '../../helper/dummydata';
 import CarouselInfo from '../components/mainCarousel';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
+import Footer from './footer';
 
 
 export default props => {
