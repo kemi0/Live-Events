@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -8,10 +9,8 @@ export default class Header extends Component {
             <header>
             <div className="container-fluid">
                 <div className="row row-eq-height">
-                    <div className="col-xs-2 text-center left-nav nav">
-                        <p>
-                            <i className="fa fa-bars"></i>
-                        </p>
+                    <div className="col-xs-2 text-center left-nav nav">     
+                         <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"> <i className="fa fa-bars"></i></NavLink>
                     </div>
                     <div className="col-xs-8 text-center center-nav nav">
                         <p>LOGO</p>

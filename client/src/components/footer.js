@@ -13,7 +13,7 @@ class Footer extends Component {
                 <h5 className="text-uppercase">Footer Content</h5>
                 <p>Here you can use rows and columns here to organize your footer content.</p>
             </div> */}
-            <div className="col-sm-4">
+            <div className="col-sm-4 text-right">
                 <h5 className="text-uppercase">Links</h5>
                 <ul className="list-unstyled">
                     <li>
