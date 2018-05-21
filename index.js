@@ -19,13 +19,39 @@ app.use(express.static(resolve(__dirname,'client','dist')));
 //MAKING POST request///////////////
 
 
+
+
+
+function getDate() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd // convert 5 => 05
+    }
+
+    if(mm<10) {
+        mm = '0'+mm // convert 5 => 05
+    }
+
+    currentDate = yyyy+mm+dd+'00';
+    endDate = (Number(yyyy)+1)+mm+dd+'00'; // next year, same date
+    date = [currentDate,endDate]
+    return(date);
+}
+
 const genreArray = ['music_blues','music_classical','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_latin','music_newage','music_opera','music_rb','music_reggae','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative','music_childrens'];
 let promises = [];
 var genreArrayIndex = 0;
 var dataArray= [];
+var counter = 0;
+var date = getDate();
+
 for (let genreIndex=0; genreIndex<genreArray.length; genreIndex++){
     const genre = genreArray[genreIndex];
-    promises.push(axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=2018060100-2018070100&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`));
+    promises.push(axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=${date[0]}-${date[1]}&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`));
 }
 axios.all(promises).then(function(resp) {
 
@@ -74,15 +100,16 @@ axios.all(promises).then(function(resp) {
                      performer: performer,
                  }
                 dataArray.push(eventObject);
-
-             }
+                ++counter;
+            }
 
             }
 
 
     })
-    console.log(dataArray.length);
-    console.log(dataArray);
+    //console.log(dataArray.length);
+    //console.log(dataArray);
+    console.log('number of registered events in a year: ',counter);
 
 }).catch(err => {
     console.log('ERROR:', err.message);
