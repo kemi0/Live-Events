@@ -65,7 +65,7 @@ axios.all(promises).then(function(resp) {
             for (let eventIndex = 0 ; eventIndex<objsGenre[Object.keys(objsGenre)].length ; eventIndex++) {
                 //console.log(objsGenre[Object.keys(objsGenre)][eventIndex]);
                 genreData = (objsGenre[Object.keys(objsGenre)][eventIndex]);
-                //console.log(genreData) ;
+                console.log(genreData) ;
                  // making event object including the genre name
                  if(genreData.popularity) {var popularity = genreData.popularity;}
                  if(genreData.latitude) {var latitude = genreData.latitude;}
@@ -133,13 +133,11 @@ function addDataToDatabase(dataArray){
         //         var sqlInsert = "INSERT INTO address (street_name, city, zipcode) VALUES (dataArray.venue_address, dataArray.city_name, dataArray.postal_code)";
         //         connection.query(sql, function (err, result) {
         //             if (err) throw err;
-        //             console.log("1 record inserted");
         //         });
         //
         //         var sqlInsert = "INSERT INTO bands (band_name) VALUES (dataArray.performer)";
         //         connection.query(sql, function (err, result) {
         //             if (err) throw err;
-        //             console.log("1 record inserted");
         //         });
 
         //         splitDateTime = dataArray[dataArrayIndex].start_time.split(" ");
@@ -149,13 +147,11 @@ function addDataToDatabase(dataArray){
         //         var sqlInsert = "INSERT INTO events (event_id, event_name, event_date, start_time, event_detail ) VALUES (dataArray.id, dataArray.title, start_time, event_date, dataArray.description)";
         //         connection.query(sql, function (err, result) {
         //             if (err) throw err;
-        //             console.log("1 record inserted");
         //         });
         //
         //         var sqlInsert = "INSERT INTO genres (genre_name) VALUES (dataArray.genre)";
         //         connection.query(sql, function (err, result) {
         //             if (err) throw err;
-        //             console.log("1 record inserted");
         //         });
         //
         //     }
