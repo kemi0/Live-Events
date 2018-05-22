@@ -16,7 +16,6 @@ class Event extends Component {
         
         // const newthang = `${this.new_day.getFullYear()} ${this.new_day.getMonth()} ${this.new_day.getDate()}`;
         // console.log(this.props)
-
     }
 
     render() {
@@ -29,25 +28,23 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
-                            <p className="time">{this.props.week}, {this.props.month} {this.props.date}, {this.props.year}</p>
+                            <p className="time">{this.props.event_date}</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
-
                         <button className="event-btn btn btn-default col-xs-3 offset-1 ">
-                        <NavLink to="/event_details" className="nav-link" activeClassName="active selected">
-                            <div>
-                                <p>Tues</p>
-                            </div>
-                            <div>
-                                <p>19</p>
-                            </div>
-                            <div>
-                                <p>Aug</p>
-                            </div>
+                            <NavLink to="/event_details" className="nav-link" activeClassName="active selected">
+                                <div>
+                                    <p>Tues</p>
+                                </div>
+                                <div>
+                                    <p>19</p>
+                                </div>
+                                <div>
+                                    <p>Aug</p>
+                                </div>
                             </NavLink>
                         </button>
-
                     </div>
                 </div>
             </div>

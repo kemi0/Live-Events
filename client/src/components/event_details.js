@@ -16,7 +16,6 @@ import dummyData from '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
 
 
-
 export default props =>{
 
         // const eventDetailsInfo = dummyData.map((item, index) => {
@@ -40,16 +39,16 @@ export default props =>{
         //         )
         //     }
         // );
-
+        
         return(
             <div className="container">
-            <EventTitle title={dummyData[0].title}/> 
-            <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />,
-            <Youtube/>
-            <AboutEvent/>
-            <Map/>
-            <SuggestedEvent/>
-            <Dots/>
+                <EventTitle title={dummyData[0].title}/> 
+                <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />,
+                <Youtube/>
+                <AboutEvent/>
+                <Map/>
+                <SuggestedEvent/>
+                <Dots/>
             </div>
         )
     }
