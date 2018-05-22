@@ -15,11 +15,13 @@ import Footer from './components/footer';
 
 ReactDOM.render(
     <Router>
+
         <div>
             <Header />
             <App />
             <Footer />
         </div>
+
     </Router>,
 
     document.getElementById('root')

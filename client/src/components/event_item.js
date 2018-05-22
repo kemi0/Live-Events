@@ -33,6 +33,7 @@ class Event extends Component {
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
+
                         <button className="event-btn btn btn-default col-xs-3 offset-1 ">
                         <NavLink to="/event_details" className="nav-link" activeClassName="active selected">
                             <div>

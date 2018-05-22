@@ -9,6 +9,7 @@ import Event from './event_item';
 import EventDetails from './event_details';
 
 
+
 const App = () => {
     return(
         <div className="container-fluid">      

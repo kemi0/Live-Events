@@ -14,7 +14,7 @@ class Footer extends Component {
                 <p>Here you can use rows and columns here to organize your footer content.</p>
             </div> */}
             <div className="col-sm-4 text-right">
-                <h5 className="text-uppercase">Links</h5>
+                <h5 className="text-uppercase">LiveMusicApp</h5>
                 <ul className="list-unstyled">
                     <li>
                         <i className="fas fa-home fa-lg"><a href="#!"></a></i>
