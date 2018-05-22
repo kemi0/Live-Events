@@ -9,7 +9,6 @@ class SearchBar extends Component {
             term: '',
             placeholder: 'Search by Artist..',
         };
-
     }
 
     componentDidMount(){
@@ -19,7 +18,6 @@ class SearchBar extends Component {
     render() {
         const tempStyle = {
             color: '#000',
-        
         };
 
 

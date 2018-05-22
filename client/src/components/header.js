@@ -11,12 +11,6 @@ export default class Header extends Component {
 
     this.state = {
         isSearchInputActive: false,
-        style: {
-            display: null,
-            width : null,
-            height: null,
-            color: null,
-        } 
      }
      this.toggleSearchBar = this.toggleSearchBar.bind(this);
     }
@@ -47,15 +41,8 @@ export default class Header extends Component {
             this.setState({ isSearchInputActive : false});
        } else {
          this.setState({ 
-             isSearchInputActive : true, 
-             style: {
-                display: 'absolute',
-                width : '25px',
-                height: '40px',
-                color: 'red', 
-             }      
+             isSearchInputActive : true,      
             });
-
        } 
        console.log('The state of this event:', this.state)
     }
