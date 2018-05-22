@@ -1,7 +1,8 @@
 import React from 'react';
 import Event from './event_item';
 import dummyData from '../../helper/dummydata';
-import CarouselInfo from '../components/mainCarousel';
+import CarouselInfo from './mainCarousel';
+import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
 import Footer from './footer';
@@ -30,6 +31,12 @@ export default props => {
             )
         }
 
+        const eventDetailsInfo = dummyData.map((item,Index)=> {
+            return(
+                < EventDetailsSecondPage title={item.title} venue_name={item.venue_name} week={dayOfWeek} month={month} date={day} year={year} time={item.start_time} image={item.image.blackborder250.url} key={index} />
+            )
+        });
+
     });
     const carouselMainInfo = dummyData.map((item, index) => {
         return (
@@ -41,7 +48,9 @@ export default props => {
         return (
             <Top key={index} city_name={item.city_name} />
         )
-    });
+    })
+
+    
 
 
 

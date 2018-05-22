@@ -13,8 +13,10 @@ class SearchBar extends Component {
     }
 
     componentDidMount(){
-        this.input.focus();
+       this.input.focus(); 
     }
+
+
 
     render() {
         const tempStyle = {

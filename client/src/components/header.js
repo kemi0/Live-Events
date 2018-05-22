@@ -56,9 +56,13 @@ export default class Header extends Component {
              }      
             });
 
+    
        } 
-       console.log('The state of this event:', this.state)
+       console.log('Search Bar Has been clicked')
+       console.log(' The state of this event:', this.state)
     }
+    
+
 }
 //     HandleSearchClick(e){
         
