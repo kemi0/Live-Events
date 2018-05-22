@@ -10,14 +10,23 @@ import Footer from './footer';
 export default props => {
     
     const allEvents = dummyData.map((item, index) => {
+        const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        let dateObject = Date.parse(item.start_time);
+        let date = new Date(dateObject);
+        let dayOfWeek = dayArray[date.getDay()];
+        let month = monthsArray[date.getMonth()];
+        let day = date.getDate();
+        let year = date.getFullYear();
+        
         if (item.image !== null) {
             return (
-                <Event title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
-
+                <Event title={item.title} venue_name={item.venue_name} week={dayOfWeek} month={month} date={day} year={year} time={item.start_time} image={item.image.blackborder250.url} key={index} />
             )
         } else {
             return (
-                <Event title={item.title} venue_name={item.venue_name} time={item.start_time} image={Corgi} key={index} />
+                <Event title={item.title} venue_name={item.venue_name} week={dayOfWeek} month={month} date={day} year={year} time={item.start_time} image={Corgi} key={index} />
             )
         }
 

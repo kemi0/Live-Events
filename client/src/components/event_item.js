@@ -6,17 +6,20 @@ class Event extends Component {
 
     constructor (props){    
         super (props);   
-        let startTime=this.props.time;
-        const day = Date.parse(startTime);
-        const new_day = new Date(day)
-        console.log("this is new day:",new_day);
-        console.log("type of:", typeof new_day);
-        const newthang = `${new_day.getFullYear()} ${new_day.getMonth()} ${new_day.getDate()}`;
-        console.log(newthang);
+        let startTime = this.props.time;
+        this.day = Date.parse(startTime);
+        this.new_day = new Date();
+        const month = this.new_day.getMonth();
+        const day_of_week = this.new_day.getDay();
+        const day_of_month = this.new_day.getDate();
+        const year = this.new_day.getFullYear();
+        
+        const newthang = `${this.new_day.getFullYear()} ${this.new_day.getMonth()} ${this.new_day.getDate()}`;
+        console.log(this.props)
+
     }
 
     render() {
-        
         return (
             <div className="container-fluid">
                 <div className=" row event-container">
@@ -26,7 +29,7 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
-                            <p className="time">{this.props.newthang}</p>
+                            <p className="time">{this.props.week}, {this.props.month} {this.props.date}, {this.props.year}</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
