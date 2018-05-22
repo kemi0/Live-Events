@@ -14,7 +14,7 @@ class CarouselInfo extends Component {
         super(props);
 
         this.state = {
-			currentImageIndex: 0
+			slideCount: 0
 		};
 
     this.nextSlide = this.nextSlide.bind(this);
@@ -38,7 +38,7 @@ class CarouselInfo extends Component {
                 { this.state.slideCount === 2 ? <SlideTwo /> : null }
                 { this.state.slideCount === 3 ? <SlideThree /> : null }
 
-        {/* Arrow Functionality */}
+        {/* to the left to the left to the right to the right, now slide ..  */}
         <RightArrow nextSlide={this.nextSlide} />
         <LeftArrow previousSlide={this.previousSlide} />
 
