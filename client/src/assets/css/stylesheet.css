@@ -38,9 +38,19 @@ header {
     padding-top:2%;
 }
 
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    line-height: 1;
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
 
 /* DISPLAY FOR CAROUSEL */
-.top-display-text, .event-display-text, .concerts-text, .genre-Label {
+.top-display-text, .event-display-text, .concerts-text, .genre-label {
     border:solid black 1px;
     text-align: center;
     margin-top: 1%;
