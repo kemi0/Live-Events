@@ -23,18 +23,14 @@ export default props => {
         const eventDate = `${dayOfWeek}, ${month} ${day}, ${year}`;
 
         if (item.image !== null) {
-            return (
-                <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
-            )
+            <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
         } else {
-            return (
-                <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={Corgi} key={index} />
-            )
+            <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={Corgi} key={index} />
         }
     
     const eventDetailsInfo = dummyData.map((item,index) => {
             return(
-                <EventDetailsSecondPage title={item.title} venue_name={item.venue_name} event_date={eventDate} time={item.start_time} image={item.image.blackborder250.url} key={index} />
+                <EventDetailsSecondPage title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
             )
         });
     });
@@ -57,7 +53,7 @@ export default props => {
         <div>
             <Top city_name={dummyData[0].city_name} />
             <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
-            {/* {carouselMainInfo} << TO POPULATE NON HARD CODED*/}
+            {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
             {allEvents}
             {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
 

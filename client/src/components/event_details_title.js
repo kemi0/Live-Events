@@ -17,7 +17,7 @@ class eventDetailsTitle extends Component {
                 </div>
             <div className="row">
                 <div className="col-xs-12 text-right home-icon">
-                    <NavLink to="/"><i className="fas fa-home fa-lg"><a href="#!"></a></i></NavLink>
+                    <NavLink to="/"><i className="fas fa-home fa-lg"></i></NavLink>
                 </div>
                 </div>
             </div>
