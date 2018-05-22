@@ -12,7 +12,10 @@ header {
     padding: 0.5%;
     background: linear-gradient(to bottom right,lightcyan,plum,pink);
 }
-
+.search_toolbar{
+    position: absolute;
+    right: 0;
+}
 .nav{
     margin-top:2%;
 }
@@ -235,13 +238,14 @@ footer{
     background: linear-gradient(to bottom right,lightcyan,plum,pink);
 }
 
-.social-media-icons{
-    display:inline-block;
-}
+/* .social-media-icons{
+    /* display:inline-block; */
+
 .icon .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
     color: white;
     size:2em;
 }
-.list-unstyled {
-    display: inline-flex;
-}
+/* .list-unstyled {
+    /* display: inline-flex; */
+    /* make changes for the footer icons here */
+

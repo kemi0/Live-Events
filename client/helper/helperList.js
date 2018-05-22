@@ -2,7 +2,7 @@ import dummydata from './dummydata';
 
 const helperList = ()=>{
 
-  console.log(`From dummydata.js: ` , dummydata );
+  console.log(`This is the dummy data: ` , dummydata );
   
 }
 

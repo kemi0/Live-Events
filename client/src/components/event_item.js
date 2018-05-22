@@ -23,17 +23,17 @@ class Event extends Component {
                         </div>
                         
                         <button className="event-btn btn btn-primary col-xs-3 offset-1 ">
-                        <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
-                            <div>
-                                <p>Tues</p>
-                            </div>
-                            <div>
-                                <p>19</p>
-                            </div>
-                            <div>
-                                <p>Aug</p>
-                            </div>
-                            </NavLink>
+                            <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
+                                <div>
+                                    <p>Tues</p>
+                                </div>
+                                <div>
+                                    <p>19</p>
+                                </div>
+                                <div>
+                                    <p>Aug</p>
+                                </div>
+                             </NavLink>
                         </button>
 
                     </div>
