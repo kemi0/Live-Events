@@ -12,8 +12,7 @@ class CarouselInfo extends Component {
         console.log(this.props)
         return (       
                 <div className="container-fluid image carousel-container">
-                    {/* <img id="Carousel-Image" src={ImageExample} alt="carousel_image" /> */}
-                    <div className="row info-row">
+                    <img src={this.props.image} />
                         <div className="col-xs-6 text-center carousel-info">
                             <p className="artist-title">{this.props.title}</p>
                             <p className="time">{this.props.time}</p>
@@ -28,7 +27,7 @@ class CarouselInfo extends Component {
 
                         </div>
                     </div>
-                </div>
+                
         );
     }
 }
