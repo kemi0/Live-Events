@@ -17,11 +17,34 @@ app.use(express.json());
 app.use(express.static(resolve(__dirname,'client','dist')));
 
 
-const connection = require('./server/config/db-connection');
+
+async function test(){
+  const connection = require('./server/config/db-connection');
+  const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
+  const outputObjWithAllData = await getDataFromEventfullApi();
+  console.log (outputObjWithAllData);
 
 
-const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
-getDataFromEventfullApi();
+
+
+
+
+
+}
+test();
+
+
+
+
+
+
+// outputPromise.then((output) => {
+//   console.log(output);
+// })
+// console.log(output);
+
+// console.log(output);
+
 // const apiResults = getDataFromEventfullApi();
 // Promise.all(apiResults).then(response=>{
 //   // console.log('ARGUMENTS:', arguments);

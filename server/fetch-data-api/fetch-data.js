@@ -15,83 +15,92 @@ const getDataFromEventfullApi = ()=>{
   const current = currentYear+'0'+currentMonth+currentDate+'00';
   console.log(current);
  
-  const allPromises = {};
-  const genreArray = ['music_blues', 'music_classical','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative', 'music_childrens','music_opera','music_latin','music_reggae'];
 
-    genreArray.map((genre, index)=>{
-      // const key = genre; 
-      // const eventsByGenre = [];
-  
+   const genreArray = ['music_blues', 'music_classical','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative', 'music_childrens','music_opera','music_latin','music_reggae'];
 
-        // const sql = `INSERT IGNORE INTO genres ( genre_name ) VALUES ('${genre}')`;
 
-        // connection.query(sql, function(err, result){
-        //   if(err) throw err;
-        //   console.log(`${genre} inserted to the table`);
-        // })
-        // eventsByGenre.push(
-   axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`)
-          .then(resp=>{
-            const events = resp.data.events
-            const total_event = resp.data.total_items;
-            console.log('The '+ genre +' has: ' +  total_event + 'events');;
-            // return events
-          })
-          .catch(err=>{
-            if(err) throw err; 
-          })
-    // )
+  let allPromises = [];  
+  let allresults = [];
+  var outputObj = {};
+  genreArray.map((genre, index)=>{
+    allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
+
+  })
+//// the getDataFromEventfullApi is return below: 
+  return axios.all(allPromises).then(response=>{
+      response.map((databyGenre, index)=>{
+        // console.log(databyGenre.data.total_items )
+        const total_events = databyGenre.data.total_items
+            if(total_events > 0){
+              allresults.push(databyGenre.data.events);
+              // allresults.push(total_events);
+            }else{
+              allresults.push(total_events);
+            }
             
+      })
+      //  console.log(allresults);
+       allresults.map((genreArr,index) =>{
+        outputObj[genreArray[index]] = genreArr
+       })
 
-    // allPromises[key] = eventsByGenre; 
-    
-  
-  
-  });
+///// end the getDataFromEventfullApi return 
 
-    // console.log(allPromises);
-//////////////////////////*/////////////////////////////////////////////////////////
-    // allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
-    // Promise.all(apiResults).then(response=>{
-    //   // console.log('ARGUMENTS:', arguments);
-    //   response.map((data, index)=>{
-    //     // console.log(genre);
-    //     console.log(data.data.events)
-    //   })  
-    // }).catch(err=>{
-    //   if(err) throw err;
-    // })
+      //  console.log(outputObj);
+       return outputObj;
+
+ }).catch(err=>{
+   if(err) throw err;
+ })
+//  console.log(outputObj);
+
 
 }
 
  module.exports = getDataFromEventfullApi;
 
 
- //           .then(response=>{
+ 
 
-  //          const total_events = response.data.total_items;
-  //               if(total_events > 0){
-  //                 const result = response.data.events.event;
-  //                 console.log(`${genre} has event_total: `, total_events);
-  //                 console.log(`${genre} fetched out events are: `, result.length);
-  //                 result.map((eventData, index)=>{
-  //                   const zipCode = eventData.postal_code;
+////////option 2 //// the fetch the data: don't needed at this point: 
 
-  //                   console.log(zipCode);
+  // let allResults  = {};
+  //   genreArray.map((genre, index)=>{
+  //     // const key = genre; 
+  //     // const eventsByGenre = [];
+  
+  //       // const sql = `INSERT IGNORE INTO genres ( genre_name ) VALUES ('${genre}')`;
 
-  //                 })
-  //               }else{
-  //                 const result = response.data;
-  //                 console.log(`${genre} has event_total: `, total_events);
+  //       // connection.query(sql, function(err, result){
+  //       //   if(err) throw err;
+  //       //   console.log(`${genre} inserted to the table`);
+  //       // })
 
-  //               }
-  //           })
-  //          .catch(error=>{
-  //            console.log('Error message', error);
-  //          })
+  //  axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`)
+  //         .then(resp=>{
+    
+  //           let total_event = resp.data.total_items;
+
+  //           if(total_event > 0){
+  //             // console.log('The '+ genre +' has events: ' +  total_event );;
+  //             allResults[genre] = resp.data.events; 
+
+  //           }else{
+  //             // console.log('The '+ genre +' has events: ' +  total_event );;
+  //             allResults[genre] = null; 
+  //           }
+  //           // console.log("*************results from ",JSON.stringify(allResults));
+            
+  //           console.log('*******************************************This is the all data get back from api',JSON.stringify(allResults));
+  //           // return allPromises;
+
+  //         }).catch(err=>{
+  //           if(err) throw err; 
+  //         })
+
+  //         // console.log(allResults);
+
   // })
-
-
 
   
   
