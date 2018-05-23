@@ -23,15 +23,17 @@ export default props => {
         const eventDate = `${dayOfWeek}, ${month} ${day}, ${year}`;
 
         if (item.image !== null) {
-            <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
+            return(
+                <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
+            )
         } else {
-            <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={Corgi} key={index} />
+            return(
+                <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={Corgi} key={index} />
+            )
         }
     
     const eventDetailsInfo = dummyData.map((item,index) => {
-            return(
                 <EventDetailsSecondPage title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
-            )
         });
     });
 
