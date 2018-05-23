@@ -6,6 +6,7 @@ import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
 import Footer from './footer';
+import CarouselSlider from './carouselBootstrap';
 
 
 export default props => {
@@ -20,15 +21,23 @@ export default props => {
         const month = monthsArray[date.getMonth()];
         const day = date.getDate();
         const year = date.getFullYear();
-        const eventDate = `${dayOfWeek}, ${month} ${day}, ${year}`;
+        const monthRender= `${month}`;
+        const dayRender= `${day}`;
+        const yearRender= `${year}`;
+        const dayOfWeekRender=`${dayOfWeek}`;
+        const eventDate = `${dayOfWeek}, ${month} ${day}`;
+        const time = date.toLocaleTimeString();
+        const timeString= time.toString();
+        const timeStringMinusThreeCharacters= timeString.slice(0,-3);
+        const EventTime= parseInt(timeStringMinusThreeCharacters);
 
         if (item.image !== null) {
             return(
-                <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
+                <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
             )
         } else {
             return(
-                <Event title={item.title} venue_name={item.venue_name} event_date={eventDate} image={Corgi} key={index} />
+                <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} />
             )
         }
     
@@ -42,6 +51,7 @@ export default props => {
             <CarouselInfo key={index} title={item.title} venue_name={item.venue_name} time={item.start_time} />
         )
     })
+    
 
     const top = dummyData.map((item, index) => {
         return (
@@ -54,6 +64,7 @@ export default props => {
     return (
         <div>
             <Top city_name={dummyData[0].city_name} />
+            <CarouselSlider/>
             <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
             {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
             {allEvents}
