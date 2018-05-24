@@ -15,7 +15,7 @@ const App = () => {
         <div className="container-fluid">      
                 <Route exact path="/" component={Main} />
                 <Route path="/eventDetails" component={EventDetails}/>
-                {/* <Test/>     */}      
+                 
         </div>
     );
 }

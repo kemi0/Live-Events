@@ -1,10 +1,18 @@
-/* HEADER*/
+
+  /*--------------------- */
+  /**** PAGE SETUP *******/
+ /*-------------------- */
+
 *{
     margin: 0px;
     padding: 0px;
+    font-family: helvetica;
+    box-sizing: border-box
 }
 
-
+   /*---------------- */
+  /**** HEADER *******/
+ /*---------------- */
 header {
     border: solid black 1px;
     /* width:100vw; */
@@ -37,16 +45,159 @@ header {
     color:white;
     padding-top:2%;
 }
+  /*----------------- */
+  /**** SIDE MENU ****/
+ /*---------------- */
 
-.label {
-    display: inline;
-    padding: .2em .6em .3em;
-    line-height: 1;
-    color: #000;
+ .menubar {
+    display: block;
+    height: 60px;
+    background-color: #03A9F4;
+    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.12);
     text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-}
+  }
+  
+  .menubar span {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    font-weight: 300;
+    font-size: 2em;
+    line-height: 60px;
+  }
+  
+  #hambmenu {
+    position: relative;
+    width: 40px;
+    height: 45px;
+    float: left;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  #hambmenu span {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    vertical-align: middle;
+    margin: 20px 0 0 15px;
+    background: white;
+    border-radius: 8px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    padding: 0px;
+  }
+  
+  .hambclicker {
+    content: "";
+    height: 48px;
+    width: 55px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+    z-index: 9;
+  }
+  
+  #hambmenu span:nth-child(1) {
+    top: 0px;
+  }
+  
+  #hambmenu span:nth-child(2), #hambmenu span:nth-child(3) {
+    top: 10px;
+  }
+  
+  #hambmenu span:nth-child(4) {
+    top: 20px;
+  }
+  
+  #hambmenu.isopen span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+    opacity: 0;
+  }
+  
+  #hambmenu.isopen span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+  #hambmenu.isopen span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  
+  #hambmenu.isopen span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+    opacity: 0;
+  }
+  
+  #menu {
+    position: absolute;
+    top: 60px;    
+    height: calc(100vh - 60px);
+    width: 210px;
+    background-color: white;
+    z-index: 1;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    transition: transform 300ms, -webkit-transform 300ms;
+  }
+  #menu ul {
+    margin-top: 0px;
+    padding: 0px;
+    color: black;
+    list-style-type: none;
+    text-align: left;
+  }
+  #menu li {
+    padding: 30px 0 20px 20px;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  }
+  #menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .fa {
+    color: black;
+    padding-right: 8px;
+  }
+  
+  li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  #menu.isopen {
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  .fa{
+      margin-top: 10px;
+      font-size: 39px;
+  }
+  
+
+
+
+
+
+
+
+  /*------------------- */
+  /**** CAROUSEL *******/
+ /*------------------ */
 
 
 /* DISPLAY FOR CAROUSEL */
@@ -110,7 +261,10 @@ img{
     font-size:1em;
 }
 
-/* EVENTS DISPLAY AREA */
+
+   /*---------------------- */
+  /** EVENTS DISPLAY AREA **/
+  /*--------------------- */
 
 .event-container{
     border:solid black 1px;
@@ -167,7 +321,9 @@ img{
     padding-left: 15px;
 }
 
-/* SHOW MORE */
+   /*------------------- */
+  /** SHOW MORE BUTTON **/
+  /*------------------- */
 
 .show-more{
     border:solid black 1px;
@@ -228,7 +384,11 @@ line-height: 1;
 padding-top: 0.4em;
 }
 
-/*HARD CODED DOTS*/
+
+  /*-------------------- */
+  /*** HARD CODED DOTS ***/
+  /*------------------- */
+
 .dot {
     height: 0.5em;
     width: 0.5em;
@@ -237,7 +397,9 @@ padding-top: 0.4em;
     display: inline-block;
   }
 
-/*FOOTER*/
+    /*---------------*/
+    /**** FOOTER ****/
+    /*-------------*/
 
 footer{
     /* width:100%; */
@@ -276,4 +438,11 @@ footer{
     height:20em;
 }
 
+/*** Media Q  *** */
 
+@media screen and (max-width: 420px) {
+    .menubar span {
+      font-size: 1.2em;
+    }
+  }
+  
