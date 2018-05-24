@@ -110,19 +110,14 @@ class Main extends Component {
                 {allEvents}
                 {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
                 {/* <ShowMoreButton/> */}
-                <button onClick={this.showMoreEvents}>GETMORE</button>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-xs-12 text-center">
-                            <span className="dot"></span>
-                            <span className="dot"></span>
-                            <span className="dot"></span>
-                            <span className="dot"></span>
-                        </div>
+                    <div className="col-xs-12 text-center">
+                        <button className="show-more-button btn" onClick={this.showMoreEvents}>SHOW MORE BUTTON</button>
+                    </div>
                     </div>
                 </div>
             </div>
-
         );
     }  
 
