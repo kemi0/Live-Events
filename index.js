@@ -1,3 +1,4 @@
+
 ///back-end index.js
 const express = require('express');
 const cors = require('cors');
@@ -21,8 +22,63 @@ app.use(express.static(resolve(__dirname,'client','dist')));
 async function test(){
   const connection = require('./server/config/db-connection');
   const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
-  const outputObjWithAllData = await getDataFromEventfullApi();
-  console.log (outputObjWithAllData);
+  const outputObj = await getDataFromEventfullApi();
+  // console.log(outputObj) //this work!!! 
+
+  for(let key in outputObj){
+    console.log(key);
+
+//// ********************* format the data *************************///
+
+    const eventArrayInKey = outputObj[key];
+    // eventArrayInKey is a array with many obj [{},{},{},{}]
+    //insert into genres tables 
+    // const sql_genre = `INSERT IGNORE INTO genres ( genre_name ) VALUES ('${key}')`;
+    //  connection.query(sql_genre, (err, result)=>{
+    //    if(err) throw err;
+    //   console.log(`${key} inserted to the  genres table`);
+    //  }) 
+
+        eventArrayInKey.map((item, index)=>{
+          // for zipCode Table 
+          const zip_code_value = item.postal_code; //right; 
+           //insert into zipCode tables 
+           const sql_zip = `INSERT IGNORE INTO zipCode ( zip_code ) VALUES ('${zip_code_value}')`;
+           connection.query(sql_zip , (err, result)=>{
+             if(err) throw err;
+            console.log(`${zip_code_value} inserted to the zipCode table`);
+           }) 
+
+
+          //for venue Table
+         const venue_name_value = item.venue_name; 
+         const venue_address_value = item.venue_address;
+         const venue_city_value  = item.city_name;
+         const venue_state_value = item.region_name;
+         const county_value = item.country_abbr;
+         //zipcode_id = zipcode_id
+         const longitude_value = item.longitude;
+         const latitude_value = item.latitude; 
+
+
+         //insert into venue tables 
+         const sql_venue = `INSERT INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES \ ('${venue_name_value}','${venue_address_value}','${venue_city_value}','${venue_state_value}','${county_value}',(SELECT zip_id FROM zipCode WHERE zip_code = ${zip_code_value}), '${longitude_value}', '${latitude_value}')`;
+
+
+        connection.query(sql_venue , (err, result)=>{
+           if(err) throw err;
+          console.log(`${venue_name_value}' '${venue_address_value}' '${venue_city_value}' '${venue_state_value}' '${county_value}' '${zip_code_value}' '${longitude_value}' '${latitude_value} inserted to the venues table`);
+         }) 
+
+
+
+         //performers table 
+        //  const performer_name_value = 
+
+        //  console.log(genre_value + ' ' + venue_name_value + ' ' + venue_address_value  + ' ' + venue_city_value  + ' ' + venue_state_value  + ' ' + zip_code_value + ' ' + county_value + ' ' + longitude_value + ' ' + latitude_value ) ;
+       
+        //  + ' ' +  + ' ' +  + ' ' +
+        
 
 
 
@@ -30,31 +86,25 @@ async function test(){
 
 
 
+
+
+
+
+
+
+
+    //end of eventArrayInKey.map((item, index)
+        })
+  //end of for loop
+    }
+
+ //ending the test;    
 }
 test();
 
 
 
 
-
-
-// outputPromise.then((output) => {
-//   console.log(output);
-// })
-// console.log(output);
-
-// console.log(output);
-
-// const apiResults = getDataFromEventfullApi();
-// Promise.all(apiResults).then(response=>{
-//   // console.log('ARGUMENTS:', arguments);
-//   response.map((data, index)=>{
-//     // console.log(genre);
-//     console.log(data.data.events)
-//   })  
-// }).catch(err=>{
-//   if(err) throw err;
-// })
 
 
 
