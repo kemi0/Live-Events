@@ -1,9 +1,11 @@
 
+
+*{
+
   /*--------------------- */
   /**** PAGE SETUP *******/
  /*-------------------- */
 
-*{
     margin: 0px;
     padding: 0px;
     font-family: helvetica;
@@ -438,7 +440,16 @@ footer{
     height:20em;
 }
 
-/*** Media Q  *** */
+/* suggested events carousel */
+
+.event-slider-container{
+    border: 1px solid black;
+    background: purple;
+    width:100%;
+    height:10%;
+}
+
+
 
 @media screen and (max-width: 420px) {
     .menubar span {
