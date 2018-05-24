@@ -1,39 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
+import dummyData from '../../helper/dummydata';
+import { Corgi } from '../assets/images/404corgi.jpg';
 
+class SimilarEventSuggestionSlider extends Component {
 
-export default props => {
-    return(
-<div>
-    <div className="container-fluid">
-        <div className="row text-center about-event-display-text">
-            <div className="col-xs-12">
-                <p>SIMILAR EVENTS</p>
-            </div>
-        </div>
-    </div>
+    constructor(props){
+        super(props);
 
-    
-    <div className="container-fluid event-container">
-        <div className="row">
-            <div className="col-xs-4 event-artist-photo">
-                <img src="./images/artist_info_image.jpg"/>
-            </div>
-            <div className="col-xs-5 text-center event-info">
-                <div className="event-text">
-                    <p className="event-name">Event Name</p>
-                    <p className="event-time">Time</p>
-                    <p className="event-location">Location</p>
+        this.state = {
+            slideCount: 1
+        }
+    }
+      
+        render(){
+
+                const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+                const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const dateObject = Date.parse(this.props.time);
+                const date = new Date(dateObject);
+                const dayOfWeek = dayArray[date.getDay()];
+                const month = monthsArray[date.getMonth()];
+                const day = date.getDate();
+                const year = date.getFullYear();
+                const monthRender = `${month}`;
+                const dayRender = `${day}`;
+                const yearRender = `${year}`;
+                const dayOfWeekRender = `${dayOfWeek}`;
+                const eventDate = `${dayOfWeek}, ${month} ${day}`;
+                const time = date.toLocaleTimeString();
+                const timeString = time.toString();
+                const timeStringMinusThreeCharacters = timeString.slice(0, -3);
+                const EventTime = parseInt(timeStringMinusThreeCharacters);
+        
+               
+            return (
+                <div class="event-slider-container">
+                    <button className="carousel-nav carousel-left-nav"></button>
+                    <button className="carousel-nav carousel-right-nav"></button>
+                    <h1>hi</h1>
                 </div>
-            </div>
-            <div className="col-xs-3 text-center calendar-info">
-                
-                    <p className="event-day">Day</p>
-                    <p className="event-date">Date</p>
-                    <p className="event-time">Time</p>
-                    
-            </div>
-        </div>
-    </div>
-</div>
-    )
-}
+                )
+        }
+    }
+
+
+export default SimilarEventSuggestionSlider;

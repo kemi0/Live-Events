@@ -1,5 +1,5 @@
-/* HEADER*/
-*{
+
+*, *::before, *::after{
     margin: 0px;
     padding: 0px;
 }
@@ -274,6 +274,15 @@ footer{
     border: 1px solid black;
     width:100%;
     height:20em;
+}
+
+/* suggested events carousel */
+
+.event-slider-container{
+    border: 1px solid black;
+    background: purple;
+    width:100%;
+    height:10%;
 }
 
 
