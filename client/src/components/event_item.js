@@ -17,9 +17,29 @@ class Event extends Component {
         // const newthang = `${this.new_day.getFullYear()} ${this.new_day.getMonth()} ${this.new_day.getDate()}`;
         // console.log(this.props)
 
+        
     }
 
     render() {
+
+        const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const dateObject = Date.parse(this.props.time);
+        const date = new Date(dateObject);
+        const dayOfWeek = dayArray[date.getDay()];
+        const month = monthsArray[date.getMonth()];
+        const day = date.getDate();
+        const year = date.getFullYear();
+        const monthRender= `${month}`;
+        const dayRender= `${day}`;
+        const yearRender= `${year}`;
+        const dayOfWeekRender=`${dayOfWeek}`;
+        const eventDate = `${dayOfWeek}, ${month} ${day}`;
+        const time = date.toLocaleTimeString();
+        const timeString= time.toString();
+        const timeStringMinusThreeCharacters= timeString.slice(0,-3);
+        const EventTime= parseInt(timeStringMinusThreeCharacters);
+
         return (
             <div className="container-fluid">
                 <div className=" row event-container">
@@ -29,25 +49,23 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
-                            <p className="time">{this.props.week}, {this.props.month} {this.props.date}, {this.props.year}</p>
+                            <p className="time">{this.props.event_date}</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
-
                         <button className="event-btn btn btn-default col-xs-3 offset-1 ">
-                        <NavLink to="/event_details" className="nav-link" activeClassName="active selected">
-                            <div>
-                                <p>Tues</p>
-                            </div>
-                            <div>
-                                <p>19</p>
-                            </div>
-                            <div>
-                                <p>Aug</p>
-                            </div>
+                            <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
+                                <div>
+                                    <p>{this.props.dayRender}</p>
+                                </div>
+                                <div>
+                                    <p>{this.props.monthRender}</p>
+                                </div>
+                                <div>
+                                    <p>{this.props.dayOfWeekRender}</p>
+                                </div>
                             </NavLink>
                         </button>
-
                     </div>
                 </div>
             </div>

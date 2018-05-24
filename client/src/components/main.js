@@ -1,10 +1,12 @@
 import React from 'react';
 import Event from './event_item';
 import dummyData from '../../helper/dummydata';
-import CarouselInfo from '../components/mainCarousel';
+import CarouselInfo from './mainCarousel';
+import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
 import Footer from './footer';
+import CarouselSlider from './carouselBootstrap';
 
 
 export default props => {
@@ -13,44 +15,58 @@ export default props => {
         const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
         const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-        let dateObject = Date.parse(item.start_time);
-        let date = new Date(dateObject);
-        let dayOfWeek = dayArray[date.getDay()];
-        let month = monthsArray[date.getMonth()];
-        let day = date.getDate();
-        let year = date.getFullYear();
-        
+        const dateObject = Date.parse(item.start_time);
+        const date = new Date(dateObject);
+        const dayOfWeek = dayArray[date.getDay()];
+        const month = monthsArray[date.getMonth()];
+        const day = date.getDate();
+        const year = date.getFullYear();
+        const monthRender= `${month}`;
+        const dayRender= `${day}`;
+        const yearRender= `${year}`;
+        const dayOfWeekRender=`${dayOfWeek}`;
+        const eventDate = `${dayOfWeek}, ${month} ${day}`;
+        const time = date.toLocaleTimeString();
+        const timeString= time.toString();
+        const timeStringMinusThreeCharacters= timeString.slice(0,-3);
+        const EventTime= parseInt(timeStringMinusThreeCharacters);
+
         if (item.image !== null) {
-            return (
-                <Event title={item.title} venue_name={item.venue_name} week={dayOfWeek} month={month} date={day} year={year} time={item.start_time} image={item.image.blackborder250.url} key={index} />
+            return(
+                <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
             )
         } else {
-            return (
-                <Event title={item.title} venue_name={item.venue_name} week={dayOfWeek} month={month} date={day} year={year} time={item.start_time} image={Corgi} key={index} />
+            return(
+                <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} />
             )
         }
-
+    
+    const eventDetailsInfo = dummyData.map((item,index) => {
+                <EventDetailsSecondPage title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
+        });
     });
+
     const carouselMainInfo = dummyData.map((item, index) => {
         return (
             <CarouselInfo key={index} title={item.title} venue_name={item.venue_name} time={item.start_time} />
         )
     })
+    
 
     const top = dummyData.map((item, index) => {
         return (
             <Top key={index} city_name={item.city_name} />
         )
-    });
-
+    })
 
 
 
     return (
         <div>
             <Top city_name={dummyData[0].city_name} />
+            <CarouselSlider/>
             <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
-            {/* {carouselMainInfo} << TO POPULATE NON HARD CODED*/}
+            {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
             {allEvents}
             {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
 

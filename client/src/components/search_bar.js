@@ -14,11 +14,13 @@ class SearchBar extends Component {
         this.toggleSearchBar = this.toggleSearchBar.bind(this);
     }
 
+
     componentDidUpdate(){
         if (this.input) {
             this.input.focus();
-        }
     }
+
+
 
     render() {
         const tempStyle = {

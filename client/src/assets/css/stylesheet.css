@@ -199,7 +199,9 @@ header {
   /**** CAROUSEL *******/
  /*------------------ */
 
-.top-display-text, .event-display-text, .concerts-text, .genre-Label {
+
+/* DISPLAY FOR CAROUSEL */
+.top-display-text, .event-display-text, .concerts-text, .genre-label {
     border:solid black 1px;
     text-align: center;
     margin-top: 1%;
