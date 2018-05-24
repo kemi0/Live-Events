@@ -18,6 +18,7 @@ class SearchBar extends Component {
     componentDidUpdate(){
         if (this.input) {
             this.input.focus();
+        }
     }
 
 
