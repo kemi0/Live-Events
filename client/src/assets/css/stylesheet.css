@@ -469,3 +469,12 @@ footer{
       position:absolute;
   }
   
+
+  .search_toolbar_popdown{
+      width:100%;
+      border:black 1px solid;
+      border-radius: 2%;
+      height: 5em;
+      font-size: 0.9em;
+      box-shadow: grey 5px 5px 5px;
+  }

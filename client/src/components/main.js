@@ -1,4 +1,4 @@
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 import Event from './event_item';
 import dummyData from '../../helper/dummydata';
 import CarouselInfo from './mainCarousel';
@@ -7,9 +7,8 @@ import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
 import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
-import SearBarPopdown from './searchbarpopdown';
-
 // import ShowMoreButton from './showMoreButton';
+import axios from "axios";
 
 const dummyDataCopy = dummyData.slice();
 
@@ -30,10 +29,17 @@ class Main extends Component {
     }
 
     getEventsFromDb(){
+        axios.get("/api/get-data").then(resp =>{
+            console.log(resp.data);
+            this.setState({
+                //set state to whatever data is coming through
+            })
+        });
+
         setTimeout(() => {
             const currentEvents = dummyDataCopy.splice(0, 5);
             this.populateEvents(JSON.parse(JSON.stringify(currentEvents)));
-        }, 900)
+        }, 100)
     }
 
     populateEvents(currentEvents){
@@ -105,7 +111,7 @@ class Main extends Component {
         return (
             
             <div>
-                 <SearBarPopdown/>
+                
                 <Top city_name={dummyData[0].city_name} />
                 <CarouselSlider/>
                 {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
