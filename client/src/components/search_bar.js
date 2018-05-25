@@ -14,23 +14,28 @@ class SearchBar extends Component {
         this.toggleSearchBar = this.toggleSearchBar.bind(this);
     }
 
-
     componentDidUpdate(){
         if (this.input) {
             this.input.focus();
         }
     }
-
+    // updateSearch(e){
+    //     this.setState({ term: e.target.value.substr(0,20)});
+    // }
 
 
     render() {
         const tempStyle = {
             color: '#000',
         };
+    
+
+        
         if (this.state.isSearchInputActive) {
             return (
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <div>
+
                             <input
                                 placeholder={this.state.placeholder}
                                 ref={e => this.input = e}

@@ -9,7 +9,8 @@ import EventDetails from './components/event_details';
 import { BrowserRouter as Router } from 'react-router-dom';
 // import Header from './components/header';
 import Footer from './components/footer';
-import Menu from './components/menu'
+import Menu from './components/menu';
+import Data from '../helper/dummydata';
 
 
 
@@ -17,7 +18,7 @@ ReactDOM.render(
     <Router>
 
         <div>
-            <Menu Menutitles="Live Music App"/>   
+            <Menu Data={Data} Menutitles="Live Music App"/>   
              {/* <Header /> */}
                 <App />
                 <Footer />

@@ -43,7 +43,7 @@ class Menu extends Component {
                         <div className="title">
                             <span>{this.props.Menutitles}</span>
                         </div>
-                        <SearchBar/>
+                        <SearchBar />
                         <MenuLinks menuStatus={menuStatus}/>
                         
                 </div>
