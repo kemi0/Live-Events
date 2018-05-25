@@ -2,60 +2,60 @@ const axios = require('axios');
 const express = require('express');
 const connection = require('../config/db-connection');
 
-
-
 const getDataFromEventfullApi = ()=>{
-  const BASE_URL = 'http://api.eventful.com/json/events/search';
-  const API_KEY = '?app_key=Zb7jwSS8MQppFwhH';
-  //formating the date to current date for the 
-  const now = new Date(); 
-  const currentYear = now.getFullYear();
-  const currentDate = now.getDate();
-  const currentMonth = now.getMonth()+1;
-  const current = currentYear+'0'+currentMonth+currentDate+'00';
-  console.log(current);
- 
+          const BASE_URL = 'http://api.eventful.com/json/events/search';
+          const API_KEY = '?app_key=Zb7jwSS8MQppFwhH';
+          //*************formating the date to current date for the ******************//
+          const now = new Date(); 
+          const currentYear = now.getFullYear();
+          const currentDate = now.getDate();
+          const currentMonth = now.getMonth()+1;
+          const current = currentYear+'0'+currentMonth+currentDate+'00';
+          console.log(current);
+          //*************formating the date to current date for the end ******************//
 
-   const genreArray = ['music_blues'];
-  //  'music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative', 'music_childrens','music_opera','music_latin','music_reggae'
+          //************* getting all promises ******************//
+
+          const genreArray = ['music_blues'];
+          //  'music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative', 'music_childrens','music_opera','music_latin','music_reggae'
+
+          let allPromises = [];  
+          let allresults = [];
+          var outputObj = {};
+          genreArray.map((genre, index)=>{
+            allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
+
+          })
+          
+          //************* the getDataFromEventfullApi is return below: ******************//
+
+          return axios.all(allPromises).then(response=>{
+              response.map((databyGenre, index)=>{
+                // console.log(databyGenre.data.total_items )
+                const total_events = databyGenre.data.total_items
+                    if(total_events > 0){
+                      allresults.push(databyGenre.data.events.event);
+                    }else{
+                      allresults.push(total_events);
+                    }
+                    
+              })
+              //  console.log(allresults);
+              allresults.map((genreArr,index) =>{
+                outputObj[genreArray[index]] = genreArr
+                //outputObj['music_blues'] = [{},{},{},{}]
+              })
+
+        ///// end the getDataFromEventfullApi return 
+
+              // console.log(JSON.stringify(outputObj));
 
 
-  let allPromises = [];  
-  let allresults = [];
-  var outputObj = {};
-  genreArray.map((genre, index)=>{
-    allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
+              return outputObj;
 
-  })
-//// the getDataFromEventfullApi is return below: 
-  return axios.all(allPromises).then(response=>{
-      response.map((databyGenre, index)=>{
-        // console.log(databyGenre.data.total_items )
-        const total_events = databyGenre.data.total_items
-            if(total_events > 0){
-              allresults.push(databyGenre.data.events.event);
-              // allresults.push(total_events);
-            }else{
-              allresults.push(total_events);
-            }
-            
-      })
-      //  console.log(allresults);
-       allresults.map((genreArr,index) =>{
-        outputObj[genreArray[index]] = genreArr
-        //outputObj['music_blues'] = [{},{},{},{}]
-       })
-
-///// end the getDataFromEventfullApi return 
-
-      //  console.log(JSON.stringify(outputObj));
-
-
-       return outputObj;
-
- }).catch(err=>{
-   if(err) throw err;
- })
+        }).catch(err=>{
+          if(err) throw err;
+        })
 
 }
 

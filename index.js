@@ -28,29 +28,32 @@ async function test(){
   for(let key in outputObj){
     console.log(key);
 
-//// ********************* format the data *************************///
+//// ********************* FORMAT DATA FOR genres TABLE*************************///
 
     const eventArrayInKey = outputObj[key];
     // eventArrayInKey is a array with many obj [{},{},{},{}]
-    //insert into genres tables 
-    // const sql_genre = `INSERT IGNORE INTO genres ( genre_name ) VALUES ('${key}')`;
-    //  connection.query(sql_genre, (err, result)=>{
-    //    if(err) throw err;
-    //   console.log(`${key} inserted to the  genres table`);
-    //  }) 
+
+//******************INSERT DATA TO genres TABLE*******************; 
+    const sql_genre = `INSERT IGNORE INTO genres ( genre_name ) VALUES ("${key}")`;
+     connection.query(sql_genre, (err, result)=>{
+       if(err) throw err;
+      // console.log(`${key} inserted to the  genres table`);
+     }) 
 
         eventArrayInKey.map((item, index)=>{
           // for zipCode Table 
+//// ********************* FORMAT DATA FOR zipCode TABLE*************************///
+
           const zip_code_value = item.postal_code; //right; 
-           //insert into zipCode tables 
-           const sql_zip = `INSERT IGNORE INTO zipCode ( zip_code ) VALUES ('${zip_code_value}')`;
+         //******************INSERT DATA TO zipCode TABLE*******************; 
+         const sql_zip = `INSERT IGNORE INTO zipCode ( zip_code ) VALUES ("${zip_code_value}")`;
            connection.query(sql_zip , (err, result)=>{
              if(err) throw err;
-            console.log(`${zip_code_value} inserted to the zipCode table`);
+            // console.log(`${zip_code_value} inserted to the zipCode table`);
            }) 
 
+  //// ********************* FORMAT DATA FOR venues TABLE*************************///
 
-          //for venue Table
          const venue_name_value = item.venue_name; 
          const venue_address_value = item.venue_address;
          const venue_city_value  = item.city_name;
@@ -59,27 +62,75 @@ async function test(){
          //zipcode_id = zipcode_id
          const longitude_value = item.longitude;
          const latitude_value = item.latitude; 
-
-
-         //insert into venue tables 
-         const sql_venue = `INSERT INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES \ ('${venue_name_value}','${venue_address_value}','${venue_city_value}','${venue_state_value}','${county_value}',(SELECT zip_id FROM zipCode WHERE zip_code = ${zip_code_value}), '${longitude_value}', '${latitude_value}')`;
-
-
+         //******************INSERT DATA TO venues TABLE*******************; 
+         const sql_venue = `INSERT IGNORE INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES ("${venue_name_value}","${venue_address_value}","${venue_city_value}","${venue_state_value}","${county_value}",(SELECT zip_id FROM zipCode WHERE zip_code = ${zip_code_value}), "${longitude_value}", "${latitude_value}")`;
+        
         connection.query(sql_venue , (err, result)=>{
            if(err) throw err;
-          console.log(`${venue_name_value}' '${venue_address_value}' '${venue_city_value}' '${venue_state_value}' '${county_value}' '${zip_code_value}' '${longitude_value}' '${latitude_value} inserted to the venues table`);
+          // console.log(`${venue_name_value}  ${zip_code_value} inserted to the venues table`);
          }) 
 
+  //// ********************* FORMAT DATA FOR performers TABLE*************************///
+  let performer_name_value = null;
+  let performer_bio_value = null;
+  let performer_image_value = null;
+  let performer_url_value = null;
+        if(item.performers !== null){
+            performer_name_value = item.performers.performer.name; 
+            performer_bio_value = item.performers.performer.short_bio;
+            performer_image_value = null; 
+            performer_url_value = item.performers.performer.url;
+         }else{
+          performer_name_value  = 'NO performer data is listed';
+         }
+         //******************INSERT DATA TO performers TABLE*******************; 
 
-
-         //performers table 
-        //  const performer_name_value = 
-
-        //  console.log(genre_value + ' ' + venue_name_value + ' ' + venue_address_value  + ' ' + venue_city_value  + ' ' + venue_state_value  + ' ' + zip_code_value + ' ' + county_value + ' ' + longitude_value + ' ' + latitude_value ) ;
-       
-        //  + ' ' +  + ' ' +  + ' ' +
+         const sql_performers = `INSERT IGNORE INTO performers (performer_name, performer_bio, performer_image,performer_url) VALUES ("${performer_name_value}","${performer_bio_value}","${performer_image_value}","${performer_url_value}")`;
+        
+         connection.query(sql_performers , (err, result)=>{
+            if(err) throw err;
+          //  console.log(`${performer_name_value} inserted to the venues table`);
+          }) 
         
 
+
+
+//// ********************* FORMAT DATA FOR performers events *************************///
+     const event_title_value = item.title; 
+    //  console.log(event_title_value);
+     const time = item.start_time.split(" ");
+    //  console.log(time);
+     const event_date_value = time[0]; 
+    //  console.log(event_date_value);
+     const event_start_time_value = time[1];
+    //  console.log(event_start_time_value);
+     const popularity_value = item.popularity; 
+    //  console.log(popularity_value);
+     const event_details_value = item.description;
+    //  console.log(event_details_value)
+     
+//******************INSERT DATA TO  events Table *******************; 
+      const sql_events = `INSERT IGNORE INTO events (event_title, event_date, event_start_time,venue_id,popularity,event_details,genre_id) VALUES ("${event_title_value}", '${event_date_value}', '${event_start_time_value}',(SELECT venue_id FROM venues WHERE venue_name = '${venue_name_value}'),  '${popularity_value}', '${event_details_value}',(SELECT genre_id FROM genres WHERE genre_name = '${key}'))`;
+
+      // console.log(sql_events);
+       connection.query(sql_events , (err, result)=>{
+          if(err) throw err;
+        }) 
+
+
+
+//// ********************* FORMAT DATA FOR performers_events *************************///
+
+ 
+//******************INSERT DATA TO  performers_events Table *******************; 
+  const sql_performers_events  = `INSERT IGNORE INTO performers_events (performer_id,event_id) VALUES ((SELECT performer_id FROM performers WHERE performer_name = "${performer_name_value}"), (SELECT event_id FROM events WHERE event_title = "${event_title_value}"))`;
+
+  // console.log(sql_performers_events);
+   connection.query(sql_performers_events , (err, result)=>{
+      if(err) throw err;
+    }) 
+
+//******************INSERT DATA TO  performers_events Table *******************; 
 
 
 
@@ -115,14 +166,8 @@ test();
 
 
 
+// axios.get('api/user-data', { start: '20180101', end: '20180101', genre:'classical'})
 
-
-
-
-// connection.query('SELECT * FROM genres', (err, result,fields)=>{
-//   if(err) throw err;
-//   console.log(`this is the genres table: ${result}`);
-// })
 
 // //MAKING POST request///////////////
 
@@ -172,6 +217,10 @@ test();
 // //MAKING POST request///////////////
 
 // //MAKING get request /////////////// 
+
+
+
+
 // // app.get('/api/user-data',(req, res)=>{
 // // //this is getting data from our own DB; /sql-module/testingSQL
 // //   const getDataFromDB = require('./server/sql-module/testingSQL');
@@ -180,83 +229,6 @@ test();
 // //     //sending to the front_end;
 // //     res.send(responeFromDB);
 
-// //   })
-// })
-
-// function getDataFromApi(){
-
-    //  const genreArray = ['music_blues','music_classical','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_latin','music_newage','music_opera','music_rb','music_reggae','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative','music_childrens'];
-
-    //  let genreData;
-    //  for (let genreIndex=0; genreIndex<genreArray.length; genreIndex++){
-    //      const genre = genreArray[genreIndex];
-    //      axios.get(`http://api.eventful.com/json/events/search?app_key=Zb7jwSS8MQppFwhH&location=birmingham&date=2018060100-2018070100&image_sizes=blackborder500,block250&page_size=1000&category=${genre}&include=popularity`).then(response => {
-    //          genreData = response.data.events.event;
-    //          for (let resultIndex=0; resultIndex<genreData.length; resultIndex++ ){
-    //              // making event object including the genre name
-    //              if(genreData[resultIndex].popularity) {var popularity = genreData[resultIndex].popularity;}
-    //              if(genreData[resultIndex].latitude) {var latitude = genreData[resultIndex].latitude;}
-    //              if(genreData[resultIndex].longitude) {var longitude = genreData[resultIndex].longitude;}
-    //              if(genreData[resultIndex].postal_code) {var postal_code = genreData[resultIndex].postal_code;}
-    //              if(genreData[resultIndex].start_time) {var start_time = genreData[resultIndex].start_time;}
-    //              if(genreData[resultIndex].title) {var title = genreData[resultIndex].title;}
-    //              if(genreData[resultIndex].venue_name) {var venue_name = genreData[resultIndex].venue_name;}
-    //              if(genreData[resultIndex].venue_address) {var venue_address = genreData[resultIndex].venue_address;}
-    //              if(genreData[resultIndex].image.blackborder500) {var image500px = genreData[resultIndex].image.blackborder500;}
-    //              if(genreData[resultIndex].image.block250) {var image250px = genreData[resultIndex].image.block250;}
-    //              if(genreData[resultIndex].owner) {var owner = genreData[resultIndex].owner;}
-    //              if(genreData[resultIndex].description) {var description = genreData[resultIndex].description;}
-    //              if(genreData[resultIndex].performers.performer.name) {var performers = genreData[resultIndex].performers.performer.name;}
-    //              let eventObject = {
-    //                  genre: genre,
-    //                  popularity: popularity,
-    //                  latitude: latitude,
-    //                  longitude: longitude,
-    //                  postal_code: postal_code,
-    //                  start_time: start_time,
-    //                  title: title,
-    //                  venue_name: venue_name,
-    //                  venue_address: venue_address,
-    //                  image500px: image500px,
-    //                  image250px: image250px,
-    //                  owner: owner,
-    //                  description: description,
-    //                  performers: performers,
-    //              }
-    //              dataArray.push(eventObject);
-    //              console.log(dataArray);
-    //          }
-    //      }).catch(error => {
-    //     //      //console.log(error);
-    //     });
-
-    //  }
-
-// }
-
-// axios.all([getDataFromApi()]).then(function(response){
-//     console.log(dataArray);
-// })
-
-
-
-//MAKING get request ///////////////
-
-// app.get('/api/user-data',(req, res)=>{
-//   const testData = require('./sql-module/testingSQL');
-//   //calling the testData function from testingSQL.js here
-//   testData(function callback(responeFromDB){
-//     //sending to the front_end;
-//     res.send(responeFromDB);
-
-// //   const user ={
-// //    name : 'Jim Bob',
-// //    email: 'jimhebob@gmail.com'
-// //  }
-// // });
-
-//   })
-// })
 
 
 
