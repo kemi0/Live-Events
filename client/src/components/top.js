@@ -10,7 +10,7 @@ class Top extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <div className="top-display-text">
+                <div className="col-xs-12 top-display-text">
                     <p className="label">{this.props.city_name}</p>
                 </div>
             </div>
