@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 8000;
 const axios = require('axios');
 var mysql = require('mysql');
 
-
 const app = express();
 //when doing get
 app.use(cors());
