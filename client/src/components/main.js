@@ -7,6 +7,8 @@ import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
 import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
+import SearBarPopdown from './searchbarpopdown';
+
 // import ShowMoreButton from './showMoreButton';
 
 const dummyDataCopy = dummyData.slice();
@@ -103,6 +105,7 @@ class Main extends Component {
         return (
             
             <div>
+                 <SearBarPopdown/>
                 <Top city_name={dummyData[0].city_name} />
                 <CarouselSlider/>
                 {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
