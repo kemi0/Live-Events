@@ -7,6 +7,7 @@ const { resolve } = require('path');
 //setup port for deploy else use 8000 as port;
 const PORT = process.env.PORT || 8000;
 const axios = require('axios');
+var mysql = require('mysql');
 
 
 const app = express();
@@ -16,7 +17,6 @@ app.use(cors());
 app.use(express.json());
 //for the React statily serve a folder
 app.use(express.static(resolve(__dirname,'client','dist')));
-
 
 
 async function test(){
@@ -149,7 +149,7 @@ async function test(){
   //end of for loop
     }
 
- //ending the test;    
+ //ending the test;   
 }
 test();
 
