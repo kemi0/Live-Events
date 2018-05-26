@@ -7,7 +7,7 @@ class CarouselSlider extends Component{
     render(){
         return(
 <div className="container-fluid">
-    <div id="Carousel" class="carousel slide" data-ride="carousel">
+    <div id="Carousel" className="carousel slide" data-ride="carousel">
         
         <ol className="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

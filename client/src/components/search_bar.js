@@ -30,7 +30,7 @@ class SearchBar extends Component {
         };
     
 
-        
+
         if (this.state.isSearchInputActive) {
             return (
                 <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -42,11 +42,11 @@ class SearchBar extends Component {
                                 className="search_toolbar"
                                 style={tempStyle}
                                 value={this.state.term}
-                                onChange={e => this.onInputChange(e.target.value)}
+                                onChange={e => this.setState({ term: e.target.value })}
                             />
-                    </div>
+                    </div> 
                 </form>
-            )
+            );
          } else {
             return <div className="fa fa-search search_toolbar" onClick={this.toggleSearchBar}></div>
          } 
