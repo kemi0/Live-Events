@@ -16,8 +16,7 @@ const getDataFromEventfullApi = ()=>{
 
           //************* getting all promises ******************//
 
-          const genreArray = ['music_blues'];
-          //  'music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_alternative', 'music_childrens','music_opera','music_latin','music_reggae'
+          const genreArray = [ 'music_alternative','music_blues','music_country','music_childrens','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_opera','music_latin','music_reggae'];
 
           let allPromises = [];  
           let allresults = [];
@@ -36,7 +35,7 @@ const getDataFromEventfullApi = ()=>{
                     if(total_events > 0){
                       allresults.push(databyGenre.data.events.event);
                     }else{
-                      allresults.push(total_events);
+                      // allresults.push(total_events);
                     }
                     
               })
@@ -64,6 +63,41 @@ const getDataFromEventfullApi = ()=>{
 
  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 ////////option 2 //// the fetch the data: don't needed at this point: 
 
   // let allResults  = {};

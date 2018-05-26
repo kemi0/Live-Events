@@ -22,36 +22,35 @@ async function test(){
   const connection = require('./server/config/db-connection');
   const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
   const outputObj = await getDataFromEventfullApi();
-  // console.log(outputObj) //this work!!! 
 
   for(let key in outputObj){
     console.log(key);
 
-//// ********************* FORMAT DATA FOR genres TABLE*************************///
+//// ********************* FORMAT DATA and INSERT TO genres TABLE*************************///
 
     const eventArrayInKey = outputObj[key];
     // eventArrayInKey is a array with many obj [{},{},{},{}]
-
-//******************INSERT DATA TO genres TABLE*******************; 
     const sql_genre = `INSERT IGNORE INTO genres ( genre_name ) VALUES ("${key}")`;
      connection.query(sql_genre, (err, result)=>{
        if(err) throw err;
       // console.log(`${key} inserted to the  genres table`);
      }) 
 
-        eventArrayInKey.map((item, index)=>{
+    eventArrayInKey.map((item, index)=>{
           // for zipCode Table 
-//// ********************* FORMAT DATA FOR zipCode TABLE*************************///
+          // console.log(item); 
+          // console.log(index); 
+
+//// ********************* FORMAT DATA and INSERT TO zipCode TABLE*************************///
 
           const zip_code_value = item.postal_code; //right; 
-         //******************INSERT DATA TO zipCode TABLE*******************; 
          const sql_zip = `INSERT IGNORE INTO zipCode ( zip_code ) VALUES ("${zip_code_value}")`;
            connection.query(sql_zip , (err, result)=>{
              if(err) throw err;
             // console.log(`${zip_code_value} inserted to the zipCode table`);
            }) 
 
-  //// ********************* FORMAT DATA FOR venues TABLE*************************///
+  //// ********************* FORMAT DATA and INSERT TO venues TABLE*************************///
 
          const venue_name_value = item.venue_name; 
          const venue_address_value = item.venue_address;
@@ -61,13 +60,76 @@ async function test(){
          //zipcode_id = zipcode_id
          const longitude_value = item.longitude;
          const latitude_value = item.latitude; 
-         //******************INSERT DATA TO venues TABLE*******************; 
          const sql_venue = `INSERT IGNORE INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES ("${venue_name_value}","${venue_address_value}","${venue_city_value}","${venue_state_value}","${county_value}",(SELECT zip_id FROM zipCode WHERE zip_code = ${zip_code_value}), "${longitude_value}", "${latitude_value}")`;
         
         connection.query(sql_venue , (err, result)=>{
            if(err) throw err;
           // console.log(`${venue_name_value}  ${zip_code_value} inserted to the venues table`);
          }) 
+
+//// ********************* FORMAT DATA and INSERT TO events  Table *************************///
+let event_title_value = item.title; 
+// event_title_value = event_title_value.replace("'", '');
+const time = item.start_time.split(" ");
+const event_date_value = time[0];
+const event_start_time_value = time[1];
+const popularity_value = item.popularity;
+let event_details_value;
+if(item.description !== null){
+  event_details_value = item.description;
+  event_details_value = event_details_value.replace(/<(?:.|\n)*?>/gm, ''); 
+  // event_details_value = event_details_value.replace("'", "''");
+ }else{
+  event_details_value = 'No data';
+}
+
+// console.log(`${event_title_value}`)
+ const sql_events = `INSERT IGNORE INTO events (event_title, event_date, event_start_time,venue_id,popularity,event_details,genre_id) VALUES ("${event_title_value}", "${event_date_value}", "${event_start_time_value}",(SELECT venue_id FROM venues WHERE venue_name = "${venue_name_value}"),  "${popularity_value}", "${event_details_value}",(SELECT genre_id FROM genres WHERE genre_name = "${key}"))`;
+
+ 
+
+ console.log(sql_events);
+  connection.query(sql_events , (err, result)=>{
+     if(err) throw err;
+   }) 
+  //  console.log(`${index} ${event_details_value}`)
+  // connection.query('INSERT IGNORE INTO events SET ?', {
+
+  // }, (err, result)=>{
+  //    if(err) throw err;
+  //  }) 
+  //  console.log(`${index} ${event_details_value}`)
+
+//  //// ********************* FORMAT DATA FOR  images *************************///
+
+      let image_status_value = item.image;
+      let image_url_value;
+      let image_size_value;
+      let image_detail_value;
+      if(image_status_value !== null){
+        image_url_value =item.image.blackborder250.url;
+        // console.log(`this is the image url ******** ${image_url_value}`);
+        image_size_value ="blackborder250";
+        // console.log(image_size_value);
+        image_detail_value = 'Get Images';
+        // console.log(image_detail_value);
+      }else{
+        image_detail_value = 'No Images';
+        image_url_value = null;
+        image_size_value = null;
+
+      }
+
+      const sql_images = `INSERT IGNORE INTO images (image_url, image_size, event_id,image_detail) VALUES ('${image_url_value}',"${image_size_value}",(SELECT event_id FROM events WHERE event_title = "${event_title_value}"),"${image_detail_value}")`;
+
+      connection.query(sql_images, (err,result)=>{
+        if(err) throw err;
+      })
+
+
+
+
+
 
   //// ********************* FORMAT DATA FOR performers TABLE*************************///
   let performer_name_value = null;
@@ -90,35 +152,6 @@ async function test(){
             if(err) throw err;
           //  console.log(`${performer_name_value} inserted to the venues table`);
           }) 
-        
-
-
-
-//// ********************* FORMAT DATA FOR performers events *************************///
-     const event_title_value = item.title; 
-    //  console.log(event_title_value);
-     const time = item.start_time.split(" ");
-    //  console.log(time);
-     const event_date_value = time[0]; 
-    //  console.log(event_date_value);
-     const event_start_time_value = time[1];
-    //  console.log(event_start_time_value);
-     const popularity_value = item.popularity; 
-    //  console.log(popularity_value);
-     const event_details_value = item.description;
-    //  console.log(event_details_value)
-     
-//******************INSERT DATA TO  events Table *******************; 
-      const sql_events = `INSERT IGNORE INTO events (event_title, event_date, event_start_time,venue_id,popularity,event_details,genre_id) VALUES ("${event_title_value}", '${event_date_value}', '${event_start_time_value}',(SELECT venue_id FROM venues WHERE venue_name = '${venue_name_value}'),  '${popularity_value}', '${event_details_value}',(SELECT genre_id FROM genres WHERE genre_name = '${key}'))`;
-
-      // console.log(sql_events);
-       connection.query(sql_events , (err, result)=>{
-          if(err) throw err;
-        }) 
-
-
-
-//// ********************* FORMAT DATA FOR performers_events *************************///
 
  
 //******************INSERT DATA TO  performers_events Table *******************; 
@@ -128,20 +161,6 @@ async function test(){
    connection.query(sql_performers_events , (err, result)=>{
       if(err) throw err;
     }) 
-
-//******************INSERT DATA TO  performers_events Table *******************; 
-
-
-
-
-
-
-
-
-
-
-
-
 
     //end of eventArrayInKey.map((item, index)
         })
