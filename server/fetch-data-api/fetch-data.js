@@ -11,12 +11,14 @@ const getDataFromEventfullApi = ()=>{
           const currentDate = now.getDate();
           const currentMonth = now.getMonth()+1;
           const current = currentYear+'0'+currentMonth+currentDate+'00';
-          console.log(current);
+          // console.log(current); print out the data
+
+
           //*************formating the date to current date for the end ******************//
 
           //************* getting all promises ******************//
 
-          const genreArray = [ 'music_alternative','music_blues','music_country','music_childrens','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_opera','music_latin','music_reggae'];
+          const genreArray = [ 'music_alternative','music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_opera','music_latin','music_reggae','music_childrens','music_classical'];
 
           let allPromises = [];  
           let allresults = [];
@@ -34,8 +36,9 @@ const getDataFromEventfullApi = ()=>{
                 const total_events = databyGenre.data.total_items
                     if(total_events > 0){
                       allresults.push(databyGenre.data.events.event);
+                      // allresults.push(databyGenre.data.events);
                     }else{
-                      // allresults.push(total_events);
+                      allresults.push(total_events);
                     }
                     
               })
@@ -44,11 +47,6 @@ const getDataFromEventfullApi = ()=>{
                 outputObj[genreArray[index]] = genreArr
                 //outputObj['music_blues'] = [{},{},{},{}]
               })
-
-        ///// end the getDataFromEventfullApi return 
-
-              // console.log(JSON.stringify(outputObj));
-
 
               return outputObj;
 
