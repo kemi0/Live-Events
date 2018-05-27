@@ -16,8 +16,8 @@ class eventDetailsTitle extends Component {
                 <p>{this.props.title}</p>
                 </div>
             <div className="row">
-                <div className="col-xs-12 text-right home-icon">
-                    <NavLink to="/"><i className="fas fa-home fa-lg"></i></NavLink>
+                <div className="col-xs-12 text-center home-icon">
+                    {/* <NavLink to="/"><i className="fas fa-home fa-lg"></i></NavLink> */}
                 </div>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Menu from './menu';
 
 
 
+
 export default class Header extends Component {
     constructor(props){
         super(props);
@@ -19,7 +20,8 @@ export default class Header extends Component {
             <div className="container-fluid">
                 <div className="row row-eq-height">
                     <div className="col-xs-2 text-center left-nav nav">  
-                        <Menu/>   
+                        <Menu/>  
+                    
                          {/* <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"> <i className="fa fa-bars"></i></NavLink> */}
                     </div>
                     <div className="col-xs-8 text-center center-nav nav">

@@ -72,7 +72,7 @@ class CarouselInfo extends Component {
                             <div className="inter-box"><p className="carousel-year">{yearRender}</p></div>
                             </div>
 
-                        </div>
+                    </div>
                 </div>
         )
     }

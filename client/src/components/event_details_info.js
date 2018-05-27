@@ -28,7 +28,7 @@ class EventDetailsSecondPage extends Component {
 
             return(
                 <div className="container-fluid main-event-display-container">
-                    <div className="row">
+                   
                         <div className="col-xs-6 main-event-image-container">
                         <img src={this.props.image} />
                         </div>
@@ -36,11 +36,11 @@ class EventDetailsSecondPage extends Component {
                             <div className="inner-info-container">
                                 <div className="date">Date: {eventDate}</div>
                                 <div className="time">Time: {EventTime} PM</div>
-                                <div className="address">Address:{this.props.venue_name}</div>
+                                <div className="address">Address: {this.props.venue_name}</div>
                                 <div className="address-info">{this.props.venue_address}</div>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
             )
         }

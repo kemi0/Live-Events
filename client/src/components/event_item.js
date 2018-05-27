@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
 
+
 class Event extends Component {
 
     constructor (props){    
@@ -41,8 +42,7 @@ class Event extends Component {
         const EventTime= parseInt(timeStringMinusThreeCharacters);
 
         return (
-            <div className="container-fluid">
-                <div className=" row event-container">
+            <div className="container-fluid ">               
                     <div className="event-artist-photo">
                         <div className="img-con col-xs-4">
                         <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"><img src={this.props.image} /></NavLink>           
@@ -53,7 +53,7 @@ class Event extends Component {
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
-                        <button className="event-btn btn btn-default col-xs-3 offset-1 ">
+                        <button className="event-btn btn btn-default col-xs-4">
                             <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
                                 <div>
                                     <p>{this.props.dayRender}</p>
@@ -67,7 +67,7 @@ class Event extends Component {
                             </NavLink>
                         </button>
                     </div>
-                </div>
+                
             </div>
         );
     }
