@@ -155,10 +155,7 @@ async function test(){
                       connection.query(sql_performers_events , (err, result)=>{
                           if(err) throw err;
                         })                         
-                                            
-                  
-                  
-
+                                
                 //*************** end of eventArrayBasedOnKey.map  ****************//                   
                   })
            }else{
@@ -174,8 +171,19 @@ test();
 
 
 
+////do not touch code below////
+///last end point
+app.get('*',(req, res)=>{
+  res.sendFile(resolve(__dirname, 'client', 'dist', 'index.html'));
+})
 
 
+app.listen( PORT, function(){
+  console.log('Express Server running at localhost! ' + PORT);
+}).on('error', (err)=>{
+  console.log('Server Error', err.message);
+  console.log('Do you already have a server running on PORT: ' + PORT +'?')
+});
 
 
 
@@ -256,18 +264,4 @@ test();
 
 
 
-
-////do not touch code below////
-///last end point
-app.get('*',(req, res)=>{
-  res.sendFile(resolve(__dirname, 'client', 'dist', 'index.html'));
-})
-
-
-app.listen( PORT, function(){
-  console.log('Express Server running at localhost! ' + PORT);
-}).on('error', (err)=>{
-  console.log('Server Error', err.message);
-  console.log('Do you already have a server running on PORT: ' + PORT +'?')
-});
 
