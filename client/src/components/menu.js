@@ -64,8 +64,10 @@ class Menu extends Component {
                         <div className="title">
                             <span>{this.props.Menutitles}</span>
                         </div>
+                        <SearchBar />
                         <SearchIcon toggleSearchBar={ this.toggleSearchBar.bind(this) }/>
                         {/* <SearchBar/> */}
+
                         <MenuLinks menuStatus={menuStatus}/>
                         
                 </div>

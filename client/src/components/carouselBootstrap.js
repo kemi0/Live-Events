@@ -13,14 +13,16 @@ class CarouselSlider extends Component{
     render(){
 
         return(
-            <div className="container-fluid">
-                <div id="Carousel" className="carousel slide" data-ride="carousel">
-                    
-                    <ol className="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+
+<div className="container-fluid">
+    <div id="Carousel" className="carousel slide" data-ride="carousel">
+        
+        <ol className="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
 
                         <div className="carousel-inner">
                         <div className="item active">

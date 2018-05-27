@@ -268,7 +268,9 @@ img{
     border:solid black 1px;
     background-color:#f4f1f5;
     height:8em;
-    margin-top:5%;
+    margin-top:2%;
+    display: flex;
+    flex-direction: row;  
     width: 100%;
     
 }
@@ -445,6 +447,9 @@ footer{
     border: 1px solid black;
     width:100%;
     height:20em;
+}
+.embed-responsive-16by9{
+    padding-bottom: 58.25%;
 }
 
 /* suggested events carousel */
