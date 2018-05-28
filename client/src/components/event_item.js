@@ -56,13 +56,13 @@ class Event extends Component {
                         <button className="event-btn btn btn-default col-xs-4">
                             <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected">
                                 <div>
-                                    <p>{this.props.dayRender}</p>
+                                    <p>{dayRender}</p>
                                 </div>
                                 <div>
-                                    <p>{this.props.monthRender}</p>
+                                    <p>{monthRender}</p>
                                 </div>
                                 <div>
-                                    <p>{this.props.dayOfWeekRender}</p>
+                                    <p>{dayOfWeekRender}</p>
                                 </div>
                             </NavLink>
                         </button>

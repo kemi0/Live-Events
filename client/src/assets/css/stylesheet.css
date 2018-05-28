@@ -1,7 +1,10 @@
 
+@font-face{
+    font-family: backtoblack;
+    src: url("../fonts/BackToBlack.ttf");
+}
 
 *{
-
   /*--------------------- */
   /**** PAGE SETUP *******/
  /*-------------------- */
@@ -11,10 +14,10 @@
     font-family: helvetica;
     box-sizing: border-box
 }
-
    /*---------------- */
   /**** HEADER *******/
  /*---------------- */
+
 header {
     border: solid black 1px;
     /* width:100vw; */
@@ -73,6 +76,7 @@ header {
     transition: 0.5s ease-in-out;
     cursor: pointer;
   }
+
   #hambmenu span {
     position: absolute;
     height: 5px;
@@ -87,6 +91,10 @@ header {
             transform: rotate(0deg);
     transition: 0.25s ease-in-out;
     padding: 0px;
+  }
+
+  .title span {
+    font-family: backtoblack;
   }
   
   .hambclicker {
@@ -225,11 +233,12 @@ img{
     height:min-content;
     border: solid black 1px;
     margin-top:1%;
-    position:relative;
+    /* position:relative; */
     /* bottom:-18.5em; */
     background-color:lightgrey;
     text-overflow:hidden;
-    opacity:0.7;
+    opacity:0.9;
+
 }
 
 .carousel-date-info{
@@ -238,13 +247,30 @@ img{
     margin-top:1%;
     background-color: lightgrey;
     text-overflow:hidden;
-    opacity:0.7;
     position:relative;
     /* bottom:-18.5em; */
 }
 
+.carousel-caption{
+    display: flex;
+}
+
+.caption-left{
+    text-align: left;
+    width: 75%;
+    padding-left:3%;
+}
+
+.caption-right{
+    width: 25%;
+}
+
+.caption-left > p, .caption-right > p {
+    margin: 0;
+}
+
 .carousel-day{
-    font-size:0.8em;
+    font-size:1.8em;
 }
 
 .carousel-month, .carousel-date{
@@ -259,6 +285,27 @@ img{
     font-size:1em;
 }
 
+.artist-title{
+    font-size:1.5em;
+    color:rgb(243, 229, 107);
+    text-shadow:grey 5px 0.5px;
+    font-weight:bold;
+
+}
+
+/* Bootstrap Carousel Overrides */
+
+.carousel-caption {
+    right: 0% !important;
+    left: 0% !important;
+    bottom: 0 !important;
+}
+
+.carousel slide{
+    right: 0% !important;
+    left: 0% !important;
+    bottom: 2% !important;
+}
 
    /*---------------------- */
   /** EVENTS DISPLAY AREA **/

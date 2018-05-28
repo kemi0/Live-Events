@@ -7,7 +7,7 @@ import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
 import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
-// import ShowMoreButton from './showMoreButton';
+// import carousel from './carouselSlider';
 import axios from "axios";
 
 const dummyDataCopy = dummyData.slice();
@@ -111,7 +111,7 @@ class Main extends Component {
         return (
             
             <div>
-                
+                {/* <Carousel/> */}
                 <Top city_name={dummyData[0].city_name} />
                 <CarouselSlider/>
                 {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}

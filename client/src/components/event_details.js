@@ -7,14 +7,13 @@ import AboutEvent from './about_event_section';
 import Map from './google_maps';
 import Youtube from './youtube_artist';
 import Event from "./event_item";
-import SuggestedEvent from './similar_event_suggestion';
-import Dots from './hard_coded_dots';
 import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
 import dummyData from '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
-import SimilarEventSuggestionSlider from './similar_event_suggestion';
+
 // import Slider from './slider';
+import Carousel from './sliderCarousel';
 
 
 export default props =>{
@@ -26,9 +25,9 @@ export default props =>{
                 <Youtube/>
                 <AboutEvent/>
                 <Map/>
-                <SimilarEventSuggestionSlider/>
+                <Carousel />
                 {/* <Slider/> */}
-                <Dots/>
+
             </div>
         )
     }
