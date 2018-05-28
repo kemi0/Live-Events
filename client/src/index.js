@@ -5,7 +5,7 @@ import React from 'react';
 import '../node_modules/bootstrap3/dist/css/bootstrap.css';
 import ReactDOM from 'react-dom';
 import App from './components/app';
-import EventDetails from './components/event_details';
+import SecondPageComponent from './components/event_details';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Footer from './components/footer';
 import Menu from './components/menu'

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
 
-export default props => {
+class AboutEvent extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
+    render() {
     return (
 <div>
     <div className="container-fluid">
@@ -14,13 +20,14 @@ export default props => {
     </div>
     <div className="row">
     <div className="col-xs-12">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse voluptates corrupti qui illo, recusandae architecto
-                fugit atque, ratione dolorem sapiente accusantium numquam dicta? Sunt quod in placeat laudantium deleniti
-                nesciunt!
+        <p>{this.props.description}
         </p>
     </div>
     </div>
 </div>
 
-    );
+        );
+    }
 }
+
+export default AboutEvent;

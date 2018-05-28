@@ -8,6 +8,7 @@ import '../assets/css/carousel.css';
 import dummyData from '../../helper/dummydata';
 import corgi404 from '../assets/images/404corgi.jpg';
 import axios from "axios";
+// import Event from './event_item';
 
 const dummyDataCopy = dummyData.slice();
 
@@ -131,6 +132,7 @@ class Carousel extends Component {
                         transitionEnterTimeout={transitionTime}
                         transitionLeaveTimeout={transitionTime}
                     >
+                        {/* <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} /> */}
                         <img key={images[currentIndex].image ? images[currentIndex].image.blackborder250.url : corgi404} src={images[currentIndex].image ? images[currentIndex].image.blackborder250.url : corgi404} alt={''} className="carousel-img" />
                     </Transition>
                 </div>

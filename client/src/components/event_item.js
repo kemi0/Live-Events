@@ -7,18 +7,6 @@ class Event extends Component {
 
     constructor (props){    
         super (props);   
-        // let startTime = this.props.time;
-        // this.day = Date.parse(startTime);
-        // this.new_day = new Date();
-        // const month = this.new_day.getMonth();
-        // const day_of_week = this.new_day.getDay();
-        // const day_of_month = this.new_day.getDate();
-        // const year = this.new_day.getFullYear();
-        
-        // const newthang = `${this.new_day.getFullYear()} ${this.new_day.getMonth()} ${this.new_day.getDate()}`;
-        // console.log(this.props)
-
-        
     }
 
     render() {

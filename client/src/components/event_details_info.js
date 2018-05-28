@@ -27,7 +27,7 @@ class EventDetailsSecondPage extends Component {
 
 
             return(
-                <div className="container-fluid main-event-display-container">
+                <div className="row main-event-display-container">
                    
                         <div className="col-xs-6 main-event-image-container">
                         <img src={this.props.image} />
