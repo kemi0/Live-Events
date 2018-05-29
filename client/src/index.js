@@ -1,15 +1,34 @@
-///front end index.js
-import '../node_modules/bootstrap3/dist/css/bootstrap.css';
-import '../node_modules/bootstrap3/dist/css/bootstrap-theme.css';
+//npm install --save react-router-dom
+//npm install --save bootstrap3
+//npm run dev
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
+import SecondPageComponent from './components/event_details';
+import { BrowserRouter as Router } from 'react-router-dom';
+import '../node_modules/bootstrap3/dist/css/bootstrap.css';
+// import Header from './components/header';
+import Footer from './components/footer';
+import Menu from './components/menu';
 
-// import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+
+
 
 
 
 ReactDOM.render(
-    <App />,
+    <Router>
+
+        <div>
+
+
+            <Menu Menutitles="Live Music App"/>  
+
+                <App />
+                
+        </div>
+
+    </Router>,
+
     document.getElementById('root')
 );

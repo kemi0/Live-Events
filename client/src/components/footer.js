@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             
-<footer className="page-footer font-small">
+<footer >
 
     <div className="container-fluid text-center text-md-left">
         <div className="row">
@@ -13,8 +13,8 @@ class Footer extends Component {
                 <h5 className="text-uppercase">Footer Content</h5>
                 <p>Here you can use rows and columns here to organize your footer content.</p>
             </div> */}
-            <div className="col-sm-4">
-                <h5 className="text-uppercase">Links</h5>
+            <div className="col-sm-4 text-right">
+                <h5 className="text-uppercase">LiveMusicApp</h5>
                 <ul className="list-unstyled">
                     <li>
                         <i className="fas fa-home fa-lg"><a href="#!"></a></i>
@@ -25,9 +25,6 @@ class Footer extends Component {
                     <li>
                         <i className="fas fa-music fa-lg"><a href="#!"></a></i>
                     </li>
-                    {/* <li>
-                        <i className=""><a href="#!"></a></i>
-                    </li> */}
                 </ul>
             </div>
         </div>
