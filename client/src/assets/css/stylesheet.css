@@ -323,7 +323,9 @@ img{
     border:solid black 1px;
     background-color:#f4f1f5;
     height:8em;
-    margin-top:5%;
+    margin-top:2%;
+    display: flex;
+    flex-direction: row;  
     width: 100%;
     
 }
@@ -510,6 +512,9 @@ footer{
     width:100%;
     height:20em;
 }
+.embed-responsive-16by9{
+    padding-bottom: 58.25%;
+}
 
 /* suggested events carousel */
 
@@ -523,6 +528,11 @@ footer{
 @media screen and (max-width: 420px) {
     .menubar span {
       font-size: 1.2em;
+    }
+    .menubar {
+        position: fixed;
+        z-index: 9;
+        width: 100%;
     }
   }
 

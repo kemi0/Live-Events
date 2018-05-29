@@ -36,8 +36,12 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+<<<<<<< HEAD
     "search": "^1.0.0",
     "turbo": "^0.1.2"
+=======
+    "youtube-api-search": "0.0.5"
+>>>>>>> 9391bfe015c23b584fa104ef0232a3ae6e25f0e2
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

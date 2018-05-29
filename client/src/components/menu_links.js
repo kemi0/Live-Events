@@ -6,34 +6,35 @@ class MenuLinks extends Component {
 
         this.state = {
             links: [{
-                text: 'Sign Up',
-                link: 'where to send me',
+                text: 'By Genre',
+                link: '#',
                 icon: 'add me'
             },{
                 text: 'Sign In',
-                link: 'where to send me',
+                link: '#',
                 icon: 'add me'
             },{
                 text: 'By Date',
-                link: 'where to send me',
+                link: '#',
                 icon: 'add me',
-            },{
-                text: 'By Artist',
-                link: 'add link to me',
-                icon: 'add me'
-            },{
-                text: 'By Genre',
-                link: 'add link to me',
-                icon: 'add me',
-            },{
-                text: 'By Videos',
-                link: 'add link to me',
-                icon: 'add me'
-            },{
-                text: 'Post Events',
-                link: 'add link to me',
-                icon: 'add me'
-             }]
+            }]
+            // },{
+            //     text: 'By Artist',
+            //     link: '#',
+            //     icon: 'add me'
+            // },{
+            //     text: 'By Genre',
+            //     link: '#',
+            //     icon: 'add me',
+            // },{
+            //     text: 'By Videos',
+            //     link: '#',
+            //     icon: 'add me'
+            // },{
+            //     text: 'Post Events',
+            //     link: '#',
+            //     icon: 'add me'
+            //  }]
              }
           }
      render() {
