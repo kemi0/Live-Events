@@ -8,6 +8,7 @@ const { resolve } = require('path');
 const PORT = process.env.PORT || 9000;
 const axios = require('axios');
 var mysql = require('mysql');
+const connection = require('./server/config/db-connection');
 
 const app = express();
 //when doing get
@@ -17,67 +18,107 @@ app.use(express.json());
 //for the React statily serve a folder
 app.use(express.static(resolve(__dirname,'client','dist')));
 
-
+// ================== inserting data fetched back from eventfull api ==================//
 async function test(){
       const connection = require('./server/config/db-connection');
       const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
+    try{
       const outputObj = await getDataFromEventfullApi();
-      // console.log(outputObj); 
+      //  outputObj is below: 
+      //  outputObj = {
+      //     genre1 : [{},{},{}],
+      //     genre2 : [{},{},{}],
+      //     genre3 : [{},{},{}]
+      // }
+  ////////*********_____________________________________**********//////////
+      // outputObj = {
+        //     genre1 : {
+        //                total_events: 3; 
+        //                events: [{},{},{}]
+        //               },
+        //    
+        // }
+  ////////*********_____________________________________**********//////////
+
       const genresHasEvents =[];
       for(let key in outputObj){
-//*********************** looping the outputObj  ****************//  
-          //  console.log(key)
-        
-           const eventArrayBasedOnKey = outputObj[key];
-           if(Number(eventArrayBasedOnKey) !== 0 ){
-                  // *************** FORMAT DATA and INSERT TO genres TABLE**************//
-                  // console.log(`=========================${key}======================================`);
-                  // console.log(eventArrayBasedOnKey);
-                  const sql_genre = `INSERT IGNORE INTO genres ( genre_name ) VALUES ("${key}")`;
-                  connection.query(sql_genre, (err, result)=>{
-                          if(err) throw err;
-                  });  
-                  console.log(`----------------------- ${key} inserted to the  genres table -----------------`);
-                  // ********** end of FORMAT DATA and INSERT TO genres TABLE*************// 
+//******looping the outputObj with key as genres and value as array of events associate to the key genre  ******//        
+           const eventArrayBasedOnGenre = outputObj[key];
+           //if NO EVENTS under particular GENRE; 
+
+          console.log(`${key}---> ${eventArrayBasedOnGenre.length}`);
 
 
-                  //*************** start of eventArrayBasedOnKey.map  ****************//                   
-                  eventArrayBasedOnKey.map((item, index)=>{
-                          //  console.log(`${index}: ${key} -> ${item} `);  
-
-                          // ****** FORMAT DATA and INSERT TO zipCode TABLE*******//
-
-                           const zip_code_value = item.postal_code; //right; 
-                           const sql_zip = `INSERT IGNORE INTO zipCode ( zip_code ) VALUES ("${zip_code_value}")`;
-                          //  console.log("INSERT ZIPCODE")
-                           connection.query(sql_zip , (err, result)=>{
-                                if(err) throw err;   
-                                // console.log(`${zip_code_value} inserted`);                  
-                                // console.log(`***********************${key} -> ${item} -> ${zip_code_value}  inserted to the  genres table *******************`);
-                              }) 
-                              // console.log(`## ${zip_code_value} inserted to table ##`);                  
+           if(Number(eventArrayBasedOnGenre) !== 0 ){
 
 
-                         // ******************&******************* FORMAT DATA and INSERT TO venues TABLE***********************************//
-                                const venue_name_value = item.venue_name; 
-                                const venue_address_value = item.venue_address;
-                                const venue_city_value  = item.city_name;
-                                const venue_state_value = item.region_name;
-                                const county_value = item.country_abbr;
-                                //zipcode_id = zipcode_id
-                                const longitude_value = item.longitude;
-                                const latitude_value = item.latitude; 
+                  // =========== FORMAT DATA and INSERT TO genres TABL============//
 
-                                const sql_venue = `INSERT IGNORE INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES ("${venue_name_value}","${venue_address_value}","${venue_city_value}","${venue_state_value}","${county_value}",(SELECT zip_id FROM zipCode WHERE zip_code = ${zip_code_value}), "${longitude_value}", "${latitude_value}")`;
+                //preparing statement: 
+                const genre = key.replace(/("|music|[_ *)&@^#`~|+=%-<>{}[\](:'])/gi,'');
+                const sql_genre = "INSERT IGNORE INTO genres ( genre_name ) VALUES (?)";
+                const query = connection.query(sql_genre, genre, (err, result)=>{
+                      if(err) throw err;
+                      // console.log(`${genre} id:  ${result.insertId}`);                       
+                  });                             
 
-                                connection.query(sql_venue , (err, result)=>{
+                //******************** start of eventArrayBasedOnGenre.map *******************//      
+                  // eventArrayBasedOnGenre = [{},{},{},{}];
+                  //item = {};
+                  eventArrayBasedOnGenre.map((item, index)=>{
+                        
+                          // ----------- FORMAT DATA and INSERT TO zipCode TABLE -------------//
+             
+                           let zip_code_value;
+                           if(item.postal_code !== null){
+                            zip_code_value = item.postal_code.replace(/("|[a-zA-Z@#$%^&*()!_+=-])/gi,''); 
+                           }else{
+                            zip_code_value = 'null'; //right;
+                           }
+                          // ----------- INSERT TO zipCode TABLE -------------//
+                            const sql_zip = "INSERT IGNORE INTO zipCode ( zip_code ) VALUES (?)";
+                            const query_zip = connection.query(sql_zip, zip_code_value, (err, result)=>{
+                              if(err) throw err;
+                            })
+                        
+                         // ---------------  FORMAT DATA for venues TABLE --------------------//    
+
+                           const venue_name_value = item.venue_name.replace(/(["|\\]|postal code \d+, united states|postal code \d+, us|birmingham, Alabama, United States)/gi, 'No Venue Info Listed'); 
+                              
+                           let venue_address_value = item.venue_address; 
+                                if(venue_address_value === null){
+                                  venue_address_value = 'No Address Listed';
+                                }else{
+                                  venue_address_value = venue_address_value.replace(/(country=\w+%\d+\w+|&\w+)/gi, '');
+                                  venue_address_value = venue_address_value.replace(/(birmingham, \w+, \w+ \w+)/gi, 'No Address Listed'); 
+                                }
+
+                          const venue_city_value  = item.city_name.replace(/(['"@\\=+\-_!#$%^&*()~.,`])/gi, '');
+                          const venue_state_value = item.region_name.replace(/(['"@\\=+\-_!#$%^&*()~`.,])/gi, '');
+                          const county_value = item.country_abbr.replace(/(['"@\\=+\-_!#$%^&*()~`.,])/gi, '');
+                          const longitude_value = item.longitude.replace(/(['"@\\=+_!#$%^&*()~,`])/gi, '');
+                          const latitude_value = item.latitude.replace(/(['"@\\=+_!#$%^&*()~,`])/gi, '');; 
+
+                //  //preparing statement: 
+                       
+                        // --------------- INSERT TO venues TABLE --------------------//     
+
+                          // working
+                                const sql_venue = `INSERT IGNORE INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES (?,?,?,?,?,(SELECT zip_id FROM zipCode WHERE zip_code = ?), ?, ?)`;
+                                const sql_venue_value = [venue_name_value,venue_address_value,venue_city_value,venue_state_value,county_value,zip_code_value,longitude_value,latitude_value]
+                                const query_venue  = connection.query(sql_venue ,sql_venue_value, (err, result)=>{
                                   if(err) throw err;
-                                  // console.log(`${venue_name_value}  ${zip_code_value} inserted to the venues table`);
+                                  // console.log("venue id:  "+ result.insertId +" ------> " + "name:  " + venue_name_value);   
+
                                 }) 
-                         //// ********************* FORMAT DATA and INSERT TO events  Table *************************///
+ 
+
+
+
+                       // ----------------------  FORMAT DATA  For events  Table ----------------------//
+
                                 let event_title_value = item.title; 
-                                event_title_value = event_title_value.replace(/[`~!@#%^&*()|+\='"<>\{\}\[\]\\\/]/gi, ''); 
-                                // console.log(`event in ${key} ${index} titile: ${event_title_value}`);
+                                event_title_value = event_title_value.replace(/[`~@#%^&*()|+\='"<>\{\}\[\]\\\/]/gi, ''); 
                                 const time = item.start_time.split(" ");
                                 const event_date_value = time[0];
                                 const event_start_time_value = time[1];
@@ -85,23 +126,29 @@ async function test(){
                                 let event_details_value;
                                 if(item.description !== null){
                                   event_details_value = item.description;
-                                  event_details_value = event_details_value.replace(/[`~!@#%^&*()|+\='"<>\{\}\[\]\\\/]/gi, ''); 
+                                  event_details_value = event_details_value.replace(/<br> |[`~!@#%^&*()|+\="<>\{\}\[\]\\\/]/gi, ''); 
+                                  event_details_value = event_details_value.replace(/'re/gi, ' are');
                                 }else{
                                   event_details_value = 'No data';
-                                }
+                                }   
+                        //preparing statement: 
+                       
+                        // --------------- INSERT TO events TABLE --------------------//     
+                              // console.log(event_title_value);
 
-                                // console.log(`title::: ${event_title_value}`);
-                                // console.log(`details :::: ${event_details_value}`);
-                                
-                                const sql_events = `INSERT IGNORE INTO events (event_title, event_date, event_start_time,venue_id,popularity,event_details,genre_id) VALUES ("${event_title_value}", "${event_date_value}", "${event_start_time_value}",(SELECT venue_id FROM venues WHERE venue_name = "${venue_name_value}"),  "${popularity_value}", "${event_details_value}",(SELECT genre_id FROM genres WHERE genre_name = "${key}"))`;
-                        
-                                connection.query(sql_events , (err, result)=>{
-                                    if(err){
-                                      console.log(`------> ${event_title_value} --------->  ${event_details_value}  <---------- `)
-                                      throw err;
-                                    } 
-                                  }) 
-                        //// ********************* FORMAT DATA FOR  images *************************///
+                              const sql_events = `INSERT IGNORE INTO events (event_title, event_date, event_start_time,venue_id,popularity,event_details,genre_id) VALUES (?, ?, ?,(SELECT venue_id FROM venues WHERE venue_name = ?),  ?, ?,(SELECT genre_id FROM genres WHERE genre_name = ?))`;
+
+                              const sql_events_value = [event_title_value, event_date_value,event_start_time_value,venue_name_value, popularity_value, event_details_value, genre];
+
+                              const query_event = connection.query(sql_events, sql_events_value, (err, result)=>{
+                                    
+                                    if(err) throw err;
+                                    // console.log(`${result.insertId} --->event title: ${event_title_value} ----> ${genre}`);
+
+                              })
+
+
+//                         //// ********************* FORMAT DATA FOR  images *************************///
 
                               let image_status_value = item.image;
                               let image_url_value;
@@ -109,65 +156,153 @@ async function test(){
                               let image_detail_value;
                               if(image_status_value !== null){
                                 image_url_value =item.image.blackborder250.url;
-                                console.log(`this is the image url ******** ${image_url_value} *******`);
                                 image_size_value ="blackborder250";
-                                // console.log(image_size_value);
                                 image_detail_value = 'Get Images';
-                                console.log(image_detail_value);
                               }else{
                                 image_detail_value = 'No Images';
                                 image_url_value = null;
                                 image_size_value = null;
-                                console.log(image_detail_value);
 
                               }
 
-                              const sql_images = `INSERT IGNORE INTO images (image_url, image_size, event_id,image_detail) VALUES ('${image_url_value}',"${image_size_value}",(SELECT event_id FROM events WHERE event_title = "${event_title_value}"),"${image_detail_value}")`;
-                              console.log("INSERT images")
-                              connection.query(sql_images, (err,result)=>{
+                              const sql_images = `INSERT IGNORE INTO images (image_url, image_size, event_id,image_detail) VALUES (?,?,(SELECT event_id FROM events WHERE event_title = ?),?)`;
+                              const sql_images_value = [image_url_value, image_size_value,event_title_value,image_detail_value]
+                              connection.query(sql_images,sql_images_value, (err,result)=>{
                                 if(err) throw err;
                               })
-                        //   //// ********************* FORMAT DATA FOR performers TABLE*************************///
+
+            //// ********************* FORMAT DATA FOR performers TABLE*************************///
                             let performer_name_value = null;
                             let performer_bio_value = null;
                             let performer_image_value = null;
                             let performer_url_value = null;
-                                  if(item.performers !== null){
-                                      performer_name_value = item.performers.performer.name; 
-                                      performer_bio_value = item.performers.performer.short_bio;
-                                      performer_image_value = null; 
-                                      performer_url_value = item.performers.performer.url;
-                                   }else{
-                                    performer_name_value  = 'NO performer data is listed';
-                                   }
-                       const sql_performers = `INSERT IGNORE INTO performers (performer_name, performer_bio, performer_image,performer_url) VALUES ("${performer_name_value}","${performer_bio_value}","${performer_image_value}","${performer_url_value}")`;
-                        console.log(`INSERT  @@@@@  ${performer_name_value} to performers table @@@@ `)
-                        connection.query(sql_performers , (err, result)=>{
-                            if(err) throw err;
-                          //  console.log(`${performer_name_value} inserted to the venues table`);
-                          })   
-                 
-                  //*********INSERT DATA TO  performers_events Table *************////; 
-                      const sql_performers_events  = `INSERT IGNORE INTO performers_events (performer_id,event_id) VALUES ((SELECT performer_id FROM performers WHERE performer_name = "${performer_name_value}"), (SELECT event_id FROM events WHERE event_title = "${event_title_value}"))`;
+                            let performerId = index; 
+                            
+                            if(item.performers !== null && item.performers.performer.name !== undefined){
+                             
+                                  performer_name_value = item.performers.performer.name; 
+                                  performer_bio_value = item.performers.performer.short_bio;
+                                  
+                                  let sql_performers = 'INSERT IGNORE INTO performers (performer_name, performer_bio, performer_image,performer_url) VALUES (?,?,?,?)';
+                                  
+                                  let sql_performers_value = [performer_name_value, performer_bio_value, performer_image_value, performer_url_value];
 
-                      // console.log(sql_performers_events);
-                      console.log(` ++++++  INSERT ${performer_name_value} and ${event_title_value} in performers_events Table ++++++`)
-                      connection.query(sql_performers_events , (err, result)=>{
-                          if(err) throw err;
-                        })                         
-                                
-                //*************** end of eventArrayBasedOnKey.map  ****************//                   
-                  })
+                                  const query_performer = connection.query(sql_performers , sql_performers_value, (err, result)=>{
+                                  
+                                              if(err) throw err;
+                                              // console.log("performers id "+ result.insertId + "name: " + performer_name_value);   
+                                              // console.log(query_performer.sql);
+
+                                  })   
+
+                                  //*********INSERT DATA TO  performers_events Table *************////; 
+                                  const sql_performers_events  = `INSERT IGNORE INTO performers_events (performer_id,event_id) VALUES ((SELECT performer_id FROM performers WHERE performer_name = ?), (SELECT event_id FROM events WHERE event_title = ?))`;
+
+                                  const sql_performers_events_value =[performer_name_value, event_title_value]
+                                  const query_performers_events =  connection.query(sql_performers_events , sql_performers_events_value, (err, result)=>{
+                                      if(err) throw err;
+                                      // console.log(query_performers_events.sql);
+                                  })  
+                            
+
+                            }else if(item.performers !== null && item.performers.performer.name === undefined){
+                                  const arrayOfPerformer = item.performers.performer
+                                  arrayOfPerformer.map((performer_obj, index)=>{
+
+                                      performer_name_value = performer_obj.name;
+                                      performer_bio_value = performer_obj.short_bio;
+      
+                                      let sql_performers = 'INSERT IGNORE INTO performers (performer_name, performer_bio, performer_image,performer_url) VALUES (?,?,?,?)';
+                                      
+                                      let sql_performers_value = [performer_name_value, performer_bio_value, performer_image_value, performer_url_value];
+
+                                      const query_performer = connection.query(sql_performers , sql_performers_value, (err, result)=>{
+                                       
+                                                  if(err) throw err;
+                                                  // console.log("performers id "+ result.insertId + "name: " + performer_name_value);   
+                                                  // console.log(query_performer.sql);
+
+                                      })   
+
+                                      //*********INSERT DATA TO  performers_events Table *************////; 
+                                      const sql_performers_events  = `INSERT IGNORE INTO performers_events (performer_id,event_id) VALUES ((SELECT performer_id FROM performers WHERE performer_name = ?), (SELECT event_id FROM events WHERE event_title = ?))`;
+
+                                      const sql_performers_events_value =[performer_name_value, event_title_value]
+                                      const query_performers_events =  connection.query(sql_performers_events , sql_performers_events_value, (err, result)=>{
+                                          if(err) throw err;
+                                          // console.log(query_performers_events.sql);
+                                       })   
+
+                              })
+
+                            }else{
+                                  performer_name_value  = 'No performer info';
+
+                                  let sql_performers = 'INSERT IGNORE INTO performers (performer_name, performer_bio, performer_image,performer_url) VALUES (?,?,?,?)';
+                                          
+                                  let sql_performers_value = [performer_name_value, performer_bio_value, performer_image_value, performer_url_value];
+                                  const query_performer = connection.query(sql_performers , sql_performers_value, (err, result)=>{
+                                          
+                                        if(err) throw err;
+                                        // console.log("performers id "+ result.insertId + "name: " + performer_name_value);
+                                        // console.log(query_performer.sql);
+
+                                  }) 
+                                  //*********INSERT DATA TO  performers_events Table *************////; 
+                                  const sql_performers_events  = `INSERT IGNORE INTO performers_events (performer_id,event_id) VALUES ((SELECT performer_id FROM performers WHERE performer_name = ?), (SELECT event_id FROM events WHERE event_title = ?))`;
+
+                                  const sql_performers_events_value =[performer_name_value, event_title_value]
+                                  const query_performers_events =  connection.query(sql_performers_events , sql_performers_events_value, (err, result)=>{
+                                      if(err) throw err;
+                                      // console.log(query_performers_events.sql);
+                                    })    
+
+                            }
+                           
+              //*************** end of eventArrayBasedOnKey.map  ****************//                   
+                })
+
            }else{
             //  console.log(`${key} doesn't have events`);
            }          
 //*************** end of looping the outputObj  ****************//  
       }
-// ********************end of test()******************************//
+  } catch (err){
+    console.log (err);
+  }
+// ******************** end of test() ******************************//
 }
 test();
+// ==================================  END inserting data fetched back from eventfull api ===========================//
 
 
+// app.get('/api/get-data',(req, res)=>{
+//   //this is getting data from our own DB; /sql-module/testingSQL
+//     const getDataFromDB = require('./server/sql-module/testingSQL');
+//     //calling the testData function from testingSQL.js here 
+//     getDataFromDB(function callback(responeFromDB){
+//       //sending to the front_end;
+//       console.log(responeFromDB);
+//       res.send(responeFromDB);
+//     })
+//   })
+app.get('/api', (req, res)=>{
+  res.send('hihihi');
+})
+
+
+const select_query = 'select * from events';
+
+app.get('/api/data', (req, res)=>{
+  connection.query(select_query, (err, result)=>{
+    if(err){
+       return res.send(err);
+    }else{
+      return res.send({data: result});
+    } 
+  })
+  
+})
 
 
 
@@ -186,81 +321,8 @@ app.listen( PORT, function(){
 });
 
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 // axios.get('api/user-data', { start: '20180101', end: '20180101', genre:'classical'})
 
-
-// //MAKING POST request///////////////
-
-// //console out the data getting back from evetfull api //fetch-data-api/fetch-data
-// app.get('/api/user-data',(req, res)=>{
-//   const getEventsFromApi = require('./server/fetch-data-api/fetch-data');
-  // getEventsFromApi();
-  // console.log('genre data from  eventfull api', getEventsFromApi());
-  // getEventsFromApi(function callback(responeFromAPI){
-  //   console.log('data response from eventfull',responeFromAPI);
-  // })
-  // console.log('genre data from  eventfull api', getEventsFromApi());
-  // getEventsFromApi();
-    
-  // console.log('this is hahaha', getEventsFromApi);
-
-
-
-//   const apiResults = getEventsFromApi();
-//   Promise.all(apiResults).then(response => {
-//     console.log('ARGUMENTS:', arguments);
-//     const output = response.map( data => {
-//       // function here to shape the data then store into DB
-//       // end; 
-//       // console.log(data.data)
-//       return data.data;
-//     });
-
-//     res.send({success: true, data: output});
-//   }).catch(err => {
-//     console.log('ERROR:', err.message);
-
-//     res.send({success: false, error: err.message});
-//   });
-// });
-
-
-
-
-
-
-
-
-
-
-
-// //MAKING POST request///////////////
-
-// //MAKING get request /////////////// 
-
-
-
-
-// // app.get('/api/user-data',(req, res)=>{
-// // //this is getting data from our own DB; /sql-module/testingSQL
-// //   const getDataFromDB = require('./server/sql-module/testingSQL');
-// //   //calling the testData function from testingSQL.js here 
-// //   getDataFromDB(function callback(responeFromDB){
-// //     //sending to the front_end;
-// //     res.send(responeFromDB);
-
-
-
-
-// app.get('/', function (req, res){
-//   res.send ('<h1>Hello Katy!</h1>')
-// })
 
 
 

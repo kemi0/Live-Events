@@ -16,11 +16,7 @@ connection.connect((err)=>{
   }
   console.time('mysql');
   console.log('Mysql is connected as id ' + connection.threadId);
-  //**********creating database tables: *************
-  // const createTables = require('./createDB');
-  // createTables();
-  //**********creating database tables end: *************
-  // connection.end();
+
 });
 
 //exporting out for other files to use the connection!

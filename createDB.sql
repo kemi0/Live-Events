@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `LMF`.`genres` (
   UNIQUE INDEX `genre_name_UNIQUE` (`genre_name` ASC))
   -- UNIQUE INDEX `genre_id_UNIQUE` (`genre_id` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 0
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `LMF`.`venues` (
   -- UNIQUE INDEX `venue_name` (`venue_name` ASC, `longitude` ASC, `latitude` ASC),
   UNIQUE INDEX `latitude_UNIQUE` (`latitude` ASC),
   UNIQUE INDEX `longitude_UNIQUE` (`longitude` ASC),
-  UNIQUE INDEX `venue_name_UNIQUE` (`venue_name` ASC),
+  -- UNIQUE INDEX `venue_name_UNIQUE` (`venue_name` ASC),
   INDEX `zipcode_id_idx` (`zipcode_id` ASC),
   -- UNIQUE INDEX `venue_id_UNIQUE` (`venue_id` ASC),
   CONSTRAINT `zipcode_id`

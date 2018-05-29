@@ -19,7 +19,7 @@ const getDataFromEventfullApi = ()=>{
           //************* getting all promises ******************//
 
           // const genreArray = [ 'music_alternative','music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_opera','music_latin','music_reggae','music_childrens','music_classical'];
-          const genreArray = [ 'music_alternative','music_blues','music_country','music_latin','music_reggae','music_childrens','music_classical'];
+          const genreArray = ['music_alternative','music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_opera','music_latin','music_reggae','music_childrens','music_classical'];
 
           let allPromises = [];  
           let allresults = [];
@@ -32,19 +32,23 @@ const getDataFromEventfullApi = ()=>{
           //************* the getDataFromEventfullApi is return below: ******************//
 
           return axios.all(allPromises).then(response=>{
-              response.map((databyGenre, index)=>{
+              response.map((resultByGenre, index)=>{
                 // console.log(databyGenre.data.total_items )
-                const total_events = databyGenre.data.total_items
+                const total_events = resultByGenre.data.total_items
+                // const arrayOfEventsByGenre = resultByGenre.data.events.event;
+
+
                     if(total_events > 0){
-                      allresults.push(databyGenre.data.events.event);
-                      // allresults.push(databyGenre.data.events);
+                      allresults.push(resultByGenre.data.events.event);
+                   
                     }else{
                       allresults.push(total_events);
                     }
+
                     
               })
-              //  console.log(allresults);
-              allresults.map((genreArr,index) =>{
+      //  console.log(allresults);
+          allresults.map((genreArr,index) =>{
                 outputObj[genreArray[index]] = genreArr
                 //outputObj['music_blues'] = [{},{},{},{}]
               })

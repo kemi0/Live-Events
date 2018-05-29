@@ -13,12 +13,13 @@ import '../assets/css/stylesheet.css';
 const App = () => {
     return(
         <div>
-            <Header/>
+            {/* <Header/>
             <MainCarousel/>
             <Events/>
-            <ShowMoreButton/>
-            {/* <Test/> */}
-            <Footer />
+            <ShowMoreButton/> */}
+             {/* <Test/>  do not remove <Test/> */}
+            {/* <Footer /> */}
+            <Test />
         </div>
     );
 }
