@@ -48,7 +48,7 @@ class App extends Component {
             
 
             <div className="container-fluid"> 
-                {displayVideoDetail()}
+                {/*  */}
                 <Route exact path="/" component={Main} />
                 <Route path="/eventDetails" component={EventDetails}/>         
             </div>

@@ -465,6 +465,11 @@ footer{
     .menubar span {
       font-size: 1.2em;
     }
+    .menubar {
+        position: fixed;
+        z-index: 9;
+        width: 100%;
+    }
   }
 
   /* inner-info container for second page*/

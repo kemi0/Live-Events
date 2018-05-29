@@ -60,13 +60,13 @@ class Menu extends Component {
                 <div className="menubar">
                     <div className="hambclicker" onClick={ this._menuToggle }></div>
                         <div id="hambmenu" className={ menuStatus }><span></span><span></span><span></span><span></span>
-                        </div>
+                    </div>
+
                         <div className="title">
                             <span>{this.props.Menutitles}</span>
                         </div>
                         <SearchBar />
                         <SearchIcon toggleSearchBar={ this.toggleSearchBar.bind(this) }/>
-                        {/* <SearchBar/> */}
 
                         <MenuLinks menuStatus={menuStatus}/>
                         

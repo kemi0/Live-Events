@@ -19,9 +19,7 @@ class SearchBar extends Component {
     }
     // updateSearch(e){
     //     this.setState({ term: e.target.value.substr(0,20)});
-    // }
-
-
+        
     render() {
         const tempStyle = {
             color: '#000',

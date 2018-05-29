@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             
-<footer className="page-footer font-small">
+<footer >
 
     <div className="container-fluid text-center text-md-left">
         <div className="row">
@@ -25,9 +25,6 @@ class Footer extends Component {
                     <li>
                         <i className="fas fa-music fa-lg"><a href="#!"></a></i>
                     </li>
-                    {/* <li>
-                        <i className=""><a href="#!"></a></i>
-                    </li> */}
                 </ul>
             </div>
         </div>
