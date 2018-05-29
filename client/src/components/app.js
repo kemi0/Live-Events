@@ -59,29 +59,16 @@ render(){
         return(
             <div>
                 <div>  
-                <Route exact path="/" component={Main} />
-                <Route path="/eventDetails" component={SecondPageComponent}/>
-                <Footer />                    
-                </div>
+                        <Route exact path="/" component={Main} />
+                        <Route path="/eventDetails" component={SecondPageComponent}/>
+                        <Footer /> 
+                        <Test />
+                 </div>
             </div>
         ); 
     } 
 
-<<<<<<< HEAD
-const App = () => {
-    return(
-        <div>
-            {/* <Header/>
-            <MainCarousel/>
-            <Events/>
-            <ShowMoreButton/> */}
-             {/* <Test/>  do not remove <Test/> */}
-            {/* <Footer /> */}
-            <Test />
-        </div>
-    );
-=======
->>>>>>> 9af35b7919a923006929583bfebbf13808f76a67
+
 }
 
 export default App;
