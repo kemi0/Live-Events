@@ -16,9 +16,9 @@ ReactDOM.render(
     <Router>
 
         <div>
-            <Menu Menutitles="Live Music App"/>   
+             
                 <App />
-                <Footer />
+                
         </div>
 
     </Router>,

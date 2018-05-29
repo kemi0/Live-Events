@@ -113,7 +113,10 @@ class Main extends Component {
             <div>
                 {/* <Carousel/> */}
                 <Top city_name={dummyData[0].city_name} />
-                <CarouselSlider/>
+                <div className="container">
+                    <CarouselSlider/>
+                </div>
+               
                 {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
                 {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
                 {allEvents}

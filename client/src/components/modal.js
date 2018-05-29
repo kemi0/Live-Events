@@ -13,19 +13,18 @@ import Corgi from '../assets/images/404corgi.jpg';
 import Map from './google_maps';
 import Carousel from './sliderCarousel';
 
-// const API_KEY= 'AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk';  //google maps API
-
 export default props =>{
-
-        return(
-            <div>
-                <EventTitle title={dummyData[0].title}/> 
+    return(
+        <div className="modal" style={{display: props.showOrHide}} onClick={props.onClick}>
+            <div className="modal-content">
+            <EventTitle title={dummyData[0].title}/> 
                 <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />,
                 <Youtube/>
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map long={dummyData[0].longitude}/>
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
             </div>
-        )
-    }
+        </div>
 
+    )
+}

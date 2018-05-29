@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
-//IMAGE COMMENTED OUT. MUST FIX ISSUE WITH RELATIVE POSITIONING ON "INFO-ROW", IT BREAKS WHEN IMAGE IS IN
 
 class CarouselInfo extends Component {
     constructor(props) {
@@ -38,7 +37,8 @@ class CarouselInfo extends Component {
                         <div className="caption-right">
                             <div className="day-row"><p className="carousel-day">{dayOfWeekRender}</p></div>
                             <div className="month-date">
-                            <p className="carousel-monthandday">{monthRender} {dayRender}</p>
+                            <p className="carousel-month">{monthRender}</p>
+                            <p className="carousel-day"> {dayRender}</p>
                           
                         </div>
                             {/* <div className="col-xs-6 text-center carousel-date-info"> */}
