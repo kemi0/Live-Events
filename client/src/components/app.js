@@ -59,9 +59,9 @@ render(){
         return(
             <div>
                 <div>  
-                <Route exact path="/" component={Main} />
-                <Route path="/eventDetails" component={SecondPageComponent}/>
-                <Footer />                    
+                    <Route exact path="/" component={Main} />
+                    <Route path="/eventDetails" component={SecondPageComponent}/>
+                    <Footer />                    
                 </div>
             </div>
         ); 

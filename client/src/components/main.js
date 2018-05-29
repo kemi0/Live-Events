@@ -106,14 +106,12 @@ class Main extends Component {
             )
         })
         
-        
-
         return (
             
             <div>
                 {/* <Carousel/> */}
                 <Top city_name={dummyData[0].city_name} />
-                <div className="container">
+                <div className="container-fluid">
                     <CarouselSlider/>
                 </div>
                
