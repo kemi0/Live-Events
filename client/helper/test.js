@@ -1,27 +1,49 @@
-// front_end request data from back_end 
 import React, { Component } from 'react'; 
 import axios from 'axios';
+// // import helperList from './helperList';
 
 class Test extends Component{
-//begin 
+  componentDidMount(){
+    this.getData();
+  }
+  
+  async getData(){
+      const response = await axios.get('/api/data')
+          // .then(function(data) {
+          //   console.log("THis is from db");
+          // })
+          // .catch(function(err) {
+          //   console.log(err);
+          // }); 
+      
+      console.log("this is a the data " , response.data);
+  }
 
-//end 
+  render(){
+    return (
+      <div> testing </div>
+    )
+  }
 }
 
-// class Test extends Component{
+export default Test;
+
+
 //     componentDidMount(){
-//       this.getEventData();
+//       this.getUserData();
 //     }
 
 //   //requesting data from server by using '/api/user-data' : 
-//   async getEventData(){
-//     const response = await axios.get('/api/user-data');
-//     console.log('data from database', response.data);
-//     // <helperList/>
+//   async getUserData(){
+//     const response = await axios.get('/api/get-data');
+//     console.log(' data response from database :', response.data);
+
+//     // const name = response.data.name;
+//     // console.log(name);
 //   }
 
 //   render(){
-//     return <div></div>
+//     return <h1> testing </h1>
 //   }
 
 // }
