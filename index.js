@@ -291,7 +291,7 @@ app.get('/api', (req, res)=>{
   res.send('hihihi');
 })
 
-const select_query ="SELECT * FROM events, venues,genres, performer";
+const select_query ="SELECT * FROM events";
 
 app.get('/api/data', (req, res)=>{
   connection.query(select_query, (err, result)=>{
