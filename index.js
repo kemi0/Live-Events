@@ -286,19 +286,20 @@ test();
 //       res.send(responeFromDB);
 //     })
 //   })
+
 app.get('/api', (req, res)=>{
   res.send('hihihi');
 })
 
-
-const select_query = 'select * from events';
+const select_query ="SELECT * FROM events, venues,genres, performer";
 
 app.get('/api/data', (req, res)=>{
   connection.query(select_query, (err, result)=>{
     if(err){
-       return res.send(err);
+      res.send(err);
     }else{
-      return res.send({data: result});
+      // const output = JSON.stringify(result,null,3)      
+      res.json(result);
     } 
   })
   
