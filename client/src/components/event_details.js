@@ -11,9 +11,7 @@ import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
 import dummyData from '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
-import Map from './google_maps';
 import Carousel from './sliderCarousel';
-import SimilarEventSuggestionSlider from './similar_event_suggestion';
 // import Slider from './slider';
 import videoDetail from './video_detail'
 
@@ -34,9 +32,6 @@ export default props =>{
                 {/* {displayVideoDetail()} */}
                 <VideoDetail viedo={ video } />
                 <AboutEvent/>
-                <Map/>
-                <SimilarEventSuggestionSlider/>
-
             </div>
         )
     }

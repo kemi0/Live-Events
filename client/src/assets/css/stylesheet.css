@@ -534,6 +534,9 @@ footer{
         z-index: 9;
         width: 100%;
     }
+    .search_toolbar_popdown{
+        position: fixed;
+      }
   }
 
   /* inner-info container for second page*/
@@ -545,12 +548,15 @@ footer{
   
 
   .search_toolbar_popdown{
-      width:100%;
-      border:black 1px solid;
-      border-radius: 2%;
-      height: 5em;
-      font-size: 0.9em;
-      box-shadow: grey 5px 5px 5px;
+    position: absolute;
+    width: 100%;
+    border: black 1px solid;
+    border-radius: 2%;
+    height: 5em;
+    font-size: 0.9em;
+    box-shadow: grey 5px 5px 5px;
+    top: 60px;
+    z-index: 1;
   }
 
 

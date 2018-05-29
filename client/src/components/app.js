@@ -13,7 +13,7 @@ import SecondPageComponent from './event_details';
 // import dummyData from '../../helper/dummydata';
 import Event from './event_item';
 import EventDetails from './event_details';
-import YTSearch from 'youtube-api-search';
+// import YTSearch from 'youtube-api-search';
 import VideoDetail from './video_detail';
 
 // YT search 
@@ -57,20 +57,12 @@ const API_KEY = 'AIzaSyCcDAVsmjsSKyf65jePkCftULWyIgT0mzo';
 class App extends Component {
 render(){
         return(
-            <div>  
-            <Menu Menutitles="Live Music App"/>   
-            {/* <Main/> */}
-            <Route exact path="/" component={Main} />
-            <Route path="/eventDetails" component={SecondPageComponent}/>
-            <Footer />                    
-            </div>
-        );
-    }
-
-            <div className="container-fluid"> 
-                {/*  */}
+            <div>
+                <div>  
                 <Route exact path="/" component={Main} />
-                <Route path="/eventDetails" component={EventDetails}/>         
+                <Route path="/eventDetails" component={SecondPageComponent}/>
+                <Footer />                    
+                </div>
             </div>
         ); 
     } 
