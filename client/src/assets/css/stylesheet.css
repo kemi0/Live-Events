@@ -590,15 +590,20 @@ footer{
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 5px 15px 5px 0.5 grey;
+    width: 90%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
+.close-button {
+    background-color: hotpink;
+    color:white;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    right: 40%;
+    bottom:10px;
+    padding-top:2%;
 }
 
 .close:hover,

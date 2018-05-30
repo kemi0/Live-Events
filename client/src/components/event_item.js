@@ -13,11 +13,22 @@ class Event extends Component {
         
         this.state = {
             display: "none",
+            isOpen:true,
             events:[]
         }
         this.handleModalClick= this.handleModalClick.bind(this)
         this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
         this.showMoreEvents=this.showMoreEvents.bind(this)
+        this.modalToggle = this.modalToggle.bind(this);
+    }
+
+    modalToggle() {
+        const { isSearchInputActive } = this.state;
+
+        // Ternary equivalent to using if / else
+        isSearchInputActive ? 
+            this.setState({ isOpen: false }) : 
+            this.setState({ isOpen: true });
     }
 
     handleModalClick(){
