@@ -29,12 +29,12 @@ class Main extends Component {
     }
 
     getEventsFromDb(){
-        axios.get("/api/get-data").then(resp =>{
-            console.log(resp.data);
-            this.setState({
-                //set state to whatever data is coming through
-            })
-        });
+        // axios.get("/api/get-data").then(resp =>{
+        //     console.log(resp.data);
+        //     this.setState({
+        //         //set state to whatever data is coming through
+        //     })
+        // });
 
         setTimeout(() => {
             const currentEvents = dummyDataCopy.splice(0, 5);
@@ -77,14 +77,15 @@ class Main extends Component {
             const timeString= time.toString();
             const timeStringMinusThreeCharacters= timeString.slice(0,-3);
             const EventTime= parseInt(timeStringMinusThreeCharacters);
+    
 
             if (item.image !== null) {
                 return(
-                    <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
+                    <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} latitude={item.latitude} longitude={item.longitude}/>
                 )
             } else {
                 return(
-                    <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} />
+                    <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} latitude={item.latitude} longitude={item.longitude}/>
                 )
             }
 
@@ -105,7 +106,6 @@ class Main extends Component {
                 <Top key={index} city_name={item.city_name} />
             )
         })
-        
         return (
             
             <div>
