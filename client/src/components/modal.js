@@ -8,12 +8,13 @@ import VideoDetails from './video_detail';
 import Event from "./event_item";
 import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
-import dummyData from '../../helper/dummydata';
+import dummyData from  '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
 import Map from './google_maps';
 import Carousel from './sliderCarousel';
 
 export default props =>{
+    // console.log('this is dummy data', dummyData);
     return(
         <div className="modal" style={{display: props.showOrHide}}>
             <div className="modal-content">

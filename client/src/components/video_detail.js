@@ -9,6 +9,7 @@ class VideoDetail extends Component {
     constructor(props) {
         super(props);
 
+
         this.state = {
             videos: null
         }
@@ -19,19 +20,28 @@ class VideoDetail extends Component {
             { key: API_KEY, term: this.props.term},
             function(data) {
                 console.log("This is the data from the YT search", data);
+               
             }
+        
         );
+        this.setState({
+            videos: this.props
+        })
     }
+
+
 
     render(){
         const { videos } = this.state;
-
+            
         if(!videos){
             return <h1>Loading..</h1>
         } else {
-            var videoId = videos[0].id.videoId;
-            const url = `https://www.youtube.com/embed/${videoId}`;
+            
+            var videoId = videos.videos[0].id;
 
+            const url = `https://www.youtube.com/embed/${videoId}`;
+            debugger;
             return(
                 <div className="container-fluid">
                     <div className="row youtube-container">

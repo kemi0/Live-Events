@@ -5,7 +5,7 @@ export default [
                 "region_abbr": "AL",
                 "postal_code": "35233",
                 "latitude": "33.508914",
-                "id": "E0-001-112741313-6",
+                "id": "eSjSozKL_EA",
                 "city_name": "Birmingham",
                 "longitude": "-86.79786",
                 "country_name": "United States",
