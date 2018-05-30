@@ -1,26 +1,75 @@
-import React from 'react';
-import Footer from './footer';
-import Events from './events';
-import Header from './header';
-import MainCarousel from "./mainCarousel";
-import ShowMoreButton from "./showMoreButton";
-import Test from '../../helper/test'; //do not remove Test.
+
+import React, { Component } from 'react';
 import '../assets/css/stylesheet.css';
+import ReactDOM from 'react-dom';
+import Main from './main';
+import { Route } from 'react-router-dom';
+import Test from '../../helper/test'; // do not remove test
+// import Header from './header';
+import Footer from './footer';
+import Menu from './menu.js'
+// import Event from './event_item';
+import SecondPageComponent from './event_details';
+// import dummyData from '../../helper/dummydata';
+import Event from './event_item';
+import EventDetails from './event_details';
+// import YTSearch from 'youtube-api-search';
+import VideoDetail from './video_detail';
+
+// YT search 
+const API_KEY = 'AIzaSyCcDAVsmjsSKyf65jePkCftULWyIgT0mzo';
 
 
-// THIS IS THE MAIN CAROUSEL FOR THE FIRST PAGE
+// Keep here  
 
-const App = () => {
-    return(
-        <div>
-            <Header/>
-            <MainCarousel/>
-            <Events/>
-            <ShowMoreButton/>
-            <Test/>  {/* do not remove <Test/> */}
-            <Footer />
-        </div>
-    );
+
+
+
+
+// class App extends Component {
+//     constructor(props){
+//         super(props);
+//         this.state = { videos: []}
+
+
+//         YTSearch(
+//             { key: API_KEY, term: 'kanye west'},
+//             async (data) => {
+//             await this.setState({videos: data})
+//         });
+//     }
+//     render() {
+
+
+//         const displayVideoDetail = () => {
+//             if (this.state.videos.length > 0){
+//                 return <VideoDetail videos={this.state.videos}/>
+//             } else {
+//                 return null;
+//             }
+//         }
+
+//         console.log("this is state:", this.state.videos)
+//         return(
+            
+
+
+class App extends Component {
+render(){
+        return(
+           
+                <div className="container-fluid">  
+
+                        <Route exact path="/" component={Main} />
+                        <Route path="/eventDetails" component={SecondPageComponent}/>
+                        <Test /> 
+                 </div>
+
+ 
+        ); 
+    } 
+
+
 }
 
 export default App;
