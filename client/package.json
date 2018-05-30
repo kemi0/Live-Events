@@ -5,7 +5,7 @@
   "main": "index.js",
   "proxy": {
     "/api/*": {
-      "target": "http://localhost:8000"
+      "target": "http://localhost:9000"
     }
   },
   "scripts": {
@@ -39,7 +39,6 @@
     "search": "^1.0.0",
     "turbo": "^0.1.2",
     "youtube-api-search": "0.0.5"
-
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
