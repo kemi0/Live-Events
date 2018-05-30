@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Learning-Fuze/c318_livemusicfinder#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "mysql": "^2.15.0"

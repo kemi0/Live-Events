@@ -18,15 +18,18 @@ import VideoDetail from './video_detail';
 class App extends Component {
 render(){
         return(
-            <div>
-                <div>  
-                    <Route exact path="/" component={Main} />
-                    <Route path="/eventDetails" component={SecondPageComponent}/>
-                    <Footer />                    
-                </div>
-            </div>
+           
+                <div className="container-fluid">  
+
+                        <Route exact path="/" component={Main} />
+                        <Route path="/eventDetails" component={SecondPageComponent}/>
+                        <Test /> 
+                 </div>
+
+ 
         ); 
     } 
+
 
 }
 

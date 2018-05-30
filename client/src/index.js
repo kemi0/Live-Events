@@ -22,7 +22,7 @@ ReactDOM.render(
         <div>
 
 
-            <Menu Menutitles="Live Music App"/>  
+            <Menu Menutitles = "Live Music App"/>  
 
                 <App />
                 
