@@ -15,14 +15,15 @@ import Carousel from './sliderCarousel';
 
 export default props =>{
     return(
-        <div className="modal" style={{display: props.showOrHide}} onClick={props.onClick}>
+        <div className="modal" style={{display: props.showOrHide}}>
             <div className="modal-content">
-            <EventTitle title={dummyData[0].title}/> 
+                <EventTitle title={dummyData[0].title}/> 
                 <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
                 <Youtube/>
                 <AboutEvent description ={dummyData[3].description}/>
-                <Map long={dummyData[0].longitude}/>
+                <Map lat={props.lat} lon={props.lon} />
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
+                {/* space for button */}
             </div>
         </div>
 

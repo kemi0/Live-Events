@@ -1,23 +1,35 @@
 import React, { Component } from 'react'
-import GoogleMapReact from 'google-map-react'
+import GoogleMapReact from 'google-map-react';
 // import dummyData from '../../helper/dummydata';
 // import axios from "axios";
 
 
 
-const AnyReactComponent = ({ text }) => <div>{ text }</div>;
-// const dummyDataCopy = dummyData.slice();
+const Marker = ({ text }) => ( <div style={{
+                color: 'white', 
+                background: 'grey',
+                padding: '15px 10px',
+                display: 'inline-flex',     
+                textAlign: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '100%',
+                transform: 'translate(-50%, -50%)'
+        }}>{ text }</div> 
+);
 
-export default class Map extends Component {
-        constructor( props){
-                super(props);
-        }
+class Map extends Component {
+        // constructor(props){
+        //         super(props);
+        //         this.state = {
+        //                 center: {
+        //                         lat: 33.508914, 
+        //                         lng: -86.79786
+        //                 },
+        //                 zoom: 13
+        //         }
+        // }
         
-  static defaultProps = {
-    center: { lat: 33.508914, lng:-86.79786},
-    zoom: 13
-  }
-
 //   componentDidMount(){
 //           this.getEventsFromDb();
 //         }
@@ -50,26 +62,20 @@ export default class Map extends Component {
 //     }
 
 
- 
-  
         render() {
-                
-        return (
-        <div className="google-map-container">
-                <GoogleMapReact
-                        defaultCenter={ this.props.center }
-                        defaultZoom={ 13 }/>
-                <AnyReactComponent
-                        lat={ '' }
-                        lng={ '' }
-                        text={ '' } />
-               
-                <GoogleMapReact/>
-        </div>
+                let { lat, lon } = this.props;
+                lat = Number(lat);
+                lon = Number(lon);
+
+                return (
+                        <div className="google-map-container">
+                        <GoogleMapReact center={{lat, lng: lon}} zoom={13} bootstrapURLkeys={
+                                {key:"AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk"}} >
+                                <Marker lat={ lat } lng={ lon } text={ 'SPOT' } /> 
+                        </GoogleMapReact>
+                </div>
                 )
-        }
+        }       
 }
 
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk&callback=initMap">
-    </script>
+export default Map;
