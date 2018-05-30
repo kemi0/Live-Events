@@ -18,16 +18,11 @@ import Menu from './components/menu';
 
 ReactDOM.render(
     <Router>
-
         <div>
-
-
             <Menu Menutitles = "Live Music App"/>  
-
-                <App />
-                
+            <App /> 
+            {/* <Footer/> */}
         </div>
-
     </Router>,
 
     document.getElementById('root')

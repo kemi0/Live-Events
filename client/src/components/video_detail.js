@@ -38,7 +38,7 @@ class VideoDetail extends Component {
             return <h1>Loading..</h1>
         } else {
             
-            var videoId = videos.videos[0].id;
+            let videoId = videos.videos[0].id;
 
             const url = `https://www.youtube.com/embed/${videoId}`;
             debugger;
@@ -50,8 +50,8 @@ class VideoDetail extends Component {
                                 <iframe className="embed-responsive-item" src={url}></iframe>
                             </div>
                             {/* <div className="detials">   
-                                <div>{videos[0].snippet.title}</div>
-                                <div>{videos[0].snippet.description}</div>
+                                <div>{videos.videos[0].snippet.title}</div>
+                                <div>{videos.videos[0].snippet.description}</div>
                             </div> */}
                         </div>
                     </div>

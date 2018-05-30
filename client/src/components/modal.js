@@ -25,7 +25,6 @@ export default props =>{
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map lat={props.lat} lon={props.lon} />
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
-                {/* space for button */}
             </div>
         </div>
 
