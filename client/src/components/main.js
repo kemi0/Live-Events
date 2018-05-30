@@ -88,7 +88,7 @@ class Main extends Component {
 
                 if (item.event_image !== "No Image") {
                     return(
-                        <Event start_time={eventTime} description={item.description} title={item.even_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 } else {
                     return(

@@ -8,9 +8,6 @@ class CarouselInfo extends Component {
     }
 
     render() {
-        const myData = {
-            monthsArray: 
-        }
     const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dateObject = Date.parse(this.props.event_date);

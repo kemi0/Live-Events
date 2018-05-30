@@ -14,7 +14,7 @@ class eventDetailsTitle extends Component {
         return(
             <div className="container-fluid">
                 <div className="top-display-text title">
-                <p>{this.props.title}</p>
+                <p>{this.props.event_title}</p>
                 </div>
             <div className="row">
                 <div className="col-xs-12 text-center home-icon">

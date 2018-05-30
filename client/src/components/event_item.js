@@ -82,7 +82,7 @@ class Event extends Component {
                             {/* </NavLink> */}
                         </button>
                     </div>
-                    <Modal description={this.props.description} title={this.props.title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)}/>              
+                    <Modal description={this.props.description} title={this.props.event_title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)}/>              
             </div>
         );
    

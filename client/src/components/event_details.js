@@ -22,7 +22,7 @@ export default props =>{
         return(
             <div>
                 <EventTitle title={dummyData[0].title}/> 
-                <EventDetailsSecondPage  title={dummyData[0].title}  image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} start_time={dummyData[0].start_time} />,
+                <EventDetailsSecondPage  title={this.props.event_details}  image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} start_time={dummyData[0].start_time} />,
                 <Youtube/>
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map long={dummyData[0].longitude}/>
