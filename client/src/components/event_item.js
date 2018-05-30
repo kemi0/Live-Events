@@ -72,11 +72,9 @@ class Event extends Component {
         }
     });
 
-
-
         return (
-            <div className="container-fluid ">               
-                    <div className="event-artist-photo">
+            <div className="container-fluid">
+                <div className="event-artist-photo">
                         <div className="img-con col-xs-4">
                         
                         <img src={this.props.image} onClick={this.handleModalClick}/>      
@@ -101,8 +99,7 @@ class Event extends Component {
                             {/* </NavLink> */}
                         </button>
                     </div>
-                    <Modal showOrHide={this.state.display} onClick={this.handleCloseModalClick}/>
-                
+                    <Modal showOrHide={this.state.display} onClick={this.handleCloseModalClick}/>              
             </div>
         );
     }

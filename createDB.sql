@@ -80,13 +80,15 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `LMF`.`events` (
   `event_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `genre_id` INT(11) NOT NULL,
   `event_title` VARCHAR(100) NOT NULL,
   `event_date` DATE NOT NULL,
   `event_start_time` TIME NOT NULL,
   `venue_id` INT(11) NOT NULL,
   `popularity` INT(11) NOT NULL,
   `event_details` TEXT NULL DEFAULT NULL,
-  `genre_id` INT(11) NOT NULL,
+  `event_image` VARCHAR(250),
+  -- `image_size` VARCHAR(100),
   PRIMARY KEY (`event_id`),
   UNIQUE INDEX `event_title` (`event_title` ASC),
   INDEX `venue_id_idx` (`venue_id` ASC),
@@ -109,23 +111,23 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `LMF`.`images`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LMF`.`images` (
-  `image_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `image_url` VARCHAR(250) NULL DEFAULT NULL,
-  `image_size` VARCHAR(100) NULL DEFAULT NULL,
-  `event_id` INT(11) NOT NULL,
-  `image_detail` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`image_id`),
-  UNIQUE INDEX `image_url_UNIQUE` (`image_url` ASC),
-  INDEX `event_id_idx` (`event_id` ASC),
-  -- UNIQUE INDEX `image_id_UNIQUE` (`image_id` ASC),
-  CONSTRAINT `event_id`
-    FOREIGN KEY (`event_id`)
-    REFERENCES `LMF`.`events` (`event_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+-- CREATE TABLE IF NOT EXISTS `LMF`.`images` (
+--   `image_id` INT(11) NOT NULL AUTO_INCREMENT,
+--   `image_url` VARCHAR(250) NULL DEFAULT NULL,
+--   `image_size` VARCHAR(100) NULL DEFAULT NULL,
+--   `event_id` INT(11) NOT NULL,
+--   `image_detail` VARCHAR(45) NOT NULL,
+--   PRIMARY KEY (`image_id`),
+--   UNIQUE INDEX `image_url_UNIQUE` (`image_url` ASC),
+--   INDEX `event_id_idx` (`event_id` ASC),
+--   -- UNIQUE INDEX `image_id_UNIQUE` (`image_id` ASC),
+--   CONSTRAINT `event_id`
+--     FOREIGN KEY (`event_id`)
+--     REFERENCES `LMF`.`events` (`event_id`)
+--     ON DELETE CASCADE
+--     ON UPDATE CASCADE)
+-- ENGINE = InnoDB
+-- DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -151,6 +153,7 @@ CREATE TABLE IF NOT EXISTS `LMF`.`performers_events` (
   `performer_id` INT(11) NOT NULL,
   `event_id` INT(11) NOT NULL,
   PRIMARY KEY (`performer_id`, `event_id`),
+  UNIQUE INDEX `event_id` (`event_id` ASC),
   INDEX `fk_performers_has_events_events1_idx` (`event_id` ASC),
   INDEX `fk_performers_has_events_performers1_idx` (`performer_id` ASC),
   CONSTRAINT `fk_performers_has_events_events1`

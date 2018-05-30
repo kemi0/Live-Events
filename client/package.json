@@ -39,7 +39,6 @@
     "search": "^1.0.0",
     "turbo": "^0.1.2",
     "youtube-api-search": "0.0.5"
-
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
