@@ -4,7 +4,7 @@ import EventTitle from './event_details_title';
 import AboutSection from './about_event_section';
 import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
-import Youtube from './youtube_artist';
+// import Youtube from './youtube_artist';
 import Map from './google_maps';
 import Event from "./event_item";
 import Footer from './footer';
@@ -13,7 +13,7 @@ import dummyData from '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
 import Carousel from './sliderCarousel';
 // import Slider from './slider';
-import videoDetail from './video_detail'
+import VideoDetail from './video_detail'
 
 // const API_KEY= 'AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk';  //google maps API
 
@@ -24,13 +24,12 @@ export default props =>{
                 <EventTitle title={dummyData[0].title}/> 
                 <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />,
 
-                <Youtube/>
+               
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map long={dummyData[0].longitude}/>
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
-                {/* <videoDetails /> */}
-                {/* {displayVideoDetail()} */}
-                <VideoDetail viedo={ video } />
+             
+                <VideoDetail videos={ props.video } />
                 <AboutEvent/>
             </div>
         )

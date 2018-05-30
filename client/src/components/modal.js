@@ -4,7 +4,7 @@ import EventTitle from './event_details_title';
 import AboutSection from './about_event_section';
 import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
-import Youtube from './youtube_artist';
+import VideoDetails from './video_detail';
 import Event from "./event_item";
 import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
@@ -19,7 +19,8 @@ export default props =>{
             <div className="modal-content">
             <EventTitle title={dummyData[0].title}/> 
                 <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
-                <Youtube/>
+                <VideoDetails videos={ dummyData } />
+                {/* <VideoDetails videos={ dummyData } term={props.term} /> */}
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map long={dummyData[0].longitude}/>
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
