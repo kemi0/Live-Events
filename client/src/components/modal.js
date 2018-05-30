@@ -14,15 +14,16 @@ import Map from './google_maps';
 import Carousel from './sliderCarousel';
 
 export default props =>{
+    console.log("This is modal props: ", props);
     return(
         <div className="modal" style={{display: props.showOrHide}}>
             <div className="modal-content">
-                <EventTitle title={dummyData[0].title}/> 
-                <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
+                <EventTitle title={props.title}/> 
+                <EventDetailsSecondPage event_date={props.event_date} title={props.title} venue_address={props.venue_address} image={dummyData[1].image.blackborder250.url} venue_name={props.venue_name} time={props.start_time} />
                 <Youtube/>
-                <AboutEvent description ={dummyData[3].description}/>
+                <AboutEvent description ={props.description}/>
                 <Map lat={props.lat} lon={props.lon} />
-                <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
+                <Carousel title={dummyData[0].title} venue_address={props.venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={props.start_time}/>
                 {/* space for button */}
             </div>
         </div>

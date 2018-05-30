@@ -76,16 +76,16 @@ class Main extends Component {
             const time = date.toLocaleTimeString();
             const timeString= time.toString();
             const timeStringMinusThreeCharacters= timeString.slice(0,-3);
-            const EventTime= parseInt(timeStringMinusThreeCharacters);
+            const eventTime= parseInt(timeStringMinusThreeCharacters);
     
 
             if (item.image !== null) {
                 return(
-                    <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                    <Event start_time={eventTime} description={item.description} title={item.title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} latitude={item.latitude} longitude={item.longitude}/>
                 )
             } else {
                 return(
-                    <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                    <Event start_time={eventTime} description={item.description} title={item.title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} latitude={item.latitude} longitude={item.longitude}/>
                 )
             }
 
@@ -110,7 +110,7 @@ class Main extends Component {
             
             <div>
                 {/* <Carousel/> */}
-                <Top city_name={dummyData[0].city_name} />
+                <Top city_name={this.props.city_name} />
                 <div className="container-fluid">
                     <CarouselSlider/>
                 </div>

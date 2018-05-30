@@ -42,8 +42,8 @@ class Event extends Component {
     }
 
     render() {
-
-    console.log("this is the thing", this.props)
+      
+    console.log("this is the event thing", this.props)
         return (
             <div className="container-fluid">
                 <div className="event-artist-photo">
@@ -53,7 +53,7 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
-                            <p className="time">{this.props.event_date}</p>
+                            <p className="time">{this.props.start_time} PM</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
@@ -71,10 +71,12 @@ class Event extends Component {
                             {/* </NavLink> */}
                         </button>
                     </div>
-                    <Modal lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} onClick={this.handleCloseModalClick}/>              
+                    <Modal description={this.props.description} title={this.props.title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} onClick={this.handleCloseModalClick}/>              
             </div>
         );
+   
     }
 }
+
 
 export default Event;

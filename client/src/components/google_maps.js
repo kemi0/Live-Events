@@ -2,20 +2,23 @@ import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react';
 // import dummyData from '../../helper/dummydata';
 // import axios from "axios";
+import note from '../assets/images/note.png'
 
 
 
 const Marker = ({ text }) => ( <div style={{
                 color: 'white', 
-                background: 'grey',
-                padding: '15px 10px',
+                background: 'red',
+                padding: '10px 10px',
                 display: 'inline-flex',     
                 textAlign: 'center',
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: '100%',
-                transform: 'translate(-50%, -50%)'
+                transform: 'translate(-50%, -50%)',
+                
         }}>{ text }</div> 
+
 );
 
 class Map extends Component {
@@ -71,7 +74,7 @@ class Map extends Component {
                         <div className="google-map-container">
                         <GoogleMapReact center={{lat, lng: lon}} zoom={13} bootstrapURLkeys={
                                 {key:"AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk"}} >
-                                <Marker lat={ lat } lng={ lon } text={ 'SPOT' } /> 
+                                <Marker lat={ lat } lng={ lon } image={ note } /> 
                         </GoogleMapReact>
                 </div>
                 )
