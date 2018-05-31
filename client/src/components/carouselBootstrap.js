@@ -35,7 +35,7 @@ class CarouselSlider extends Component{
                                 {/* <img src={dummyData[3].image.blackborder250.url}/> */}
                                 <img src={this.props.events[1].event_image}/>
                                 {/* <CarouselInfo title={dummyData[3].title} venue_name={dummyData[3].venue_name} time={dummyData[3].start_time} /> */}
-                                {/* <CarouselInfo current_event={this.props.events[1]} /> */}
+                                <CarouselInfo current_event={this.props.events[1]} />
                             </div>
                         
                             <div className="item">
@@ -43,7 +43,7 @@ class CarouselSlider extends Component{
                                 <img src={Corgi}/>
 
                                 {/* <CarouselInfo title={dummyData[9].title} venue_name={dummyData[9].venue_name} time={dummyData[9].start_time} /> */}
-                                {/* <CarouselInfo current_event={this.props.events[2]} /> */}
+                                <CarouselInfo current_event={this.props.events[2]} />
                             </div> 
                         </div >
                     </div>
