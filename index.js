@@ -12,10 +12,11 @@ const connection = require('./server/config/db-connection');
 const app = express();
 //when doing get
 app.use(cors());
-//when doing POST
+//when doing POST ``
 app.use(express.json());
 //for the React statily serve a folder
 app.use(express.static(resolve(__dirname,'client','dist')));
+const timeStart = Date.now();
 
 // ================== inserting data fetched back from eventfull api ==================//
 async function test(){
@@ -23,6 +24,8 @@ async function test(){
       const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
     try{
       const outputObj = await getDataFromEventfullApi();
+      const firstBench = Date.now();
+      console.log(timeStart - firstBench);
       //  outputObj is below: 
       //  outputObj = {
       //     genre1 : [{},{},{}],
@@ -36,7 +39,7 @@ async function test(){
            const eventArrayBasedOnGenre = outputObj[key];
            //if NO EVENTS under particular GENRE; 
 
-          console.log(`${key}  -------> ${eventArrayBasedOnGenre.length}`);
+          // console.log(`${key}  -------> ${eventArrayBasedOnGenre.length}`);
 
 
            if(Number(eventArrayBasedOnGenre) !== 0 ){
@@ -248,7 +251,8 @@ async function test(){
                            
               //*************** end of eventArrayBasedOnKey.map  ****************//                   
                 })
-
+                const nextBench = Date.now();
+                console.log(timeStart - nextBench);
            }else{
             //  console.log(`${key} doesn't have events`);
            }          
@@ -259,7 +263,7 @@ async function test(){
   }
 // ******************** end of test() ******************************//
 }
-test();
+// test();
 
 
 //end point for all the events without filter
@@ -271,14 +275,14 @@ AND venues.zipcode_id = zipCode.zip_id
 AND performers_events.performer_id = performers.performer_id
 AND performers_events.event_id =events.event_id
 ORDER BY events.event_date`;
-
+// console.log(select_query);
 app.get('/api/data', (req, res)=>{
   connection.query(select_query, (err, result)=>{
     if(err){
       res.send(err);
     }else{
       // const output = JSON.stringify(result,null,3) 
-      console.log(result.length);
+      // console.log(result.length);
       res.json(result);
     } 
   })

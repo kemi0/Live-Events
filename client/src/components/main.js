@@ -15,9 +15,9 @@ class Main extends Component {
     constructor (props){
         super(props);
 
-        this.state = {
-            events: []
-        };
+        // this.state = {
+        //     events: []
+        // };
 
         this.showMoreEvents = this.showMoreEvents.bind(this)
     }
@@ -28,8 +28,8 @@ class Main extends Component {
 // getting data back from db 
     getEventsFromDb(){
         axios.get("/api/data").then(resp =>{
-            this.populateEvents(resp.data);
-            
+            // this.populateEvents(resp.data);
+            this.props.addEvents(resp.data);
         });
     }
 
@@ -42,30 +42,29 @@ class Main extends Component {
         
 // click the butten to show more events
     showMoreEvents(){
-        if(this.state.events[0] == undefined){
-            console.warn('ask the database for more things')
-            return;
-        }
-        //after click the button and call db for more events
-        this.getEventsFromDb();
+        // if(this.state.events[0] == undefined){
+        //     console.warn('ask the database for more things')
+        //     return;
+        // }
+        // this.getEventsFromDb();
     }
 
     render(){
         
         
-        const { events } = this.state;
-        //all events are here!
-        console.log(events);
+        const { events, carouselEvents } = this.props;
+
         
 
+        // console.log('Events:', events);
 
         if (!events.length) {
 
             console.log(`-------->>>>${events.length}h<<<------------`);
             // when events.length !=== 0
             return <div>Loading ...</div>
-        } else{
-            const allEvents = this.state.events.map((item, index) => {
+        } else {
+            const allEvents = events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -100,30 +99,27 @@ class Main extends Component {
     
             });
 
-            const carouselMainInfo = this.state.events.map((item, index) => {
-                if(item.popularity > 120){
-                    console.log(`<------> popularity:${item.popularity}, image: ${item.event_image} <----------->`);
-                }
+            const carouselMainInfo = carouselEvents.map((item, index) => {
                 return (
                     <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
             })
 
-//////found city name but need to show the page/////
-            console.log( ` This is the all Evens`, allEvents);
-            const top = allEvents.map((item, index) => {
-                console.log(index, item.props.city_name);
+            const top = events.map((item, index) => {
                 return (
-                    <Top key={index} city_name={item.props.city_name} />
+                    <Top key={index} city_name={item.city_name} />
                 )
             });
+
+            const displayButton = events.length> 10 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
 
             return (
                
                 <div>
+                  
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
-                        <CarouselSlider events={events}/>
+                        <CarouselSlider events={carouselEvents}/>
                     </div>
              
                     {allEvents}
@@ -131,7 +127,7 @@ class Main extends Component {
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
-                            <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button>
+                        {/* {displayButton} */}
                         </div>
                         </div>
                     </div>
