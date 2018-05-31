@@ -20,8 +20,8 @@ ReactDOM.render(
     <Router>
         <div>
             <Menu Menutitles = "Live Music App"/>  
-            <App /> 
-            {/* <Footer/> */}
+            {/* <App />  */}
+            <Footer/>
         </div>
     </Router>,
 
