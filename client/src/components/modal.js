@@ -8,7 +8,6 @@ import Youtube from './youtube_artist';
 import Event from "./event_item";
 import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
-import dummyData from '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
 import Map from './google_maps';
 import Carousel from './sliderCarousel';

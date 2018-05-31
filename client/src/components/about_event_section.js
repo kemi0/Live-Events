@@ -13,22 +13,7 @@ class AboutEvent extends Component {
     }
 
     render() {
-    //     const eventDetails=this.props
-    //     const comingSoon="details coming soon.."
-    //     console.log("eventDetails:", comingSoon);
-        
-    //     if( this.state.description == null){
-    //         return(
-    //             comingSoon
-    //         )
-    //     }
-            
-    //     }
-    
-
-        
-        
-        // console.log("this is the description:",this.props)
+ 
     return (
 <div>
     <div className="container-fluid">
