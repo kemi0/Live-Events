@@ -4,8 +4,7 @@
 var mysql = require('mysql');
 var schedule = require ('node-schedule');
 
-schedule.scheduleJob('* * * * * *', () => {
-//schedule.scheduleJob('* 0 0 * * *', () => {
+schedule.scheduleJob('* 0 0 * * *', () => {
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
 
