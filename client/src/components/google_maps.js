@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react';
-// import dummyData from '../../helper/dummydata';
-// import axios from "axios";
 import note from '../assets/images/note.png'
 
 
 
-const Marker = ({ text }) => ( <div className="mapTHing" style={{
+const Marker = ({ text }) => ( <div className="mapThing" style={{
                 color: 'white', 
-                background: 'red',
                 padding: '10px 10px',
                 display: 'inline-flex',     
-                textAlign: 'center',
+                textAlign: 'top',
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: '100%',
                 transform: 'translate(-50%, -50%)',
+                text:'live event',
                 
         }}>{ text }</div> 
 
