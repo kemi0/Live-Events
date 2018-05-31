@@ -20,9 +20,9 @@ class Main extends Component {
     constructor (props){
         super(props);
 
-        this.state = {
-            events: []
-        };
+        // this.state = {
+        //     events: []
+        // };
 
         this.showMoreEvents = this.showMoreEvents.bind(this)
     }
@@ -33,8 +33,8 @@ class Main extends Component {
 
     getEventsFromDb(){
         axios.get("/api/data").then(resp =>{
-            this.populateEvents(resp.data);
-            
+            // this.populateEvents(resp.data);
+            this.props.addEvents(resp.data);
         });
 
         // setTimeout(() => {
@@ -52,22 +52,24 @@ class Main extends Component {
         
 
     showMoreEvents(){
-        if(this.state.events[0] == undefined){
-            console.warn('ask the database for more things')
-            return;
-        }
-        this.getEventsFromDb();
+        // if(this.state.events[0] == undefined){
+        //     console.warn('ask the database for more things')
+        //     return;
+        // }
+        // this.getEventsFromDb();
     }
 
     render(){
         
         
-        const { events } = this.state;
+        const { events } = this.props;
+
+        // console.log('Events:', events);
 
         if (!events.length) {
             return <div>Loading ...</div>
         } else {
-            const allEvents = this.state.events.map((item, index) => {
+            const allEvents = events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -102,13 +104,13 @@ class Main extends Component {
     
             });
 
-            const carouselMainInfo = this.state.events.map((item, index) => {
+            const carouselMainInfo = events.map((item, index) => {
                 return (
                     <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
             })
 
-            const top = this.state.events.map((item, index) => {
+            const top = events.map((item, index) => {
                 return (
                     <Top key={index} city_name={item.city} />
                 )
@@ -121,7 +123,7 @@ class Main extends Component {
                     {/* <Carousel/> */}
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
-                        <CarouselSlider events={events}/>
+                        {/* <CarouselSlider events={events}/> */}
                     </div>
                     {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
                     {/* {carouselMainInfo}  << TO POPULATE NON HARD CODED */}

@@ -31,7 +31,7 @@ class Modal extends Component {
     // }
 
         render(){
-        console.log("This is modal props: ", this.props);
+        // console.log("This is modal props: ", this.props);
        
 
         

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import SecondPageComponent from './event_details';
 import Modal from './modal';
-import dummyData from '../../helper/dummyData'
+// import dummyData from '../../helper/dummyData'
 
-const dummyDataCopy = dummyData.slice();
+// const dummyDataCopy = dummyData.slice();
 
 class Event extends Component {
 

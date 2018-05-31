@@ -71,7 +71,7 @@ class Menu extends Component {
                         <SearchIcon toggleSearchBar={ this.toggleSearchBar.bind(this) }/>
 
                         <div className="barsSvg-left">
-                                                <svg class="lds-equalizer" width="86px"  height="86px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><g transform="rotate(180 50 50)"><rect ng-attr-x="{{7.6923076923076925 - config.width/2}}" y="36" ng-attr-width="{{config.width}}" height="24.0108" fill="#e15b64" x="4.6923076923076925" width="6">
+                                                <svg className="lds-equalizer" width="86px"  height="86px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><g transform="rotate(180 50 50)"><rect ng-attr-x="{{7.6923076923076925 - config.width/2}}" y="36" ng-attr-width="{{config.width}}" height="24.0108" fill="#e15b64" x="4.6923076923076925" width="6">
                         <animate attributeName="height" calcMode="spline" values="20;30;4;20" times="0;0.33;0.66;1" ng-attr-dur="{{config.speed}}" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1" repeatCount="indefinite" begin="-0.5833333333333334s" dur="1">
                         </animate></rect><rect ng-attr-x="{{15.384615384615385 - config.width/2}}" y="36" ng-attr-width="{{config.width}}" height="28.4181" fill="#f47e60" x="12.384615384615385" width="6">
                         <animate attributeName="height" calcMode="spline" values="20;30;4;20" times="0;0.33;0.66;1" ng-attr-dur="{{config.speed}}" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1" repeatCount="indefinite" begin="-0.6666666666666666s" dur="1">
@@ -100,7 +100,7 @@ class Menu extends Component {
                         </div>
                         <img className="logo" src= {DisplayText}/>
                          <div className="barsSvg-right">
-                                                <svg class="lds-equalizer" width="86px"  height="86px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><g transform="rotate(180 50 50)"><rect ng-attr-x="{{7.6923076923076925 - config.width/2}}" y="36" ng-attr-width="{{config.width}}" height="24.0108" fill="#e15b64" x="4.6923076923076925" width="6">
+                                                <svg className="lds-equalizer" width="86px"  height="86px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><g transform="rotate(180 50 50)"><rect ng-attr-x="{{7.6923076923076925 - config.width/2}}" y="36" ng-attr-width="{{config.width}}" height="24.0108" fill="#e15b64" x="4.6923076923076925" width="6">
                         <animate attributeName="height" calcMode="spline" values="20;30;4;20" times="0;0.33;0.66;1" ng-attr-dur="{{config.speed}}" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1" repeatCount="indefinite" begin="-0.5833333333333334s" dur="1">
                         </animate></rect><rect ng-attr-x="{{15.384615384615385 - config.width/2}}" y="36" ng-attr-width="{{config.width}}" height="28.4181" fill="#f47e60" x="12.384615384615385" width="6">
                         <animate attributeName="height" calcMode="spline" values="20;30;4;20" times="0;0.33;0.66;1" ng-attr-dur="{{config.speed}}" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1" repeatCount="indefinite" begin="-0.6666666666666666s" dur="1">
@@ -132,7 +132,7 @@ class Menu extends Component {
                         <MenuLinks menuStatus={menuStatus}/>
                         
                 </div>
-                { isSearchInputActive ? <SearchBar /> : <div></div> }
+                { isSearchInputActive ? <SearchBar search={this.props.search} /> : <div></div> }
             </div>
         ) 
     }
