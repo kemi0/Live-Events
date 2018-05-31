@@ -1,16 +1,44 @@
 /**
  * Created by Sasan on 5/31/2018.
  */
+var mysql = require('mysql');
 var schedule = require ('node-schedule');
 
-schedule.scheduleJob('* 0 0 * * *', () => {
-
+schedule.scheduleJob('* * * * * *', () => {
+//schedule.scheduleJob('* 0 0 * * *', () => {
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
 
         const connection = require('./server/config/db-connection');
         const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
         try{
+
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if(dd<10) {
+                dd = '0'+dd
+            }
+            if(mm<10) {
+                mm = '0'+mm
+            }
+            today =   yyyy + '-' + mm + '-' + dd;
+
+            var sql = "DELETE FROM `events` WHERE event_date <= '"+today+"'";
+            connection.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("Number of records deleted: " + result.affectedRows);
+            });
+
+
+            // const query = connection.query(delete_old_events, (err, result)=>{
+            //      if(err) throw err;
+            //      // console.log(`${genre} id:  ${result.insertId}`);
+            //  });
+            // console.log("records deleted")
+
             const outputObj = await getDataFromEventfullApi();
             //  outputObj is below:
             //  outputObj = {
