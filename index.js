@@ -39,7 +39,6 @@ async function test(){
 
           console.log(`${key}---> ${eventArrayBasedOnGenre.length}`);
 
-<<<<<<< HEAD
 // ================== inserting data fetched back from eventfull api ==================//
 async function test(){
   const connection = require('./server/config/db-connection');
@@ -314,8 +313,6 @@ if(err){
 })
 
 
-=======
->>>>>>> 5105549676e9f22c9e73a48ace4b58bc9455e959
 
            if(Number(eventArrayBasedOnGenre) !== 0 ){
 
@@ -330,15 +327,6 @@ if(err){
                       // console.log(`${genre} id:  ${result.insertId}`);                       
                   });                             
 
-<<<<<<< HEAD
-// app.get('/api/user-data',(req, res)=>{
-//   const user ={
-//    name : 'Jim Bob',
-//    email: 'jimhebob@gmail.com'
-//  }
-//   res.send(user);
-// });
-=======
                 //******************** start of eventArrayBasedOnGenre.map *******************//      
                   // eventArrayBasedOnGenre = [{},{},{},{}];
                   //item = {};
@@ -508,7 +496,6 @@ if(err){
                                        })   
 
                               })
->>>>>>> 5105549676e9f22c9e73a48ace4b58bc9455e959
 
                             }else{
                                   performer_name_value  = 'No performer info';
