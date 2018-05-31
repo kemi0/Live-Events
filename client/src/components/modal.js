@@ -10,7 +10,7 @@ import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
 import Corgi from '../assets/images/404corgi.jpg';
 import Map from './google_maps';
-import Carousel from './sliderCarousel';
+import SecondPageSliderCarousel from './sliderCarousel';
 
 class Modal extends Component {
 
@@ -31,13 +31,14 @@ class Modal extends Component {
 
         render(){
         console.log("This is modal props: ", this.props);
+       
 
         
         return(
             <div className="modal" style={{display: this.props.showOrHide}}>
                 <div className="modal-content">
-                    <div className="sides wipe" onClick={this.props.closemodal}>
-                            >>
+                    <div className="close" onClick={this.props.closemodal}>
+                            X
                     </div>
                     <div>
                     <EventTitle title={this.props.event_title}/> 
@@ -46,8 +47,8 @@ class Modal extends Component {
                     <Youtube/>
                     <AboutEvent description ={this.props.description}/>
                     <Map lat={this.props.lat} lon={this.props.lon} />
-                    <Carousel title={this.props.title} venue_address={this.props.venue_address} image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time}/>
-                   
+                    <SecondPageSliderCarousel title={this.props.title} venue_address={this.props.venue_address} image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time}/>
+                    
                         <button className="text-center close-button btn" onClick={this.props.closemodal}>CLOSE</button>
                 
     

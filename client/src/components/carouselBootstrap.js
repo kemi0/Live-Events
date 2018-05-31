@@ -28,15 +28,15 @@ class CarouselSlider extends Component{
                         </ol>
                         <div className="carousel-inner" role="listbox">
                             <div className="item active">
-                           
-                                <img src={this.props.events[0].event_image}/>
-                              
-                                <CarouselInfo current_event={this.props.events[0]} />
+                                {/* <img src={dummyData[1].image.blackborder250.url}/> */}
+                                <img src={this.props.events[81].event_image}/>
+                                {/* <CarouselInfo title={dummyData[3].title} venue_name={dummyData[3].venue_name} time={dummyData[3].start_time} /> */}
+                                <CarouselInfo current_event={this.props.events[81]} />
                             </div>
 
                             <div className="item">
-                                <img src={this.props.events[1].event_image}/>
-                                <CarouselInfo current_event={this.props.events[1]} />
+                                <img src={this.props.events[82].event_image}/>
+                                <CarouselInfo current_event={this.props.events[82]} />
                             </div>
                         
                             <div className="item">
@@ -46,15 +46,15 @@ class CarouselSlider extends Component{
                             </div>    
 
                             <div className="item">
-                                <img src={this.props.events[16].event_image}/>
-                                <CarouselInfo current_event={this.props.events[16]} />
+                                <img src={this.props.events[123].event_image}/>
+                                <CarouselInfo current_event={this.props.events[123]} />
                             </div>
 
                             <div className="item">
-                           
-                                <img src={this.props.events[43].event_image}/>
-                               
-                                <CarouselInfo current_event={this.props.events[43]} />
+                                {/* <img src={dummyData[3].image.blackborder250.url}/> */}
+                                <img src={this.props.events[100].event_image}/>
+                                {/* <CarouselInfo title={dummyData[3].title} venue_name={dummyData[3].venue_name} time={dummyData[3].start_time} /> */}
+                                <CarouselInfo current_event={this.props.events[100]} />
                             </div>
                         
                      </div>

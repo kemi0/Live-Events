@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import SecondPageComponent from './event_details';
 import Modal from './modal';
-import dummyData from '../../helper/dummyData'
-
-const dummyDataCopy = dummyData.slice();
 
 class Event extends Component {
 
@@ -77,7 +74,7 @@ class Event extends Component {
                         </div>
 
                         <button className="event-btn btn btn-default col-xs-4" onClick={this.handleModalClick}>
-                            {/* <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"> */}
+                         
                                 <div>
                                     <p>{this.props.dayRender}</p>
                                 </div>
@@ -87,7 +84,6 @@ class Event extends Component {
                                 <div>
                                     <p>{this.props.dayOfWeekRender}</p>
                                 </div>
-                            {/* </NavLink> */}
                         </button>
                     </div>
                     <Modal description={this.props.description} event_title={this.props.event_title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)}/>              

@@ -9,7 +9,6 @@ import Map from './google_maps';
 import Event from "./event_item";
 import Footer from './footer';
 import EventDetailsSecondPage from './event_details_info';
-import dummyData from '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
 import Carousel from './sliderCarousel';
 // import Slider from './slider';
@@ -27,8 +26,6 @@ export default props =>{
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map long={dummyData[0].longitude}/>
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
-                {/* <videoDetails /> */}
-                {/* {displayVideoDetail()} */}
                 <VideoDetail video={ video } />
                 <AboutEvent/>
             </div>

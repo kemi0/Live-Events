@@ -21,7 +21,7 @@ class Main extends Component {
 
         this.showMoreEvents = this.showMoreEvents.bind(this)
     }
-
+    
     componentDidMount(){
         this.getEventsFromDb();
     }
@@ -51,6 +51,8 @@ class Main extends Component {
     }
 
     render(){
+        
+        
         const { events } = this.state;
         //all events are here!
         console.log(events);
@@ -84,18 +86,18 @@ class Main extends Component {
                 const eventTime= parseInt(timeStringMinusThreeCharacters);
                 
                 
-
                 if (item.event_image !== "No Image") {
                     return(
-                        //when event has image
-                        <Event city_name = {item.city}  start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime}  description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 } else {
                     return(
-                        //when is no image useing jazz404
-                        <Event city_name = {item.city} start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime} description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 }
+                
+
+    
             });
 
             const carouselMainInfo = this.state.events.map((item, index) => {
@@ -103,7 +105,7 @@ class Main extends Component {
                     console.log(`<------> popularity:${item.popularity}, image: ${item.event_image} <----------->`);
                 }
                 return (
-                    <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude}/>
+                    <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
             })
 
@@ -117,6 +119,7 @@ class Main extends Component {
             });
 
             return (
+               
                 <div>
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
@@ -128,7 +131,7 @@ class Main extends Component {
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
-                            <button className="show-more-button btn" onClick={this.showMoreEvents}>SHOW MORE BUTTON</button>
+                            <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button>
                         </div>
                         </div>
                     </div>

@@ -9,7 +9,6 @@ import Jazz404 from '../assets/images/concertImage1.jpg';
 import axios from "axios";
 import EventItem from './event_item';
 // this the second page modal carousel 
-const dummyDataCopy = dummyData.slice();
 
 class Carousel extends Component {
     constructor(props){
