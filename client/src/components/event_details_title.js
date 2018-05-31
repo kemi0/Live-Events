@@ -10,7 +10,7 @@ class eventDetailsTitle extends Component {
     }
 
     render(){
-        console.log("title?:", this.props);
+        // console.log("title?:", this.props);
         return(
             <div className="container-fluid">
                 <div className="top-display-text title">

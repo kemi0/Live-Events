@@ -42,18 +42,18 @@ class Footer extends Component {
                         <a href="https://twitter.com/" target="_blank" title="Twitter" itemProp="significantLink"><i className="generic-anchor fa fa-twitter"></i></a>
                         <a href="http://instagram.com/"  target="_blank" title="Instagram" itemProp="significantLink"><i className="generic-anchor fa fa-instagram"></i></a>
                         <a href="https://www.youtube.com/"  target="_blank" title="Youtube" itemProp="significantLink"><i className=" generic-anchor fa fa-youtube"></i></a>
-                        <a href="https://plus.google.com/"  target="_blank" title="Google Plus" itemProp="significantLink"><i className="generic-anchor fa fa-google-plus"></i></a>
+                        {/* <a href="https://plus.google.com/"  target="_blank" title="Google Plus" itemProp="significantLink"><i className="generic-anchor fa fa-google-plus"></i></a> */}
                     </span>
             </section>
             <section className="footer-bottom-section flex-rw">
-                    <div className="footer-bottom-wrapper">   
-                        <i className="" role="">
+                        <div className="footer-bottom-wrapper">   
+                            <i className="" role="">
 
-                        </i> Irvine <address className="footer-address" role="company address">California, CA</address><span className="footer-bottom-rights"> - All Rights Reserved - </span>
-                    </div>
-            <div className="footer-bottom-wrapper">
+                            </i> Irvine <address className="footer-address" role="company address">CA</address><span className="footer-bottom-rights"> - All Rights Reserved - </span>
+                        </div>
+            {/* <div className="footer-bottom-wrapper">
                      <a href="/terms-of-use.html" className="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" className="generic-anchor" rel="nofollow">Privacy</a>
-            </div>
+            </div> */}
     </section>
 </footer>
                       

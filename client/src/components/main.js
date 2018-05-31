@@ -6,6 +6,7 @@ import CarouselInfo from './mainCarousel';
 import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
+import Jazz404 from '../assets/images/concertImage1.jpg';
 import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
 // import carousel from './carouselSlider';
@@ -19,21 +20,21 @@ class Main extends Component {
     constructor (props){
         super(props);
 
-        this.state = {
-            events: []
-        };
+        // this.state = {
+        //     events: []
+        // };
 
         this.showMoreEvents = this.showMoreEvents.bind(this)
     }
-
+    
     componentDidMount(){
         this.getEventsFromDb();
     }
 
     getEventsFromDb(){
         axios.get("/api/data").then(resp =>{
-            this.populateEvents(resp.data);
-            
+            // this.populateEvents(resp.data);
+            this.props.addEvents(resp.data);
         });
 
         // setTimeout(() => {
@@ -51,20 +52,26 @@ class Main extends Component {
         
 
     showMoreEvents(){
-        if(this.state.events[0] == undefined){
-            console.warn('ask the database for more things')
-            return;
-        }
-        this.getEventsFromDb();
+        // if(this.state.events[0] == undefined){
+        //     console.warn('ask the database for more things')
+        //     return;
+        // }
+        // this.getEventsFromDb();
     }
 
     render(){
-        const { events } = this.state;
+        
+        
+        const { events, carouselEvents } = this.props;
+
+        
+
+        // console.log('Events:', events);
 
         if (!events.length) {
             return <div>Loading ...</div>
         } else {
-            const allEvents = this.state.events.map((item, index) => {
+            const allEvents = events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -85,49 +92,51 @@ class Main extends Component {
                 const eventTime= parseInt(timeStringMinusThreeCharacters);
                 
                 
-
                 if (item.event_image !== "No Image") {
                     return(
-                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime}  description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 } else {
                     return(
-                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime} description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 }
+                
 
-            // const eventDetailsInfo = dummyData.map((item,index) => {
-            //             <EventDetailsSecondPage title={item.title} venue_name={item.venue_name} time={item.start_time} image={item.image.blackborder250.url} key={index} />
-            //     });
+    
             });
 
-            const carouselMainInfo = dummyData.map((item, index) => {
+            const carouselMainInfo = carouselEvents.map((item, index) => {
                 return (
-                    <CarouselInfo key={index} title={item.title} venue_name={item.venue_name} time={item.start_time} />
+                    <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
             })
 
-            const top = allEvents.map((item, index) => {
+            const top = events.map((item, index) => {
                 return (
-                    <Top key={index} city_name={item.city_name} />
+                    <Top key={index} city_name={item.city} />
                 )
             });
+
+            const displayButton = events.length> 10 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+
             return (
+               
                 <div>
-                    {/* <Carousel/> */}
+                  
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
-                        <CarouselSlider/>
+                        <CarouselSlider events={carouselEvents}/>
                     </div>
                     {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
-                    {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
+                    {/* {carouselMainInfo}  << TO POPULATE NON HARD CODED */}
                     {allEvents}
                     {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
                     {/* <ShowMoreButton/> */}
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
-                            <button className="show-more-button btn" onClick={this.showMoreEvents}>SHOW MORE BUTTON</button>
+                        {displayButton}
                         </div>
                         </div>
                     </div>

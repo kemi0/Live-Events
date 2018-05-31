@@ -1,6 +1,5 @@
-footer {
+body {
     font: 11px "Oswald", sans-serif;
-    /* // must be included  */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
     margin: auto;
@@ -8,6 +7,28 @@ footer {
   flex-flow: column nowrap;
   justify-content: space-between
 }
+footer {
+    animation: 40000ms ease-in-out infinite colorschange;
+  }
+  
+  @keyframes colorschange {
+    0% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    25% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    50% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    75% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    100% {
+        background: linear-gradient(to bottom right, lightblue, pink);
+    }
+
+  }
 
 footer {
     background: #555;
@@ -78,8 +99,31 @@ a {
   .footer-social-overlap {
     position: relative;
     z-index: 2;
-    background: #555;
+    /* background: #555; */
     padding: 0 20px;
+  }
+
+  .footer-social-overlap {
+    animation: 40000ms ease-in-out infinite colorschange;
+  }
+  
+  @keyframes colorschange {
+    0% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    25% {
+        background: linear-gradient(to bottom right, pink, purple);
+    }
+    50% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    75% {
+        background: linear-gradient(to bottom right, lightblue, purple);
+    }
+    100% {
+        background: linear-gradient(to bottom right, lightblue, pink);
+    }
+
   }
   
   .footer-social-connect {
@@ -145,10 +189,8 @@ a {
     }
   }
   @media only screen and (max-width: 568px) {
-    main {
-      font-size: 5em;
-    }
-  
+   
+
     .footer-list-top {
       width: 100%;
     }
