@@ -6,7 +6,7 @@ import Indicators from './indicators';
 // import imageData from '../../assets/images/carousel';
 import '../assets/css/carousel.css';
 import dummyData from '../../helper/dummydata';
-import corgi404 from '../assets/images/404corgi.jpg';
+import Jazz404 from '../assets/images/concertImage1.jpg';
 import axios from "axios";
 import EventItem from './event_item';
 // this the second page modal carousel 

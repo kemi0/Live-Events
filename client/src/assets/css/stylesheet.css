@@ -60,7 +60,7 @@ header {
  .menubar {
     display: block;
     height: 60px;
-    background-color: #03A9F4;
+    background-color:lightgrey;
     box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.12);
     text-align: center;
   }
@@ -613,6 +613,35 @@ footer{
     cursor: pointer;
 }
 
-/* .mapThing{
-    background-image:url('../assets/images/note')
-} */
+.mapThing{
+    background-image:url('../images/note.png');
+    z-index: 1;
+    background-size:cover;
+    animation: bounce 1s infinite alternate;
+    -webkit-animation: bounce 1s infinite alternate;
+    box-shadow: 5px 5px 5px grey;
+}
+
+@keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-15px);
+    }
+  }
+  @-webkit-keyframes bounce {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-15px);
+    }
+  }
+
+
+  .logo{
+      width:30vw;
+      position: relative;
+      top:-6vh;
+  }
