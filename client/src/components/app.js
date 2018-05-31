@@ -27,7 +27,8 @@ class App extends Component {
         this.state = { 
 			events: [],
 			filteredEvents: []
-        }
+		}
+	}
 
 	handleSearch(term){
 		if(term === ''){
