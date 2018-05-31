@@ -62,7 +62,9 @@ class Main extends Component {
     render(){
         
         
-        const { events } = this.props;
+        const { events, carouselEvents } = this.props;
+
+        
 
         // console.log('Events:', events);
 
@@ -104,7 +106,7 @@ class Main extends Component {
     
             });
 
-            const carouselMainInfo = events.map((item, index) => {
+            const carouselMainInfo = carouselEvents.map((item, index) => {
                 return (
                     <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
@@ -116,14 +118,15 @@ class Main extends Component {
                 )
             });
 
-            
+            const displayButton = events.length> 10 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+
             return (
                
                 <div>
-                    {/* <Carousel/> */}
+                  
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
-                        {/* <CarouselSlider events={events}/> */}
+                        <CarouselSlider events={carouselEvents}/>
                     </div>
                     {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
                     {/* {carouselMainInfo}  << TO POPULATE NON HARD CODED */}
@@ -133,7 +136,7 @@ class Main extends Component {
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
-                            <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button>
+                        {displayButton}
                         </div>
                         </div>
                     </div>

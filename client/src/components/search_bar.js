@@ -46,6 +46,8 @@ class SearchBar extends Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.search(this.state.term)
+
+        // this.props.history.push('')
     }
 
     onInputChange(term) {

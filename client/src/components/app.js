@@ -67,9 +67,9 @@ class App extends Component {
 					<Menu search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
 					<div className="container-fluid">  
 						<Route exact path="/" render={(props) => {
-							return <Main {...props} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
+							return <Main {...props} carouselEvents={events} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
 						}} />
-						<Test /> 
+					<Test /> 
 					</div>
 				</div>
 			</Router>
