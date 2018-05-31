@@ -35,7 +35,7 @@ class CarouselInfo extends Component {
                             <p className="venue">{this.props.current_event.venue_name}</p>
                         </div>
                         <div className="caption-right">
-                            <div className="day-row"><p className="carousel-day">{eventDate}</p></div>
+                            <div className="day-row"><p className="carousel-day">{dayOfWeekRender}</p></div>
                             <div className="month-date">
                             <p className="carousel-month">{monthRender}</p>
                             <p className="carousel-day"> {dayRender}</p>

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MenuLinks from './menu_links';
 import SearchIcon from './search_icon';
 import SearchBar from './search_bar';
-import DisplayText from '../assets/images/LERED.png';
+import DisplayText from '../assets/images/live.png';
+
 
 class Menu extends Component {
     constructor(props){
@@ -67,7 +68,8 @@ class Menu extends Component {
                             <span></span>
                         </div>
                         {/* <SearchBar /> */}
-                        <SearchIcon toggleSearchBar={ this.toggleSearchBar.bind(this) }/>            
+                        <SearchIcon toggleSearchBar={ this.toggleSearchBar.bind(this) }/>
+                              
                         <img className="logo" src= {DisplayText}/>
                         <MenuLinks menuStatus={menuStatus}/>
                         

@@ -60,7 +60,8 @@ class Event extends Component {
     }
 
     render() {
-        console.log("trimmed string:", this.trimmedString);
+        
+       
       
     // console.log("this is the event thing", this.props)
         return (
@@ -70,7 +71,7 @@ class Event extends Component {
                         
                         <img src={this.props.image} onClick={this.handleModalClick}/>      
                         </div>
-                        <div className="col-xs-4">
+                        <div className="col-xs-4 calendar">
                             <p className="title">{this.props.title.substring(0, 20)+"..."}</p>
                             <p className="time">{this.props.start_time} PM</p>
                             <p className="venue_name">{this.props.venue_name}</p>
@@ -78,19 +79,19 @@ class Event extends Component {
 
                         <button className="event-btn btn btn-default col-xs-4" onClick={this.handleModalClick}>
                             {/* <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"> */}
-                                <div>
+                                <div className="dayRender">
                                     <p>{this.props.dayRender}</p>
                                 </div>
-                                <div>
+                                <div className="monthRender">
                                     <p>{this.props.monthRender}</p>
                                 </div>
-                                <div>
+                                <div className="dayWeekRender">
                                     <p>{this.props.dayOfWeekRender}</p>
                                 </div>
                             {/* </NavLink> */}
                         </button>
                     </div>
-                    <Modal description={this.props.description} event_title={this.props.event_title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)}/>              
+                    <Modal description={this.props.description} event_title={this.props.event_title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)} />              
             </div>
         );
    

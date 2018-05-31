@@ -32,13 +32,14 @@ class Modal extends Component {
 
         render(){
         console.log("This is modal props: ", this.props);
+       
 
         
         return(
             <div className="modal" style={{display: this.props.showOrHide}}>
                 <div className="modal-content">
-                    <div className="sides wipe" onClick={this.props.closemodal}>
-                            >>
+                    <div className="close" onClick={this.props.closemodal}>
+                            X
                     </div>
                     <div>
                     <EventTitle title={this.props.event_title}/> 
