@@ -6,6 +6,7 @@ import CarouselInfo from './mainCarousel';
 import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
 import Corgi from '../assets/images/404corgi.jpg';
+import Jazz404 from '../assets/images/concertImage1.jpg';
 import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
 // import carousel from './carouselSlider';
@@ -92,7 +93,7 @@ class Main extends Component {
                     )
                 } else {
                     return(
-                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event start_time={eventTime} description={item.description} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 }
 
