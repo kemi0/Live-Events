@@ -1,12 +1,13 @@
 /**
  * Created by Sasan on 5/31/2018.
  */
-import schedule from 'node-schedule';
+var schedule = require ('node-schedule');
 
-schedule.scheduleJob('0 0 * * *', () => {
+schedule.scheduleJob('* 0 0 * * *', () => {
 
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
+
         const connection = require('./server/config/db-connection');
         const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
         try{
