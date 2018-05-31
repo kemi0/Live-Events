@@ -13,11 +13,22 @@ class Event extends Component {
         
         this.state = {
             display: "none",
+            isOpen:true,
             events:[]
         }
         this.handleModalClick= this.handleModalClick.bind(this)
         this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
         this.showMoreEvents=this.showMoreEvents.bind(this)
+        this.modalToggle = this.modalToggle.bind(this);
+    }
+
+    modalToggle() {
+        const { isSearchInputActive } = this.state;
+
+        // Ternary equivalent to using if / else
+        isSearchInputActive ? 
+            this.setState({ isOpen: false }) : 
+            this.setState({ isOpen: true });
     }
 
     handleModalClick(){
@@ -42,36 +53,8 @@ class Event extends Component {
     }
 
     render() {
-        const allEvents = this.state.events.map((item, index) => {
-        const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const dateObject = Date.parse(this.props.time);
-        const date = new Date(dateObject);
-        const dayOfWeek = dayArray[date.getDay()];
-        const month = monthsArray[date.getMonth()];
-        const day = date.getDate();
-        const year = date.getFullYear();
-        const monthRender= `${month}`;
-        const dayRender= `${day}`;
-        const yearRender= `${year}`;
-        const dayOfWeekRender=`${dayOfWeek}`;
-        const eventDate = `${dayOfWeek}, ${month} ${day}`;
-        const time = date.toLocaleTimeString();
-        const timeString= time.toString();
-        const timeStringMinusThreeCharacters= timeString.slice(0,-3);
-        const EventTime= parseInt(timeStringMinusThreeCharacters);
-
-        if (item.image !== null) {
-            return(
-                <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.image.blackborder250.url} key={index} />
-            )
-        } else {
-            return(
-                <Event title={item.title} venue_name={item.venue_name} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Corgi} key={index} />
-            )
-        }
-    });
-
+      
+    console.log("this is the event thing", this.props)
         return (
             <div className="container-fluid">
                 <div className="event-artist-photo">
@@ -81,7 +64,7 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
-                            <p className="time">{this.props.event_date}</p>
+                            <p className="time">{this.props.start_time} PM</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
@@ -99,10 +82,12 @@ class Event extends Component {
                             {/* </NavLink> */}
                         </button>
                     </div>
-                    <Modal showOrHide={this.state.display} onClick={this.handleCloseModalClick}/>              
+                    <Modal description={this.props.description} event_title={this.props.event_title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)}/>              
             </div>
         );
+   
     }
 }
+
 
 export default Event;
