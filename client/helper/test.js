@@ -16,7 +16,7 @@ class Test extends Component{
           //   console.log(err);
           // }); 
       
-      console.log("this is a the data " , response);
+      console.log("this is the data " , response);
   }
 
   render(){

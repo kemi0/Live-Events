@@ -1,32 +1,61 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import EventTitle from './event_details_title';
 import AboutSection from './about_event_section';
 import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
-import VideoDetails from './video_detail';
+// import VideoDetails from './video_detail';
 import Event from "./event_item";
 import Footer from './footer';
-import EventDetailsSecondPage from './event_details_info';
-import dummyData from  '../../helper/dummydata';
+import EventDetailsInfo from './event_details_info';
+// import dummyData from  '../../helper/dummydata';
 import Corgi from '../assets/images/404corgi.jpg';
 import Map from './google_maps';
 import Carousel from './sliderCarousel';
 
-export default props =>{
-    // console.log('this is dummy data', dummyData);
-    return(
-        <div className="modal" style={{display: props.showOrHide}}>
-            <div className="modal-content">
-                <EventTitle title={dummyData[0].title}/> 
-                <EventDetailsSecondPage title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} />
-                <VideoDetails videos={ dummyData } />
-                {/* <VideoDetails videos={ dummyData } term={props.term} /> */}
-                <AboutEvent description ={dummyData[3].description}/>
-                <Map lat={props.lat} lon={props.lon} />
-                <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
-            </div>
-        </div>
+class Modal extends Component {
+   
+    constructor (props){
+        super(props);
+    
 
-    )
+    this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
+
+    }
+
+    handleCloseModalClick(){
+        console.log("I'm supposed to close!")
+        this.setState({
+            display: "none"
+        })
+    }
+
+        render(){
+        console.log("This is modal props: ", this.props);
+
+        
+        return(
+            <div className="modal" style={{display: this.props.showOrHide}}>
+                <div className="modal-content">
+                    <div className="sides wipe" onClick={this.props.modalToggle}>
+                           
+                    </div>
+                    <EventTitle title={this.props.event_title}/> 
+                   
+                    <EventDetailsInfo event_date={this.props.event_date} title={this.props.title} venue_address={this.props.venue_address} image={this.props.image} venue_name={this.props.venue_name} time={this.props.start_time} />
+                    {/* <Youtube/> */}
+                    <AboutEvent description ={this.props.description}/>
+                    <Map lat={this.props.lat} lon={this.props.lon} />
+                    <Carousel title={this.props.title} venue_address={this.props.venue_address} image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time}/>
+                   
+                        <button className="text-center close-button btn" onClick={this.props.closemodal}>CLOSE</button>
+                
+    
+                </div>
+            </div>
+
+        )
+    }
 }
+
+export default Modal;

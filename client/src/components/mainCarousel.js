@@ -10,7 +10,7 @@ class CarouselInfo extends Component {
     render() {
     const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dateObject = Date.parse(this.props.time);
+    const dateObject = Date.parse(this.props.event_date);
     const date = new Date(dateObject);
     const dayOfWeek = dayArray[date.getDay()];
     const month = monthsArray[date.getMonth()];

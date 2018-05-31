@@ -13,11 +13,22 @@ class Event extends Component {
         
         this.state = {
             display: "none",
+            isOpen:true,
             events:[]
         }
         this.handleModalClick= this.handleModalClick.bind(this)
         this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
         this.showMoreEvents=this.showMoreEvents.bind(this)
+        this.modalToggle = this.modalToggle.bind(this);
+    }
+
+    modalToggle() {
+        const { isSearchInputActive } = this.state;
+
+        // Ternary equivalent to using if / else
+        isSearchInputActive ? 
+            this.setState({ isOpen: false }) : 
+            this.setState({ isOpen: true });
     }
 
     handleModalClick(){
@@ -42,8 +53,8 @@ class Event extends Component {
     }
 
     render() {
-
-    console.log("this is the thing", this.props)
+      
+    console.log("this is the event thing", this.props)
         return (
             <div className="container-fluid">
                 <div className="event-artist-photo">
@@ -53,7 +64,7 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.title}</p>
-                            <p className="time">{this.props.event_date}</p>
+                            <p className="time">{this.props.start_time} PM</p>
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
@@ -71,10 +82,12 @@ class Event extends Component {
                             {/* </NavLink> */}
                         </button>
                     </div>
-                    <Modal lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} onClick={this.handleCloseModalClick}/>              
+                    <Modal description={this.props.description} title={this.props.event_title} event_date={this.props.event_date} start_time={this.props.start_time} venue_name={this.props.venue_name} image={this.props.image} venue_address={this.props.venue_address} lat={this.props.latitude} lon={this.props.longitude} showOrHide={this.state.display} closemodal={this.handleCloseModalClick.bind(this)}/>              
             </div>
         );
+   
     }
 }
+
 
 export default Event;

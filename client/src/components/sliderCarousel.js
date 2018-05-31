@@ -8,6 +8,7 @@ import '../assets/css/carousel.css';
 import dummyData from '../../helper/dummydata';
 import corgi404 from '../assets/images/404corgi.jpg';
 import axios from "axios";
+import EventItem from './event_item';
 
 const dummyDataCopy = dummyData.slice();
 

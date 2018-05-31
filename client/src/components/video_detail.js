@@ -33,7 +33,6 @@ class VideoDetail extends Component {
 
     render(){
         const { videos } = this.state;
-            
         if(!videos){
             return <h1>Loading..</h1>
         } else {
