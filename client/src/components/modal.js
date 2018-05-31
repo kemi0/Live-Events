@@ -19,16 +19,16 @@ class Modal extends Component {
         super(props);
     
 
-    this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
+    // this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
 
     }
 
-    handleCloseModalClick(){
-        console.log("I'm supposed to close!")
-        this.setState({
-            display: "none"
-        })
-    }
+    // handleCloseModalClick(){
+    //     console.log("I'm supposed to close!")
+    //     this.setState({
+    //         display: "none"
+    //     })
+    // }
 
         render(){
         console.log("This is modal props: ", this.props);
@@ -37,13 +37,17 @@ class Modal extends Component {
         return(
             <div className="modal" style={{display: this.props.showOrHide}}>
                 <div className="modal-content">
-                    <div className="sides wipe" onClick={this.props.modalToggle}>
-                           
+
+                    <div className="sides wipe" onClick={this.props.closemodal}>
+                            >>
                     </div>
+                    <div>
                     <EventTitle title={this.props.event_title}/> 
+
                    
                     <EventDetailsInfo event_date={this.props.event_date} title={this.props.title} venue_address={this.props.venue_address} image={this.props.image} venue_name={this.props.venue_name} time={this.props.start_time} />
-                    {/* <Youtube/> */}
+                    
+
                     <AboutEvent description ={this.props.description}/>
                     <Map lat={this.props.lat} lon={this.props.lon} />
                     <Carousel title={this.props.title} venue_address={this.props.venue_address} image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time}/>

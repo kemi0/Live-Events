@@ -101,9 +101,9 @@ class Main extends Component {
             //     });
             });
 
-            const carouselMainInfo = dummyData.map((item, index) => {
+            const carouselMainInfo = this.state.events.map((item, index) => {
                 return (
-                    <CarouselInfo key={index} title={item.title} venue_name={item.venue_name} time={item.start_time} />
+                    <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude}/>
                 )
             })
 
@@ -117,10 +117,10 @@ class Main extends Component {
                     {/* <Carousel/> */}
                     <Top city_name={this.props.city_name} />
                     <div className="container-fluid">
-                        <CarouselSlider/>
+                        <CarouselSlider events={events}/>
                     </div>
                     {/* <CarouselInfo title={dummyData[0].title} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time} /> */}
-                    {/* {carouselMainInfo} << TO POPULATE NON HARD CODED */}
+                    {/* {carouselMainInfo}  << TO POPULATE NON HARD CODED */}
                     {allEvents}
                     {/* <Event title={dummyData[1].title} image={dummyData[1].image.blackborder250.url}/><< HARD CODED EVENT */}
                     {/* <ShowMoreButton/> */}

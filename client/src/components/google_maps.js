@@ -6,7 +6,7 @@ import note from '../assets/images/note.png'
 
 
 
-const Marker = ({ text }) => ( <div style={{
+const Marker = ({ text }) => ( <div className="mapTHing" style={{
                 color: 'white', 
                 background: 'red',
                 padding: '10px 10px',
