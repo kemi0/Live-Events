@@ -60,7 +60,7 @@ header {
  .menubar {
     display: block;
     height: 60px;
-    background-color:lightgrey;
+    background-color:white;
     box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.12);
     text-align: center;
   }
@@ -247,7 +247,7 @@ img{
     margin-top:1%;
     /* position:relative; */
     /* bottom:-18.5em; */
-    text-overflow:hidden;
+    
     opacity:0.7;
     background-color:#222065;
 }
@@ -256,7 +256,7 @@ img{
     height:35%;
     border: solid black 1px;
     margin-top:1%;
-    text-overflow:hidden;
+
     position:relative;
 
     /* bottom:-18.5em; */
@@ -641,7 +641,7 @@ footer{
 
 
   .logo{
-      width:30vw;
+      width:15vw;
       position: relative;
       top:-6vh;
   }
