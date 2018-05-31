@@ -3,4 +3,4 @@ node_modules
 .idea
 .atom
 .vscode
-config/database.js
+config/db-connection.js
