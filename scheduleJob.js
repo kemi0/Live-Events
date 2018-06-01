@@ -30,8 +30,6 @@ schedule.scheduleJob('* * * * * *', () => {
         
         
               const outputObj = await getDataFromEventfullApi();
-              const firstBench = Date.now();
-              console.log(timeStart - firstBench);
               //  outputObj is below: 
               //  outputObj = {
               //     genre1 : [{},{},{}],
@@ -260,8 +258,7 @@ schedule.scheduleJob('* * * * * *', () => {
                                    
                       //*************** end of eventArrayBasedOnKey.map  ****************//                   
                         })
-                        const nextBench = Date.now();
-                        console.log(timeStart - nextBench);
+                        // const nextBench = Date.now();
                    }else{
                     //  console.log(`${key} doesn't have events`);
                    }          
