@@ -15,38 +15,60 @@ class Main extends Component {
     constructor (props){
         super(props);
 
-        // this.state = {
-        //     events: []
-        // };
+        this.state = {
+            counter: 0,
+            events: []
+        };
 
-        this.showMoreEvents = this.showMoreEvents.bind(this)
+        this.showMoreEvents = this.showMoreEvents.bind(this);
+        // this.cleanUpEvents = this.cleanUpEvents.bind(this);
+        
     }
     
     componentDidMount(){
         this.getEventsFromDb();
     }
-// getting data back from db 
-    getEventsFromDb(){
-        axios.get("/api/data").then(resp =>{
+
+    componentWillReceiveProps(nextProps){
+        const firstFiveEvents = nextProps.events.splice(0, 5);
+        this.populateEvents(JSON.parse(JSON.stringify(firstFiveEvents)));
+    }
+
+    async getEventsFromDb(){
+        await axios.get("/api/data").then(resp =>{
             // this.populateEvents(resp.data);
             this.props.addEvents(resp.data);
         });
+
+       
+
+// // getting data back from db 
+//     getEventsFromDb(){
+//         axios.get("/api/data").then(resp =>{
+//             // this.populateEvents(resp.data);
+//             this.props.addEvents(resp.data);
+//         });
+
     }
 
  // showing all events
     populateEvents(currentEvents){
         this.setState({
-            events: [...this.state.events, ...currentEvents]
-        });
+            events: currentEvents
+        },()=>console.log(this.state));
     }
         
 // click the butten to show more events
     showMoreEvents(){
-        // if(this.state.events[0] == undefined){
-        //     console.warn('ask the database for more things')
-        //     return;
-        // }
-        // this.getEventsFromDb();
+        const newCounter = this.state.counter++;
+        this.setState({
+            counter: newCounter
+        });
+        const eventNumber = 5 * this.state.counter;
+        const nextFiveEvents = this.props.events.splice(eventNumber,5);
+        this.setState({
+            events: [...this.state.events, ...nextFiveEvents]
+        });
     }
 
     render(){
@@ -54,17 +76,13 @@ class Main extends Component {
         
         const { events, carouselEvents } = this.props;
 
-        
-
-        // console.log('Events:', events);
-
         if (!events.length) {
 
             console.log(`-------->>>>${events.length}h<<<------------`);
             // when events.length !=== 0
             return <div>Loading ...</div>
         } else {
-            const allEvents = events.map((item, index) => {
+            const allEvents = this.state.events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -105,19 +123,27 @@ class Main extends Component {
                 )
             })
 
-            const top = events.map((item, index) => {
-                return (
-                    <Top key={index} city_name={item.city_name} />
-                )
-            });
 
-            const displayButton = events.length> 10 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+            // const top = events.map((item, index) => {
+            //     return (
+            //         // <Top key={index} city_name={item.city_name}  />
+            //     )
+            // });
 
+           
+
+
+            const displayButton = events.length> 5 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+           
+            
+
+            const topDisplay = this.props.searchQuery ? this.props.searchQuery : "Birmingham - Alabama";
             return (
                
                 <div>
                   
-                    <Top city_name={this.props.city_name} />
+                    <Top city_name={topDisplay} />
+                    
                     <div className="container-fluid">
                         <CarouselSlider events={carouselEvents}/>
                     </div>
@@ -127,6 +153,10 @@ class Main extends Component {
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
+
+                    
+                        {displayButton}
+
                         {/* {displayButton} */}
                         </div>
                         </div>

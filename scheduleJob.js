@@ -2,10 +2,13 @@
 var mysql = require('mysql');
 var schedule = require ('node-schedule');
 
+// /Users/BoraBora/Desktop/lfz/c318_livemusicfinder../server/config/db_connection.js
+
+// /Users/BoraBora/Desktop/lfz/c318_livemusicfinder/scheduleJob.js
 schedule.scheduleJob('* * * * * *', () => {
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
-              const connection = require('./server/config/db-connection');
+              const connection = require('./server/config/db_connection.js');
               const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
             try{
               

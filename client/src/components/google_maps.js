@@ -20,48 +20,6 @@ const Marker = ({ text }) => ( <div className="mapThing" style={{
 );
 
 class Map extends Component {
-        // constructor(props){
-        //         super(props);
-        //         this.state = {
-        //                 center: {
-        //                         lat: 33.508914, 
-        //                         lng: -86.79786
-        //                 },
-        //                 zoom: 13
-        //         }
-        // }
-        
-//   componentDidMount(){
-//           this.getEventsFromDb();
-//         }
-
-//   getEventsFromDb(){
-//         axios.get("/api/get-data").then(resp =>{
-//           this.setState({
-
-//           })
-//         });
-
-//         setTimeout(() => {
-//                 const currentEvents = dummyDataCopy
-//                 this.populateLocation(JSON.parse(JSON.stringify(currentEvents)));
-//             }, 100)
-//         }
-
-// populateLocation(currentEvents){
-//         this.setState({
-//                 events: [...this.state.events, ...currentEvents]
-//             });
-// }
-
-// showMoreEvents(){
-//         if(this.state.events[0] == undefined){
-//             console.warn('ask the database for more things')
-//             return;
-//         }
-//         this.getEventsFromDb();
-//     }
-
 
         render() {
                 let { lat, lon } = this.props;
