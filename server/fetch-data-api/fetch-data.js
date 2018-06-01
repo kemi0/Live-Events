@@ -8,10 +8,18 @@ const getDataFromEventfullApi = ()=>{
           //*************formating the date to current date for the ******************//
           const now = new Date(); 
           const currentYear = now.getFullYear();
-          const currentDate = now.getDate();
-          const currentMonth = now.getMonth()+1;
-          const current = currentYear+'0'+currentMonth+currentDate+'00';
-          // console.log(current); print out the data
+          let currentDate = now.getDate() + '';
+          if (currentDate.length < 2){
+            currentDate = '0' + currentDate;
+          }
+          let currentMonth = (now.getMonth()+1 + '');
+          if (currentMonth.length < 2){
+            currentMonth = '0' + currentMonth;
+          }
+          // console.log(`this is a currentdate ----> ${currentMonth}`)
+          const current = currentYear+currentMonth+currentDate+'00';
+          console.log(`this sis the current date ${current}`); 
+          // print out the data
 
 
           //*************formating the date to current date for the end ******************//
@@ -24,10 +32,8 @@ const getDataFromEventfullApi = ()=>{
           let allresults = [];
           var outputObj = {};
           genreArray.map((genre, index)=>{
-            allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
-            // allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=2018052000-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
-
-
+            allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=250&include=popularity`))
+      
           })
           
           //************* the getDataFromEventfullApi is return below: ******************//

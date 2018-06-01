@@ -34,7 +34,11 @@ header {
     position: absolute;
     right: 0;
     top:0;
-    z-index:50;
+    z-index:50; 
+    margin-top: 10px;
+    font-size: 39px;
+    padding-right: 8px;
+
 }
 .nav{
     margin-top:2%;
@@ -234,11 +238,11 @@ header {
   .fa{
       margin-top: 10px;
       font-size: 39px;
-        color: black;
+        /* color: black; */
       padding-right: 8px;
-      position:absolute; 
+      /* position: relative;; 
       right: 10px;
-      top: 5px;
+      top: 5px; */
   }
 
   /*------------------- */

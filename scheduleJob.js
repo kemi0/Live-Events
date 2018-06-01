@@ -5,14 +5,14 @@ var schedule = require ('node-schedule');
 // /Users/BoraBora/Desktop/lfz/c318_livemusicfinder../server/config/db_connection.js
 
 // /Users/BoraBora/Desktop/lfz/c318_livemusicfinder/scheduleJob.js
-schedule.scheduleJob('10 * * * * *', () => {
+schedule.scheduleJob('0 */30 * * * *', () => {
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
               const connection = require('./server/config/db-connection.js');
               const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
             try{
               
-              var today = new Date();
+              var today = new Date(Date.now() - 1000 * 60 * 60 * 24);
               var dd = today.getDate();
               var mm = today.getMonth()+1; //January is 0!
               var yyyy = today.getFullYear();
@@ -58,7 +58,11 @@ schedule.scheduleJob('10 * * * * *', () => {
                         const genre = key.replace(/("|music|[_ *)&@^#`~|+=%-<>{}[\](:'])/gi,'');
                         const sql_genre = "INSERT IGNORE INTO genres ( genre_name ) VALUES (?)";
                         const query = connection.query(sql_genre, genre, (err, result)=>{
-                              if(err) throw err;
+                              // if(err) throw err;
+                              if(err) {
+                                throw new Error(`Error on inserting table: ${err}`);
+                              }
+                               
                               // console.log(`${genre} id:  ${result.insertId}`);                       
                           });                             
         
@@ -78,7 +82,9 @@ schedule.scheduleJob('10 * * * * *', () => {
                                   // ----------- INSERT TO zipCode TABLE -------------//
                                     const sql_zip = "INSERT IGNORE INTO zipCode ( zip_code ) VALUES (?)";
                                     const query_zip = connection.query(sql_zip, zip_code_value, (err, result)=>{
-                                      if(err) throw err;
+                                      if(err) {
+                                        throw new Error(`Error on inserting zipCode: ${err}`);
+                                      }
                                     })
                                 
                                  // ---------------  FORMAT DATA for venues TABLE --------------------//    
@@ -107,7 +113,9 @@ schedule.scheduleJob('10 * * * * *', () => {
                                         const sql_venue = `INSERT IGNORE INTO venues (venue_name, venue_address,city,state, county, zipcode_id, longitude, latitude ) VALUES (?,?,?,?,?,(SELECT zip_id FROM zipCode WHERE zip_code = ?), ?, ?)`;
                                         const sql_venue_value = [venue_name_value,venue_address_value,venue_city_value,venue_state_value,county_value,zip_code_value,longitude_value,latitude_value]
                                         const query_venue  = connection.query(sql_venue ,sql_venue_value, (err, result)=>{
-                                          if(err) throw err;
+                                          if(err) {
+                                            throw new Error(`Error on inserting venues: ${err}`);
+                                          }
                                           // console.log("venue id:  "+ result.insertId +" ------> " + "name:  " + venue_name_value);   
         
                                         }) 
@@ -133,7 +141,7 @@ schedule.scheduleJob('10 * * * * *', () => {
                                           event_details_value = event_details_value.replace(/'re/gi, ' are'); 
                                               if(event_details_value.length === 2){
                                                 event_details_value = 'No data';
-                                                console.log("-------------->" +  event_title_value + "------> " + event_details_value.length + "------->" +  event_details_value );
+                                                // console.log("-------------->" +  event_title_value + "------> " + event_details_value.length + "------->" +  event_details_value );
                                               }
                                         }else{
                                           event_details_value = 'No data';
@@ -166,7 +174,9 @@ schedule.scheduleJob('10 * * * * *', () => {
         
                                       const query_event = connection.query(sql_events, sql_events_value, (err, result)=>{
                                             
-                                            if(err) throw err;
+                                        if(err) {
+                                          throw new Error(`Error on inserting events: ${err}`);
+                                        }
                                             // console.log(`${result.insertId} --->event title: ${event_title_value} ----> ${genre}`);
         
                                       })
@@ -189,7 +199,9 @@ schedule.scheduleJob('10 * * * * *', () => {
         
                                           const query_performer = connection.query(sql_performers , sql_performers_value, (err, result)=>{
                                           
-                                                      if(err) throw err;
+                                            if(err) {
+                                              throw new Error(`Error on inserting performers: ${err}`);
+                                            }
                                                       // console.log("performers id "+ result.insertId + "name: " + performer_name_value);   
                                                       // console.log(query_performer.sql);
         
@@ -200,7 +212,9 @@ schedule.scheduleJob('10 * * * * *', () => {
         
                                           const sql_performers_events_value =[performer_name_value, event_title_value]
                                           const query_performers_events =  connection.query(sql_performers_events , sql_performers_events_value, (err, result)=>{
-                                              if(err) throw err;
+                                            if(err) {
+                                              throw new Error(`Error on inserting performers_events: ${err}`);
+                                            }
                                               // console.log(query_performers_events.sql);
                                           })  
                                     
@@ -218,7 +232,9 @@ schedule.scheduleJob('10 * * * * *', () => {
         
                                               const query_performer = connection.query(sql_performers , sql_performers_value, (err, result)=>{
                                                
-                                                          if(err) throw err;
+                                                if(err) {
+                                                  throw new Error(`Error on inserting when is performers is not null in performers: ${err}`);
+                                                }
                                                           // console.log("performers id "+ result.insertId + "name: " + performer_name_value);   
                                                           // console.log(query_performer.sql);
         
@@ -229,7 +245,9 @@ schedule.scheduleJob('10 * * * * *', () => {
         
                                               const sql_performers_events_value =[performer_name_value, event_title_value]
                                               const query_performers_events =  connection.query(sql_performers_events , sql_performers_events_value, (err, result)=>{
-                                                  if(err) throw err;
+                                                   if(err) {
+                                                    throw new Error(`Error on inserting when is performers is not null in performers_events: ${err}`);
+                                                  }
                                                   // console.log(query_performers_events.sql);
                                                })   
         
@@ -243,7 +261,9 @@ schedule.scheduleJob('10 * * * * *', () => {
                                           let sql_performers_value = [performer_name_value, performer_bio_value, performer_image_value, performer_url_value];
                                           const query_performer = connection.query(sql_performers , sql_performers_value, (err, result)=>{
                                                   
-                                                if(err) throw err;
+                                            if(err) {
+                                              throw new Error(`Error on inserting when is performers is not null in performers: ${err}`);
+                                            }
                                                 // console.log("performers id "+ result.insertId + "name: " + performer_name_value);
                                                 // console.log(query_performer.sql);
         
@@ -253,7 +273,10 @@ schedule.scheduleJob('10 * * * * *', () => {
         
                                           const sql_performers_events_value =[performer_name_value, event_title_value]
                                           const query_performers_events =  connection.query(sql_performers_events , sql_performers_events_value, (err, result)=>{
-                                              if(err) throw err;
+                                            if(err) {
+                                              throw new Error(`Error on inserting when is performers is not null in performers_events: ${err}`);
+                                            }
+                                              
                                               // console.log(query_performers_events.sql);
                                             })    
         
