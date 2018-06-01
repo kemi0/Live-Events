@@ -22,7 +22,7 @@ class Event extends Component {
 
         this.handleModalClick= this.handleModalClick.bind(this)
         this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
-        this.showMoreEvents=this.showMoreEvents.bind(this)
+        // this.showMoreEvents=this.showMoreEvents.bind(this)
         this.modalToggle = this.modalToggle.bind(this);
     }
 

@@ -20,43 +20,50 @@ class Main extends Component {
     constructor (props){
         super(props);
 
-        // this.state = {
-        //     events: []
-        // };
+        this.state = {
+            counter: 0,
+            events: []
+        };
 
-        this.showMoreEvents = this.showMoreEvents.bind(this)
+        this.showMoreEvents = this.showMoreEvents.bind(this);
+        // this.cleanUpEvents = this.cleanUpEvents.bind(this);
+        
     }
     
     componentDidMount(){
         this.getEventsFromDb();
     }
+    componentWillReceiveProps(nextProps){
+        const firstFiveEvents = nextProps.events.splice(0, 5);
+        this.populateEvents(JSON.parse(JSON.stringify(firstFiveEvents)));
+    }
 
-    getEventsFromDb(){
-        axios.get("/api/data").then(resp =>{
+    async getEventsFromDb(){
+        await axios.get("/api/data").then(resp =>{
             // this.populateEvents(resp.data);
             this.props.addEvents(resp.data);
         });
 
-        // setTimeout(() => {
-        //     const currentEvents = dummyDataCopy.splice(0, 5);
-        //     debugger;
-        //     this.populateEvents(JSON.parse(JSON.stringify(currentEvents)));
-        // }, 100)
+       
     }
 
     populateEvents(currentEvents){
         this.setState({
-            events: [...this.state.events, ...currentEvents]
-        });
+            events: currentEvents
+        },()=>console.log(this.state));
     }
         
 
     showMoreEvents(){
-        // if(this.state.events[0] == undefined){
-        //     console.warn('ask the database for more things')
-        //     return;
-        // }
-        // this.getEventsFromDb();
+        const newCounter = this.state.counter++;
+        this.setState({
+            counter: newCounter
+        });
+        const eventNumber = 5 * this.state.counter;
+        const nextFiveEvents = this.props.events.splice(eventNumber,5);
+        this.setState({
+            events: [...this.state.events, ...nextFiveEvents]
+        });
     }
 
     render(){
@@ -67,7 +74,7 @@ class Main extends Component {
         if (!events.length) {
             return <div>Loading ...</div>
         } else {
-            const allEvents = events.map((item, index) => {
+            const allEvents = this.state.events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -114,7 +121,7 @@ class Main extends Component {
             //     )
             // });
 
-            const displayButton = events.length> 10 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+            const displayButton = events.length> 5 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
            
             
 
@@ -124,6 +131,7 @@ class Main extends Component {
                 <div>
                   
                     <Top city_name={topDisplay} />
+                    
                     <div className="container-fluid">
                         <CarouselSlider events={carouselEvents}/>
                     </div>
@@ -135,6 +143,7 @@ class Main extends Component {
                     <div className="container-fluid">
                         <div className="row">
                         <div className="col-xs-12 text-center">
+                    
                         {displayButton}
                         </div>
                         </div>

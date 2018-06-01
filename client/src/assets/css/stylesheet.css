@@ -90,7 +90,7 @@ header {
   .barsSvg-left{
     position: relative;
     top: -3em;
-    right: 7em;
+    right: 8em;
     opacity:0.7;
   }
 
@@ -142,7 +142,7 @@ header {
   }
 
   .title span {
-    font-family: backtoblack;
+    display:flex;
   }
   
   .hambclicker {
