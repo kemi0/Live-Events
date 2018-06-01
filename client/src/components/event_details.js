@@ -20,13 +20,13 @@ export default props =>{
         return(
             <div>
                 <EventTitle title={dummyData[0].title}/> 
-                <EventDetailsSecondPage  title={this.props.event_details}  image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} start_time={dummyData[0].start_time} />,
-                <Youtube/>
+                <EventDetailsSecondPage  event_title={this.props.event_details}  image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} start_time={dummyData[0].start_time} />,
+                {/* <Youtube/> */}
                 <AboutEvent description ={dummyData[3].description}/>
                 <Map long={dummyData[0].longitude}/>
                 <Carousel title={dummyData[0].title} address={dummyData[1].venue_address} image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} time={dummyData[0].start_time}/>
-                <VideoDetail video={ video } />
-                <AboutEvent/>
+                {/* <VideoDetail video={ video } /> */}
+                {/* <AboutEvent/> */}
             </div>
         )
     }

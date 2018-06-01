@@ -5,7 +5,6 @@ class EventDetailsSecondPage extends Component {
         super(props);
     }
 
-
         render(){
             // console.log("this is the event image:",this.props);
 
@@ -15,7 +14,7 @@ class EventDetailsSecondPage extends Component {
                 <div className="row main-event-display-container">
                    
                         <div className="col-xs-6 main-event-image-container">
-                        <img src={this.props.image} />
+                        <img src={this.props.event_image} />
                         </div>
                         <div className="col-xs-6 text-left main-event-info-container">
                             <div className="inner-info-container">

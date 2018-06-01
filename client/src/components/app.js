@@ -61,9 +61,8 @@ class App extends Component {
 						<Route exact path="/" render={(props) => {
 							return <Main {...props} carouselEvents={events} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
 						}} />
-					<Footer/>
-					{/* <Test />  */}
 					</div>
+					<Footer />
 				</div>
 			</Router>
 		);

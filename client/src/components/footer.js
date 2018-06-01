@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
-
+import '../assets/css/footer.css';
 
 class Footer extends Component {
     render() {
-        return (
+    
+         return (
             
-<footer >
-
-    <div className="container-fluid text-center text-md-left">
-        <div className="row">
-            {/* <div className="col-sm-8">
-                <h5 className="text-uppercase">Footer Content</h5>
-                <p>Here you can use rows and columns here to organize your footer content.</p>
-            </div> */}
-            <div className="col-sm-4 text-right">
-                <h5 className="text-uppercase">LiveMusicApp</h5>
-                <ul className="list-unstyled">
+<footer className="flex-rw">
+            <ul className="footer-list-top">
+                <li>
+                    <a href="#" className="generic-anchor footer-list-anchor">Get To Know Us</a>
+                </li>
+                    
                     <li>
-                        <i className="fas fa-home fa-lg"><a href="#!"></a></i>
+                        <a href="#" className="generic-anchor footer-list-anchor">Contact</a>
                     </li>
                     <li>
-                         <i className="fas fa-user fa-lg"><a href="#"></a></i> 
+                        <a href="#" className="generic-anchor footer-list-anchor">FAQ</a>
                     </li>
-                    <li>
-                        <i className="fas fa-music fa-lg"><a href="#!"></a></i>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+            </ul>
+            <section className="footer-social-section flex-rw">
+                    <span className="footer-social-overlap footer-social-icons-wrapper">
+                        <a href="https://www.facebook.com/"  target="_blank" title="Facebook" itemProp="significantLink"><i className="generic-anchor fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/" target="_blank" title="Twitter" itemProp="significantLink"><i className="generic-anchor fa fa-twitter"></i></a>
+                        <a href="http://instagram.com/"  target="_blank" title="Instagram" itemProp="significantLink"><i className="generic-anchor fa fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/"  target="_blank" title="Youtube" itemProp="significantLink"><i className=" generic-anchor fa fa-youtube"></i></a>
+                    </span>
+            </section>
+            <section className="footer-bottom-section flex-rw">
+                        <div className="footer-bottom-wrapper">   
+                            <i className="" role="">
 
-    <div className="footer-copyright col-xs-12 text-center">
-        © 2018 Copyright:
-        <a href="#"> LiveMusicApp.com</a>
-    </div>
-
+                            </i> Irvine, <address className="footer-address" role="company address">CA</address><span className="footer-bottom-rights"> - All Rights Reserved - </span>
+                        </div> 
+    </section>
 </footer>
                       
-        )
+        );
     }
 }
 
 export default Footer;
+

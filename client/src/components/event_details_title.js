@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
-class eventDetailsTitle extends Component {
+class EventDetailsTitle extends Component {
     constructor(props){
         super(props);
     }
@@ -27,4 +27,4 @@ class eventDetailsTitle extends Component {
 }
 
 
-export default eventDetailsTitle;
+export default EventDetailsTitle;
