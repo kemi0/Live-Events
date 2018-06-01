@@ -55,10 +55,12 @@ header {
 
  .menubar {
     display: block;
-    height: 60px;
-    
+    height: 75px;    
     box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.12);
     text-align: center;
+    display: flex;
+    align-items: center;
+
   }
 
   .menubar {
@@ -86,23 +88,23 @@ header {
 
   .barsSvg-left{
     position: relative;
-    top: -3em;
-    right: 8em;
-    opacity:0.7;
+    opacity: 0.7;
+    left: 5%;
   }
 
   .barsSvg-right{
     position: relative;
-    top: -12em;
-    left: 7em;
-    opacity:0.7;
+    left: -7%;
+    opacity: 0.7;
+    z-index: 0;
    
     
   }
 
 
   
-  .menubar span {
+  /* .menubar */
+    span { 
     display: inline-block;
     position: absolute;
     left: 50%;
@@ -143,14 +145,12 @@ header {
   }
   
   .hambclicker {
-    content: "";
-    height: 48px;
-    width: 55px;
     position: absolute;
-    top: 8px;
-    left: 8px;
+    padding: 8px 10px;
     cursor: pointer;
-    z-index: 9;
+    top: -2px;
+    z-index: 1;
+    
   }
   
   #hambmenu span:nth-child(1) {
@@ -218,11 +218,6 @@ header {
     border-bottom: none;
   }
   
-  .fa {
-    color: black;
-    padding-right: 8px;
-  }
-  
   li a {
     text-decoration: none;
     color: black;
@@ -234,8 +229,13 @@ header {
   }
 
   .fa{
-      margin-top: 10px;
+      /* margin-top: 10px; */
       font-size: 39px;
+        /* color: black; */
+      padding-right: 8px;
+      position:absolute; 
+      right: 10px;
+      top: 20px;
   }
 
   /*------------------- */
@@ -600,12 +600,6 @@ padding-top: 0.4em;
     .menubar span {
       font-size: 1.2em;
     }
-    /* .menubar {
-        position: fixed;
-        z-index: 9;
-        width: 100%;
-    } */
-  
   }
 
   /* inner-info container for second page*/
@@ -702,11 +696,19 @@ padding-top: 0.4em;
  
 /*LOGO */
 
+.logo-box{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
   .logo{
-      width: 16vw;
-      height: 7vh;
-      position: relative;
-      top:-23vh;
+    width: 80px;
+    height: 52px;
+    position: relative;
+    z-index: 1;
+  
   }
 
 

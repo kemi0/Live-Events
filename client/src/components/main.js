@@ -149,7 +149,7 @@ class Main extends Component {
                     <Top city_name={topDisplay} />
                     
                     <div className="container-fluid">
-                        {/* <CarouselSlider events={carouselEvents}/> */}
+                        <CarouselSlider events={carouselEvents}/>
                     </div>
              
                     {allEvents}
