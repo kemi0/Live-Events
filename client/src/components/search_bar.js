@@ -6,7 +6,7 @@ class SearchBar extends Component {
 
         this.state = {
             term: '',
-            placeholder: 'Search by Artist..',
+            placeholder: 'Search by Genre..',
         };
     }
 
@@ -45,6 +45,9 @@ class SearchBar extends Component {
 
     handleSubmit(e){
         e.preventDefault();
+
+
+        this.props.searchBarCallBack(this.state.term);
         this.props.search(this.state.term)
 
         // this.props.history.push('')
