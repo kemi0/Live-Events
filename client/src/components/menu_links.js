@@ -6,7 +6,7 @@ class MenuLinks extends Component {
 
         this.state = {
             links: [{
-                text: 'By Genre',
+                text: 'Genre',
                 link: '#',
                 icon: 'add me'
                 },

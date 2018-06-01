@@ -4,7 +4,7 @@ import EventTitle from './event_details_title';
 import AboutSection from './about_event_section';
 import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
-import Youtube from './youtube_artist';
+// import Youtube from './youtube_artist';
 import Map from './google_maps';
 import Event from "./event_item";
 import Footer from './footer';
@@ -12,12 +12,11 @@ import EventDetailsSecondPage from './event_details_info';
 import Corgi from '../assets/images/404corgi.jpg';
 import Carousel from './sliderCarousel';
 // import Slider from './slider';
-import videoDetail from './video_detail'
+import VideoDetail from './video_detail'
 
 // const API_KEY= 'AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk';  //google maps API
 
 export default props =>{
-
         return(
             <div>
                 <EventTitle title={dummyData[0].title}/> 

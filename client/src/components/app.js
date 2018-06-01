@@ -11,10 +11,6 @@ import Event from './event_item';
 import EventDetails from './event_details';
 import VideoDetail from './video_detail';
 
-// YT search 
-const API_KEY = 'AIzaSyCcDAVsmjsSKyf65jePkCftULWyIgT0mzo';
-
-
 class App extends Component {
     constructor(props){
         super(props);
