@@ -87,11 +87,11 @@ class Main extends Component {
                 
                 if (item.event_image !== "No Image") {
                     return(
-                        <Event city={item.city} start_time={eventTime}  description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime}  description={item.event_details} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 } else {
                     return(
-                        <Event city={item.city} start_time={eventTime} description={item.event_details} title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event city={item.city} start_time={eventTime} description={item.event_details} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
                     )
                 }
                 
@@ -101,7 +101,7 @@ class Main extends Component {
 
             const carouselMainInfo = carouselEvents.map((item, index) => {
                 return (
-                    <CarouselInfo start_time={item.event_start_time} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
+                    <CarouselInfo start_time={item.event_start_time} event_title={item.title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
                 )
             })
 
