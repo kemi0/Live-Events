@@ -11,15 +11,19 @@ class Footer extends Component {
                 <li>
                     <a href="#" className="generic-anchor footer-list-anchor">Get To Know Us</a>
                 </li>
+                <li> - All Rights Reserved - </li>
+                
+                
                     
-                    <li>
+                    {/* <li>
                         <a href="#" className="generic-anchor footer-list-anchor">Contact</a>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <a href="#" className="generic-anchor footer-list-anchor">FAQ</a>
-                    </li>
+                    </li> */}
             </ul>
-            <section className="footer-social-section flex-rw">
+
+            {/* <section className="footer-social-section flex-rw">
                     <span className="footer-social-overlap footer-social-icons-wrapper">
                         <a href="https://www.facebook.com/"  target="_blank" title="Facebook" itemProp="significantLink"><i className="generic-anchor fa fa-facebook"></i></a>
                         <a href="https://twitter.com/" target="_blank" title="Twitter" itemProp="significantLink"><i className="generic-anchor fa fa-twitter"></i></a>
@@ -29,11 +33,10 @@ class Footer extends Component {
             </section>
             <section className="footer-bottom-section flex-rw">
                         <div className="footer-bottom-wrapper">   
-                            <i className="" role="">
-
-                            </i> Irvine, <address className="footer-address" role="company address">CA</address><span className="footer-bottom-rights"> - All Rights Reserved - </span>
+                           <span>Irvine, CA</span>
+                           <span className="footer-bottom-rights"> - All Rights Reserved - </span>
                         </div> 
-    </section>
+             </section> */}
 </footer>
                       
         );
@@ -41,4 +44,3 @@ class Footer extends Component {
 }
 
 export default Footer;
-

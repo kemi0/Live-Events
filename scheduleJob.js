@@ -5,10 +5,10 @@ var schedule = require ('node-schedule');
 // /Users/BoraBora/Desktop/lfz/c318_livemusicfinder../server/config/db_connection.js
 
 // /Users/BoraBora/Desktop/lfz/c318_livemusicfinder/scheduleJob.js
-schedule.scheduleJob('* * * * * *', () => {
+schedule.scheduleJob('10 * * * * *', () => {
     // ================== inserting data fetched back from eventfull api ==================//
     async function test(){
-              const connection = require('./server/config/db_connection.js');
+              const connection = require('./server/config/db-connection.js');
               const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
             try{
               
@@ -257,21 +257,17 @@ schedule.scheduleJob('* * * * * *', () => {
                                               // console.log(query_performers_events.sql);
                                             })    
         
-                                    }
-                                   
-                      //*************** end of eventArrayBasedOnKey.map  ****************//                   
+                                    }                                 
                         })
-                        // const nextBench = Date.now();
                    }else{
-                    //  console.log(`${key} doesn't have events`);
+                     console.log(`${key} doesn't have events`);
                    }          
         //*************** end of looping the outputObj  ****************//  
               }
         
           } catch (err){
             console.log (`------->something is wrong here ${err}<--------`);
-          }
-        // ******************** end of test() ******************************//
+            }
         }
     test();
     // ==================================  END inserting data fetched back from eventfull api ===========================//
