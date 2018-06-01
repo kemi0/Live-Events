@@ -8,9 +8,9 @@ class Footer extends Component {
             
 <footer className="flex-rw">
             <ul className="footer-list-top">
-                <li>
+                {/* <li>
                     <a href="#" className="generic-anchor footer-list-anchor">Get To Know Us</a>
-                </li>
+                </li> */}
                 <li> - All Rights Reserved - </li>
                 
                 
@@ -23,7 +23,7 @@ class Footer extends Component {
                     </li> */}
             </ul>
 
-            {/* <section className="footer-social-section flex-rw">
+            <section className="footer-social-section flex-rw">
                     <span className="footer-social-overlap footer-social-icons-wrapper">
                         <a href="https://www.facebook.com/"  target="_blank" title="Facebook" itemProp="significantLink"><i className="generic-anchor fa fa-facebook"></i></a>
                         <a href="https://twitter.com/" target="_blank" title="Twitter" itemProp="significantLink"><i className="generic-anchor fa fa-twitter"></i></a>
@@ -31,7 +31,7 @@ class Footer extends Component {
                         <a href="https://www.youtube.com/"  target="_blank" title="Youtube" itemProp="significantLink"><i className=" generic-anchor fa fa-youtube"></i></a>
                     </span>
             </section>
-            <section className="footer-bottom-section flex-rw">
+            {/* <section className="footer-bottom-section flex-rw">
                         <div className="footer-bottom-wrapper">   
                            <span>Irvine, CA</span>
                            <span className="footer-bottom-rights"> - All Rights Reserved - </span>
