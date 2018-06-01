@@ -50,7 +50,7 @@ class Modal extends Component {
                     <Map lat={this.props.lat} lon={this.props.lon} />
                     <SecondPageSliderCarousel title={this.props.title} venue_address={this.props.venue_address} image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time}/>
                     
-                        <button className="text-center close-button btn" onClick={this.props.closemodal}>CLOSE</button>
+                        <button  className="text-center close-button btn" onClick={this.props.closemodal}>CLOSE</button>
                 
     
                 </div>

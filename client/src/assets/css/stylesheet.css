@@ -645,6 +645,7 @@ padding-top: 0.4em;
 
 /* Modal Content/Box */
 .modal-content {
+    /* height: 79vh; */
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -654,6 +655,9 @@ padding-top: 0.4em;
 }
 
 /* The Close Button */
+/* #btn-padding{
+    margin-top: 100px;
+} */
 .close-button {
     background-color: hotpink;
     color:white;
@@ -662,7 +666,7 @@ padding-top: 0.4em;
     position: absolute;
     right: 40%;
     bottom:10px;
-    padding-top:2%;
+    /* margin-top: 20px; */
 }
 
 .close:hover,

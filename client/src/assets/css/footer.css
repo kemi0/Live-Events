@@ -29,12 +29,12 @@ footer {
     }
 
   }
-
+/* 
 footer {
     background: #555;
     margin-top: auto;
     width: 100%;
-  }
+  } */
 
 .footer-list-top {
     width: 33.333%;
@@ -48,22 +48,24 @@ a {
   }
   
   .generic-anchor {
-    color: #8DB9ED;
+    color: white;
   }
   .generic-anchor:visited {
-    color: #8DB9ED;
+    color: #fbfbfb;
   }
   .generic-anchor:hover {
     color: #ccc;
   }
   
   .flex-rw {
+    margin-top: 100px;
     display: flex;
     flex-flow: row wrap;
   }
   
   
   .footer-list-top > li {
+    padding-top: 3vh;
     text-align: center;
     padding-bottom: 10px;
   }
