@@ -4,12 +4,9 @@ import ReactDOM from 'react-dom';
 import Main from './main';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Test from '../../helper/test'; // do not remove test
-// import Header from './header';
 import Footer from './footer';
 import Menu from './menu.js'
-// import Event from './event_item';
 import SecondPageComponent from './event_details';
-// import dummyData from '../../helper/dummydata';
 import Event from './event_item';
 import EventDetails from './event_details';
 import VideoDetail from './video_detail';
@@ -60,14 +57,12 @@ class App extends Component {
 			<Router>
 				<div>
 					<Menu search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
-					<div className="container-fluid">  
+					<div className="container-fluid">
 						<Route exact path="/" render={(props) => {
 							return <Main {...props} carouselEvents={events} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
 						}} />
-						<Footer />
-					<Test /> 
-					
 					</div>
+					<Footer />
 				</div>
 			</Router>
 		);

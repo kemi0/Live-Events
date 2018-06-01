@@ -126,7 +126,7 @@ header {
     width: 100%;
     vertical-align: middle;
     margin: 20px 0 0 15px;
-    background: white;
+    background: gray;
     border-radius: 8px;
     opacity: 1;
     left: 0;
@@ -192,7 +192,7 @@ header {
     top: 60px;    
     height: calc(100vh - 60px);
     width: 210px;
-    background-color: white;
+    background-color:white;
     z-index: 1;
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
@@ -252,7 +252,7 @@ header {
     margin-top: 3%;
     padding-top: 2%;
     padding-bottom:2%; 
-    color:white;
+    color:rgb(23, 160, 30);
     font-size: 1em; 
 }
 
@@ -551,8 +551,8 @@ padding-top: 0.4em;
 
     /* THESE ARE THE LOGOS*/
 .icon .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
-    color: white;
-    font-size:2em;
+    color: gray;
+    size:2em;
 }
 
 .list-unstyled {
@@ -607,7 +607,7 @@ padding-top: 0.4em;
 
   .inner-info-container{
       font-size: 0.9em;
-      position:absolute;
+      position: absolute;
   }
   
 

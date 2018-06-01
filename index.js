@@ -1,4 +1,3 @@
-
 ///back-end index.js
 const express = require('express');
 const cors = require('cors');
@@ -13,10 +12,11 @@ const connection = require('./server/config/db-connection');
 const app = express();
 //when doing get
 app.use(cors());
-//when doing POST
+//when doing POST ``
 app.use(express.json());
 //for the React statily serve a folder
 app.use(express.static(resolve(__dirname,'client','dist')));
+const timeStart = Date.now();
 
 // ================== inserting data fetched back from eventfull api ==================//
 async function test(){
@@ -24,6 +24,8 @@ async function test(){
       const getDataFromEventfullApi = require('./server/fetch-data-api/fetch-data');
     try{
       const outputObj = await getDataFromEventfullApi();
+      const firstBench = Date.now();
+      console.log(timeStart - firstBench);
       //  outputObj is below: 
       //  outputObj = {
       //     genre1 : [{},{},{}],
@@ -37,7 +39,7 @@ async function test(){
            const eventArrayBasedOnGenre = outputObj[key];
            //if NO EVENTS under particular GENRE; 
 
-          console.log(`${key}---> ${eventArrayBasedOnGenre.length}`);
+          // console.log(`${key}  -------> ${eventArrayBasedOnGenre.length}`);
 
 
            if(Number(eventArrayBasedOnGenre) !== 0 ){
@@ -112,7 +114,7 @@ async function test(){
                                 event_title_value = event_title_value.replace(/[`~@#%^*()|+\='"<>\{\}\[\]\\\/]/gi, ''); 
                                 const time = item.start_time.split(" ");
                                 const event_date_value = time[0];
-                                console.log(event_date_value)
+     //---------------------    console.log(event_date_value ---------------- 
                                 const event_start_time_value = time[1];
                                 const popularity_value = item.popularity;
                                 let event_details_value;
@@ -249,26 +251,22 @@ async function test(){
                            
               //*************** end of eventArrayBasedOnKey.map  ****************//                   
                 })
-
+                const nextBench = Date.now();
+                console.log(timeStart - nextBench);
            }else{
             //  console.log(`${key} doesn't have events`);
            }          
 //*************** end of looping the outputObj  ****************//  
       }
   } catch (err){
-    console.log (`something is wrong here ${err}`);
+    console.log (`------->something is wrong here ${err}<--------`);
   }
 // ******************** end of test() ******************************//
 }
-test();
-// ==================================  END inserting data fetched back from eventfull api ===========================//
+// test();
 
 
-
-// app.get('/api', (req, res)=>{
-//   res.send('hihihi');
-// })
-
+//end point for all the events without filter
 const select_query =`SELECT *
 FROM events,genres,venues,zipCode,performers,performers_events
 WHERE events.genre_id = genres.genre_id 
@@ -277,19 +275,29 @@ AND venues.zipcode_id = zipCode.zip_id
 AND performers_events.performer_id = performers.performer_id
 AND performers_events.event_id =events.event_id
 ORDER BY events.event_date`;
-
+// console.log(select_query);
 app.get('/api/data', (req, res)=>{
   connection.query(select_query, (err, result)=>{
     if(err){
       res.send(err);
     }else{
       // const output = JSON.stringify(result,null,3) 
-      console.log(result.length);
+      // console.log(result.length);
       res.json(result);
     } 
   })
  
 })
+
+// //end point with filter for genre 
+
+// const reach_genre = `SELECT * FROM genres`; 
+// app.get('/api/genre', (req,res)=>{
+//   connection.query(reach_genre,(err, result)=>{
+//      if(err) throw err; 
+//      console.log(result);
+//   })
+// })
 
 
 ////do not touch code below////
@@ -305,54 +313,3 @@ app.listen( PORT, function(){
   console.log('Server Error', err.message);
   console.log('Do you already have a server running on PORT: ' + PORT +'?')
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// app.get('/api/get-data',(req, res)=>{
-//   //this is getting data from our own DB; /sql-module/testingSQL
-//     const getDataFromDB = require('./server/sql-module/testingSQL');
-//     //calling the testData function from testingSQL.js here 
-//     getDataFromDB(function callback(responeFromDB){
-//       //sending to the front_end;
-//       console.log(responeFromDB);
-//       res.send(responeFromDB);
-//     })
-//   })
-
-
-// axios.get('api/user-data', { start: '20180101', end: '20180101', genre:'classical'})
-
-
-// //                         //// ********************* FORMAT DATA FOR  images *************************///
-
-//                               let image_status_value = item.image;
-//                               let image_url_value;
-//                               let image_size_value;
-//                               let image_detail_value;
-//                               if(image_status_value !== null){
-//                                 image_url_value =item.image.blackborder250.url;
-//                                 image_size_value ="blackborder250";
-//                               }else{
-//                                 image_url_value = 'No Image';
-//                                 image_size_value = null;
-
-//                               }
-
-//                               const sql_images = `INSERT IGNORE INTO images (image_url, image_size, event_id) VALUES (?,?,(SELECT event_id                                  FROM events WHERE event_title = ?))`;
-//                               const sql_images_value = [image_url_value, image_size_value,event_title_value]
-//                               connection.query(sql_images,sql_images_value, (err,result)=>{
-//                                 if(err) throw err;
-//                               })   
-
-

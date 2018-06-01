@@ -42,10 +42,10 @@ class Modal extends Component {
                             X
                     </div>
                     <div>
-                    <EventTitle title={this.props.event_title}/> 
-                    <EventDetailsSecondPage event_date={this.props.event_date} title={this.props.title} venue_address={this.props.venue_address} event_image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time} />
+                    <EventTitle event_title={this.props.event_title}/> 
+                    <EventDetailsInfo event_date={this.props.event_date} title={this.props.title} venue_address={this.props.venue_address} event_image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time} />
                     </div>
-                    <Youtube/>
+                    {/* <Youtube/> */}
                     <AboutEvent description ={this.props.description}/>
                     <Map lat={this.props.lat} lon={this.props.lon} />
                     <SecondPageSliderCarousel title={this.props.title} venue_address={this.props.venue_address} image={this.props.event_image} venue_name={this.props.venue_name} time={this.props.start_time}/>
