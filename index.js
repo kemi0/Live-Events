@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 9000;
 const axios = require('axios');
 var mysql = require('mysql');
 const connection = require('./server/config/db-connection');
+const scheuldeUpdateDb = require('./scheduleJob');
 
 const app = express();
 //when doing get
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(express.static(resolve(__dirname,'client','dist')));
 const timeStart = Date.now();
 
+
+// scheuldeUpdateDb();
 // ================== inserting data fetched back from eventfull api ==================//
 // async function test(){
 //       const connection = require('./server/config/db-connection');
