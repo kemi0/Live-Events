@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import EventTitle from './event_details_title';
+// import EventTitle from './event_details_title';
 import AboutSection from './about_event_section';
 import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
@@ -19,7 +19,6 @@ import VideoDetail from './video_detail'
 export default props =>{
         return(
             <div>
-                <EventTitle title={dummyData[0].title}/> 
                 <EventDetailsSecondPage  event_title={this.props.event_details}  image={dummyData[1].image.blackborder250.url} venue_name={dummyData[0].venue_name} start_time={dummyData[0].start_time} />,
                 {/* <Youtube/> */}
                 <AboutEvent description ={dummyData[3].description}/>

@@ -6,10 +6,9 @@ import SocialMedia from './event_socialmedia';
 import AboutEvent from './about_event_section';
 // import VideoDetails from './video_detail';
 import Event from "./event_item";
-import Footer from './footer';
+// import Footer from './footer';
 import EventDetailsInfo from './event_details_info';
-// import dummyData from  '../../helper/dummydata';
-import Corgi from '../assets/images/404corgi.jpg';
+// import Corgi from '../assets/images/404corgi.jpg';
 import Map from './google_maps';
 import SecondPageSliderCarousel from './sliderCarousel';
 

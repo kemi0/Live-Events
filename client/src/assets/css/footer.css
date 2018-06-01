@@ -58,7 +58,8 @@ a {
   }
   
   .flex-rw {
-    margin-top: 100px;
+    width: 100%; 
+    margin-top: 50px;
     display: flex;
     flex-flow: row wrap;
   }
@@ -88,7 +89,7 @@ a {
     margin-top: 5px;
   }
   
-  .footer-social-section::after {
+  /* .footer-social-section::after {
     content: "";
     position: absolute;
     z-index: 1;
@@ -96,7 +97,7 @@ a {
     left: 10px;
     border-top: 1px solid #ccc;
     width: calc(100% - 20px);
-  }
+  } */
   
   .footer-social-overlap {
     position: relative;

@@ -14,7 +14,10 @@
     font-family: helvetica;
     box-sizing: border-box;
 }
-
+/* #root{
+width: 100%;
+height: 100%;
+} */
 
    /*---------------- */
   /**** HEADER *******/
@@ -229,13 +232,13 @@ header {
   }
 
   .fa{
-      /* margin-top: 10px; */
+      margin-top: 10px;
       font-size: 39px;
-        /* color: black; */
+        color: black;
       padding-right: 8px;
       position:absolute; 
       right: 10px;
-      top: 20px;
+      top: 5px;
   }
 
   /*------------------- */
@@ -617,7 +620,7 @@ padding-top: 0.4em;
     height: 5em;
     font-size: 0.9em;
     box-shadow: grey 5px 5px 5px;
-    top: 60px;
+    top: 75px;
     z-index: 1;
     padding:2%;
   }
