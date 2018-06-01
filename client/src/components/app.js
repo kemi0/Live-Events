@@ -22,7 +22,7 @@ class App extends Component {
 				}
 
 		this.searchInfoCallBack=this.searchInfoCallBack.bind(this);
-		
+
 	}
 
 	handleSearch(term){
@@ -32,16 +32,17 @@ class App extends Component {
 			});
 		}
 
-		const filteredEvents = this.state.events.filter(event => {
+		const filteredEvents = this.state.events.filter((event) => {
 			const genre = event.genre_name.toLowerCase();
 			term = term.toLowerCase();
 
 			return genre.indexOf(term) >= 0;
 		});
 
+		if (filteredEvents.length) {
 		console.log('Filtered Events:', filteredEvents);
-
 		this.setState({ filteredEvents });
+		}
 	}
 
 	setEvents(events){
@@ -53,12 +54,14 @@ class App extends Component {
 		this.setState({
 			searchQuery: searchquery   // from state : from parameter
 		})
+		
 	}
 
 	render(){
 		const { events, filteredEvents,searchQuery } = this.state;
 		let activeEvents = events;
 		if(filteredEvents.length){
+			console.log('app filterevents',filteredEvents);
 			activeEvents = filteredEvents;
 		}
 
