@@ -4,20 +4,12 @@ import ReactDOM from 'react-dom';
 import Main from './main';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Test from '../../helper/test'; // do not remove test
-// import Header from './header';
 import Footer from './footer';
 import Menu from './menu.js'
-// import Event from './event_item';
 import SecondPageComponent from './event_details';
-// import dummyData from '../../helper/dummydata';
 import Event from './event_item';
 import EventDetails from './event_details';
-// import YTSearch from 'youtube-api-search';
 import VideoDetail from './video_detail';
-
-// YT search 
-const API_KEY = 'AIzaSyCcDAVsmjsSKyf65jePkCftULWyIgT0mzo';
-
 
 class App extends Component {
     constructor(props){
@@ -74,13 +66,18 @@ class App extends Component {
 		return (
 			<Router>
 				<div>
+
 					<Menu searchBarCallBack={this.searchInfoCallBack}  search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
 					<div className="container-fluid">  
+
+					{/* <Menu search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
+					<div className="container-fluid"> */}
+
 						<Route exact path="/" render={(props) => {
 							return <Main searchQuery={searchQuery}   {...props} carouselEvents={activeEvents} title={activeEvents} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
 						}} />
-					<Test /> 
 					</div>
+					<Footer />
 				</div>
 			</Router>
 		);

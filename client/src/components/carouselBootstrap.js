@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Corgi from '../assets/images/404corgi.jpg';
 import jazz404 from '../assets/images/concertImage1.jpg'
 import CarouselInfo from './mainCarousel';
-import dummyData from '../../helper/dummydata';
 
 
 // this the carousel for the first page I dont know hwere to pass props between these two
@@ -94,7 +93,7 @@ class CarouselSlider extends Component{
                      </div>
                     
                            
-                        </div >
+                        </div>
                 </div>
         )
     }

@@ -6,18 +6,25 @@ class MenuLinks extends Component {
 
         this.state = {
             links: [{
-                text: 'By Genre',
+                text: 'Genre',
                 link: '#',
                 icon: 'add me'
-            },{
-                text: 'Sign In',
-                link: '#',
-                icon: 'add me'
-            },{
-                text: 'By Date',
-                link: '#',
-                icon: 'add me',
-            }]
+                },
+                {
+                    text: 'Sign In',
+                    link: '#',
+                    icon: 'add me'
+                },
+                {
+                    text: 'By Date',
+                    link: '#',
+                    icon: 'add me',
+                },
+                {
+                    text: 'By Artist',
+                    link: '#',
+                    icon: 'add me'
+                }]
             // },{
             //     text: 'By Artist',
             //     link: '#',
@@ -38,15 +45,17 @@ class MenuLinks extends Component {
              }
           }
      render() {
-        let links = this.state.links.map(( link, i ) => <li key={i} 
-        ref={i+ 1}><i aria-hidden="true" className={`fa ${link.icon}`}></i><a 
-        href={link.link} target="_blank">{link.text}</a></li>);
+        let links = this.state.links.map(( item, index) => <li key={index} 
+        ref={index+ 1}>
+          <i aria-hidden="true" className={`fa ${item.icon}`}></i>
+          <a href={item.link} target="_blank">{item.text}</a>
+        </li>);
         return (
-    <div className={this.props.menuStatus} id='menu'>
-        <ul>
-            { links }
-        </ul>
-    </div>
+            <div className={this.props.menuStatus} id='menu'>
+                <ul>
+                    { links }
+                </ul>
+            </div>
         )
     }
 }

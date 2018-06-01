@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react';
-// import dummyData from '../../helper/dummydata';
-// import axios from "axios";
 import note from '../assets/images/note.png'
 
 
