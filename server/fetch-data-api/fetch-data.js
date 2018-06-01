@@ -19,13 +19,14 @@ const getDataFromEventfullApi = ()=>{
           //************* getting all promises ******************//
 
           const genreArray = [ 'music_alternative','music_blues','music_country','music_dance','music_easy_listening','music_electronic','music_folk','music_jazz','music_newage','music_rb','music_vocal','music_rap_hiphop','music_metal','music_religious','music_rock','music_pop','music_world','music_opera','music_latin','music_reggae','music_childrens','music_classical'];
-          // const genreArray = ['music_alternative','music_blues','music_childrens'];
 
           let allPromises = [];  
           let allresults = [];
           var outputObj = {};
           genreArray.map((genre, index)=>{
             allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=${current}-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
+            // allPromises.push(axios.get(`${BASE_URL}${API_KEY}&location=birmingham&date=2018052000-2019010100&sort_order=date&category=${genre}&image_sizes=blackborder250,block100&page_size=1000&include=popularity`))
+
 
           })
           
