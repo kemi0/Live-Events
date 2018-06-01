@@ -15,11 +15,7 @@ export default class Header extends Component {
     }
     
     render() {
-        // {
-        // const tempStyle = {
-        //     color: '#A9A9A9',
-        // };
-        
+   
         return (
             <header>
             <div className="container-fluid">

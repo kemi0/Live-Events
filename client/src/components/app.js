@@ -26,8 +26,12 @@ class App extends Component {
 
         this.state = { 
 			events: [],
-			filteredEvents: []
+			filteredEvents: [],
+			searchQuery: null
+
+
 		}
+		this.searchInfoCallBack=this.searchInfoCallBack.bind(this);
 	}
 
 	handleSearch(term){
@@ -54,8 +58,14 @@ class App extends Component {
 		this.setState({ events });
 	}
 
+	searchInfoCallBack(searchquery){
+		this.setState({
+			searchQuery: searchquery   // from state : from parameter
+		})
+	}
+
 	render(){
-		const { events, filteredEvents } = this.state;
+		const { events, filteredEvents,searchQuery } = this.state;
 		let activeEvents = events;
 		if(filteredEvents.length){
 			activeEvents = filteredEvents;
@@ -64,10 +74,10 @@ class App extends Component {
 		return (
 			<Router>
 				<div>
-					<Menu search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
+					<Menu searchBarCallBack={this.searchInfoCallBack}  search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
 					<div className="container-fluid">  
 						<Route exact path="/" render={(props) => {
-							return <Main {...props} carouselEvents={events} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
+							return <Main searchQuery={searchQuery}   {...props} carouselEvents={activeEvents} title={activeEvents} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
 						}} />
 					<Test /> 
 					</div>

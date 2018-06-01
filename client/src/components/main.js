@@ -64,10 +64,6 @@ class Main extends Component {
         
         const { events, carouselEvents } = this.props;
 
-        
-
-        // console.log('Events:', events);
-
         if (!events.length) {
             return <div>Loading ...</div>
         } else {
@@ -112,19 +108,22 @@ class Main extends Component {
                 )
             })
 
-            const top = events.map((item, index) => {
-                return (
-                    <Top key={index} city_name={item.city} />
-                )
-            });
+            // const top = events.map((item, index) => {
+            //     return (
+            //         // <Top key={index} city_name={item.city_name}  />
+            //     )
+            // });
 
             const displayButton = events.length> 10 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+           
+            
 
+            const topDisplay = this.props.searchQuery ? this.props.searchQuery : "Birmingham - Alabama";
             return (
                
                 <div>
                   
-                    <Top city_name={this.props.city_name} />
+                    <Top city_name={topDisplay} />
                     <div className="container-fluid">
                         <CarouselSlider events={carouselEvents}/>
                     </div>

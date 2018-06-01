@@ -132,7 +132,7 @@ class Menu extends Component {
                         <MenuLinks menuStatus={menuStatus}/>
                         
                 </div>
-                { isSearchInputActive ? <SearchBar search={this.props.search} /> : <div></div> }
+                { isSearchInputActive ? <SearchBar searchBarCallBack= {this.props.searchBarCallBack} search={this.props.search} /> : <div></div> }
             </div>
         ) 
     }
