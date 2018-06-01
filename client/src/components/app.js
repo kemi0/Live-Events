@@ -23,6 +23,17 @@ class App extends Component {
 
 		this.searchInfoCallBack=this.searchInfoCallBack.bind(this);
 
+// <<<<<<< v0.5
+// =======
+//         this.state = { 
+// 			events: [],
+// 			filteredEvents: [],
+// 			searchQuery: null
+
+
+// 		}
+// 		this.searchInfoCallBack=this.searchInfoCallBack.bind(this);
+// >>>>>>> dev
 	}
 
 	handleSearch(term){
@@ -54,7 +65,7 @@ class App extends Component {
 		this.setState({
 			searchQuery: searchquery   // from state : from parameter
 		})
-		
+
 	}
 
 	render(){
@@ -68,8 +79,11 @@ class App extends Component {
 		return (
 			<Router>
 				<div>
+
 					<Menu searchBarCallBack={this.searchInfoCallBack}  search={this.handleSearch.bind(this)} Menutitles = "Live Music App"/>  
 					<div className="container-fluid">  
+
+
 						<Route exact path="/" render={(props) => {
 							return <Main searchQuery={searchQuery}   {...props} carouselEvents={activeEvents} title={activeEvents} events={activeEvents} addEvents={this.setEvents.bind(this)}/>
 						}} />
