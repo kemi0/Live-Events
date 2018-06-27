@@ -4,20 +4,16 @@
     src: url("../fonts/BackToBlack.ttf");
 }
 
-*{
   /*--------------------- */
   /**** PAGE SETUP *******/
  /*-------------------- */
-
+*{
     margin: 0px;
     padding: 0px;
     font-family: helvetica;
     box-sizing: border-box;
 }
-/* #root{
-width: 100%;
-height: 100%;
-} */
+
 
    /*---------------- */
   /**** HEADER *******/
@@ -25,8 +21,6 @@ height: 100%;
 
 header {
     border: solid black 1px;
-    /* width:100vw; */
-    /* height:8vh; */
     padding: 0.5%;
 
 }
@@ -69,30 +63,12 @@ header {
     align-items: center;
 
   }
-
-  .menubar {
-    animation: 40000ms ease-in-out infinite colorschange;
+  .menu{
+      background-color:#16c5a6;
+  } 
+  .menubar{
+     font-size: 1rem;
   }
-  
-  @keyframes colorschange {
-    0% {
-        background: linear-gradient(to bottom right, pink, purple);
-    }
-    25% {
-        background: linear-gradient(to bottom right, pink, purple);
-    }
-    50% {
-        background: linear-gradient(to bottom right, lightblue, purple);
-    }
-    75% {
-        background: linear-gradient(to bottom right, lightblue, purple);
-    }
-    100% {
-        background: linear-gradient(to bottom right, lightblue, pink);
-    }
-
-  }
-
   .barsSvg-left{
     position: relative;
     opacity: 0.7;
@@ -103,13 +79,8 @@ header {
     position: relative;
     left: -7%;
     opacity: 0.7;
-    z-index: 0;
-   
-    
+    z-index: 0; 
   }
-
-
-  
   /* .menubar */
     span { 
     display: inline-block;
@@ -137,7 +108,7 @@ header {
     width: 100%;
     vertical-align: middle;
     margin: 20px 0 0 15px;
-    background: gray;
+    background: #dff0d8;
     border-radius: 8px;
     opacity: 1;
     left: 0;
@@ -249,9 +220,6 @@ header {
   /**** CAROUSEL *******/
  /*------------------ */
 
-
-/* DISPLAY FOR CAROUSEL */
-
 #carousel{
     margin-bottom: 25px;
 }
@@ -263,17 +231,14 @@ header {
     color:rgb(23, 160, 30);
     font-size: 1em; 
 }
-
 .top-display-text{
     padding: 3%;
     font-size:1.5em;
 }
-
 .label{
     color:black !important;
     font-size: 1em;
 }
-
 .carousel-container{
     width:100%;
     height:26em;
@@ -288,25 +253,16 @@ img{
 }
 
 .carousel-info{
-    /* height:min-content; */
-    /* border: solid black 1px; */
     margin-top:1%;
-    /* position:relative; */
-    /* bottom:-18.5em; */
-    
     opacity:0.8;
     background-color:#222065;
-    
 }
 
 .carousel-date-info{
     height:35%;
     border: solid black 1px;
     margin-top:1%;
-
     position:relative;
-
-    /* bottom:-18.5em; */
 }
 
 .carousel-caption{
@@ -333,7 +289,6 @@ img{
 }
 
 .carousel-month, .carousel-date{
-    /* display:inline-block; */
     color:white;
 }
 
@@ -391,10 +346,8 @@ img{
 }
 
 .event-artist-photo{
-    /* border: solid black 1px; */
     height:100%;
     display: flex;
-    /* width: 100%; */
     margin-top: 1%;
     margin-bottom:1%;
     box-shadow:grey 5px 5px 8px;
@@ -435,9 +388,6 @@ img{
     margin-top:2%;
     border-top: white solid 1 px;
 }
-
-
-
 .event-text{
     padding-top:9%;
 } 
@@ -454,12 +404,14 @@ img{
     margin-top: 1%;
     background-color: yellow;
     height: 5em;
+    font-weight: 900;
+
 }
 .show-more-button{
     position: relative;
     margin-top:2em;
     margin-bottom:2em;
-    background-color: rgb(243, 62, 198); 
+    background-color:#fe7b47; 
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -513,8 +465,6 @@ font-size:0.8em;
 line-height: 1;
 padding-top: 0.4em;
 }
-
-
   /*-------------------- */
   /*** HARD CODED DOTS ***/
   /*------------------- */
@@ -531,39 +481,8 @@ padding-top: 0.4em;
     /**** FOOTER ****/
     /*-------------*/
    
-      
-
-/* footer {
-    width: 100%;
-    background: black;
-    animation: 40000ms ease-in-out infinite colorschange;
-  }
-  
-  @keyframes colorschange {
-    0% {
-        background: linear-gradient(to bottom right, pink, purple);
-    }
-    25% {
-        background: linear-gradient(to bottom right, pink, purple);
-    }
-    50% {
-        background: linear-gradient(to bottom right, lightblue, purple);
-    }
-    75% {
-        background: linear-gradient(to bottom right, lightblue, purple);
-    }
-    100% {
-        background: linear-gradient(to bottom right, lightblue, pink);
-    }
-
-  } */
-
-/* .social-media-icons{
-    /* display:inline-block; */
-
-    /* THESE ARE THE LOGOS*/
 .icon .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
-    color: gray;
+    color: white;
     size:2em;
 }
 
@@ -645,9 +564,7 @@ padding-top: 0.4em;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.about-event-display-text{
 
-}
 
 /* Modal Content/Box */
 .modal-content {
@@ -660,10 +577,6 @@ padding-top: 0.4em;
     width: 90%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-/* #btn-padding{
-    margin-top: 100px;
-} */
 .close-button {
     background-color: hotpink;
     color:white;

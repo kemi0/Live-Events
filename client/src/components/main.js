@@ -21,7 +21,6 @@ class Main extends Component {
         };
 
         this.showMoreEvents = this.showMoreEvents.bind(this);
-        // this.cleanUpEvents = this.cleanUpEvents.bind(this);
         
     }
     
@@ -34,19 +33,12 @@ class Main extends Component {
         if(nextProps.events.length < 5){
             numberOfEvents = nextProps.events.length;
         } 
-          
         const firstFiveEvents = nextProps.events.splice(0, numberOfEvents);
-
-
-//     componentWillReceiveProps(nextProps){
-//         const firstFiveEvents = nextProps.events.splice(0, 5);
-
         this.populateEvents(JSON.parse(JSON.stringify(firstFiveEvents)));
     }
 
     async getEventsFromDb(){
         await axios.get("/api/data").then(resp =>{
-            // this.populateEvents(resp.data);
             this.props.addEvents(resp.data);
         });
     }
@@ -77,12 +69,6 @@ class Main extends Component {
         const { events, carouselEvents } = this.props;
 
         if (!events.length || !this.state.events.length) {
-
-
-//         if (!events.length) {
-
-            console.log(`-------->>>>${events.length}h<<<------------`);
-            // when events.length !=== 0
             return <div>Loading ...</div>
         } else {
           
@@ -130,12 +116,6 @@ class Main extends Component {
                 )
             })
 
-
-            // const top = events.map((item, index) => {
-            //     return (
-            //         // <Top key={index} city_name={item.city_name}  />
-            //     )
-            // });
 
             const displayButton = events.length> 5 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
            
