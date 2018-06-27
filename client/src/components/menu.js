@@ -59,7 +59,7 @@ class Menu extends Component {
 
         return (
             <div ref="root">
-                <div className="menubar">
+                <div className="menubar menu">
                     <div className="hambclicker row" onClick={ this._menuToggle }>   
                         <div id="hambmenu" className={ menuStatus }>
                             <span></span>
