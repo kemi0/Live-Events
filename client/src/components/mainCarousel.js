@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import RightArrow from './RightArrow';
-import LeftArrow from './LeftArrow';
-// this is the carousel for the first page
+
 class CarouselInfo extends Component {
     constructor(props) {
         super(props);
@@ -34,21 +32,13 @@ class CarouselInfo extends Component {
                             <p className="time">{EventTime} PM</p>
                             <p className="venue">{this.props.current_event.venue_name}</p>
                         </div>
-                        <div className="caption-right">
-                            <div className="day-row"><p className="carousel-day">{dayOfWeekRender}</p></div>
-                            <div className="month-date">
-                            <p className="carousel-month">{monthRender}</p>
-                            <p className="carousel-day"> {dayRender}</p>
+                             <div className="caption-right">
+                                <div className="day-row"><p className="carousel-day">{dayOfWeekRender}</p></div>
+                                <div className="month-date">
+                                <p className="carousel-month">{monthRender}</p>
+                                <p className="carousel-day"> {dayRender}</p>
                           
-                        </div>
-                            {/* <div className="col-xs-6 text-center carousel-date-info"> */}
-                            {/* <div className="day-row"><p className="carousel-day">{dayRender} </p></div> */}
-                            {/* <div className="day-row"><p className="carousel-day">{dayRender}</p></div>
-                            <div className="month-date"> */}
-                            {/* <div className="inter-box"><p className="carousel-month">{monthRender}</p></div> */}
-                            {/* <p className="carousel-month">{monthRender}</p> */}
-                            {/* <div className="inter-box"><p className="carousel-year">{yearRender}</p></div> */}
-                            {/* <p className="carousel-year">{yearRender}</p> */}
+                             </div>
                         </div>
                     </div>
               

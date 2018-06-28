@@ -21,29 +21,11 @@ class MenuLinks extends Component {
                             link: '#',
                             icon: 'add me',
                         }
-                
-
                         // ,{
-                        //     text: 'By Artist',
+                        //     text: '***Add More links here***',
                         //     link: '#',
                         //     icon: 'add me'
-                    // },{
-                    //     text: 'By Artist',
-                    //     link: '#',
-                    //     icon: 'add me'
-                    // },{
-                    //     text: 'By Genre',
-                    //     link: '#',
-                    //     icon: 'add me',
-                    // },{
-                    //     text: 'By Videos',
-                    //     link: '#',
-                    //     icon: 'add me'
-                    // },{
-                    //     text: 'Post Events',
-                    //     link: '#',
-                    //     icon: 'add me'
-                    //  }
+                    // },
                     ]
                 }
  }

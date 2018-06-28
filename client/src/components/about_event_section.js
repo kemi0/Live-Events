@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 
-
 class AboutEvent extends Component {
 
     constructor(props){
@@ -15,7 +14,6 @@ class AboutEvent extends Component {
     render() {
         const eventDetails=this.props
         const comingSoon="details coming soon.."
-        // console.log("eventDetails:", comingSoon);
     
         if( this.props.description === "No data" || this.props.description === " br "){
             return(
@@ -29,8 +27,6 @@ class AboutEvent extends Component {
     
 
         
-        
-        // console.log("this is the description:",this.props)
     return (
 <div>
     <div className="container-fluid">

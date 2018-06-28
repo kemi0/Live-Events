@@ -108,7 +108,7 @@ header {
     width: 100%;
     vertical-align: middle;
     margin: 20px 0 0 15px;
-    background: #dff0d8;
+    background: #fff;
     border-radius: 8px;
     opacity: 1;
     left: 0;
@@ -121,6 +121,7 @@ header {
   .title span {
     display:flex;
   }
+
   
   .hambclicker {
     position: absolute;
@@ -255,7 +256,7 @@ img{
 .carousel-info{
     margin-top:1%;
     opacity:0.8;
-    background-color:#222065;
+    background-color:#4c5193;
 }
 
 .carousel-date-info{
@@ -273,10 +274,14 @@ img{
     text-align: left;
     width: 52%;
     padding-left:3%;
+    text-shadow: 2px 2px black;
 }
 
 .caption-right{
     width: 45%;
+    font-weight: 900;
+    text-shadow: 2px 2px black;
+
 }
 
 .caption-left > p, .caption-right > p {
@@ -362,6 +367,7 @@ img{
     border-radius: 19px;
     position: relative;
     opacity:0.8;
+    font-weight: 900;
 }
 
 .event-btn:hover{

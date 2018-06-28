@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-// Install React CSS Transition Addon:
-// npm install --save react-addons-css-transition-group
 import Transition from 'react-addons-css-transition-group';
 import Indicators from './indicators';
-// import imageData from '../../assets/images/carousel';
 import '../assets/css/carousel.css';
-import Jazz404 from '../assets/images/concertImage1.jpg';
-import axios from "axios";
-import EventItem from './event_item';
-// this the second page modal carousel 
 
 class Carousel extends Component {
     constructor(props){
@@ -22,15 +15,6 @@ class Carousel extends Component {
             canClick: true
         }
     }
-
-    componentDidMount(){
-        // this.getImageData();
-    }
-
-    getImageData(){
-    
-    }
-
     enableClick(delay){
         setTimeout(() => {
             this.setState({ canClick: true })

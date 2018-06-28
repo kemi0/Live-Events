@@ -23,7 +23,6 @@ export default class Header extends Component {
                     <div className="col-xs-2 text-center left-nav nav">  
                         <Menu/>  
                     
-                         {/* <NavLink to="/eventDetails" className="nav-link" activeClassName="active selected"> <i className="fa fa-bars"></i></NavLink> */}
                     </div>
                     <div className="col-xs-8 text-center center-nav nav">
                         <p>Live Music Finder</p>
