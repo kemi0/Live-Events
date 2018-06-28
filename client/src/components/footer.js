@@ -10,7 +10,6 @@ class Footer extends Component {
             <ul className="footer-list-top">
                 
             </ul>
-
             <section className="footer-social-section flex-rw">
                     <span className="footer-social-overlap footer-social-icons-wrapper">
                         <a href="https://www.facebook.com/"  target="_blank" title="Facebook" itemProp="significantLink"><i className="generic-anchor fa fa-facebook"></i></a>

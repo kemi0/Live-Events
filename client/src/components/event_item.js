@@ -15,10 +15,6 @@ class Event extends Component {
         this.handleCloseModalClick= this.handleCloseModalClick.bind(this)
         this.modalToggle = this.modalToggle.bind(this);
     }
-
-        
-        
-
     modalToggle() {
         const { isSearchInputActive } = this.state;
 
