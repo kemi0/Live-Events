@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Main from './main';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Test from '../../helper/test'; // do not remove test
 import Footer from './footer';
 import Menu from './menu.js'
 

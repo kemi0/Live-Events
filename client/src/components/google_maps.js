@@ -27,7 +27,7 @@ class Map extends Component {
                 lon = Number(lon);
 
                 return (
-                        <div className="google-map-container">
+                 <div className="google-map-container">
                         <GoogleMapReact center={{lat, lng: lon}} zoom={13} bootstrapURLkeys={
                                 {key:"AIzaSyCKGIiarpxkIzDG50MYFC87jLuJzP0nzLk"}} >
                                 <Marker lat={ lat } lng={ lon } image={ note } /> 
