@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Event from './event_item';
 import CarouselInfo from './mainCarousel';
-import EventDetailsSecondPage from './event_details_info';
 import Top from './top';
-import Corgi from '../assets/images/404corgi.jpg';
 import Jazz404 from '../assets/images/concertImage1.jpg';
-import Footer from './footer';
 import CarouselSlider from './carouselBootstrap';
 import axios from "axios";
 
@@ -43,14 +40,12 @@ class Main extends Component {
         });
     }
 
- // showing all events
     populateEvents(currentEvents){
         this.setState({
             events: currentEvents
-        },()=>console.log(this.state));
+        },()=>(this.state));
     }
         
-// click the butten to show more events
     showMoreEvents(){
         const newCounter = this.state.counter++;
         this.setState({
@@ -64,17 +59,11 @@ class Main extends Component {
     }
 
     render(){
-        
-        
         const { events, carouselEvents } = this.props;
 
         if (!events.length || !this.state.events.length) {
             return <div>Loading ...</div>
         } else {
-          
-            console.log('event in main',this.state.events);
-            console.log('event in props', this.props.events);
-
             const allEvents = this.state.events.map((item, index) => {
                 const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
                 const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -98,11 +87,41 @@ class Main extends Component {
                 
                 if (item.event_image !== "No Image") {
                     return(
-                        <Event city={item.city} start_time={eventTime}  description={item.event_details} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={item.event_image} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event 
+                        city={item.city} 
+                        start_time={eventTime}  
+                        description={item.event_details} 
+                        event_title={item.event_title} 
+                        venue_name={item.venue_name} 
+                        venue_address={item.venue_address} 
+                        dayOfWeekRender={dayOfWeekRender} 
+                        monthRender={monthRender} 
+                        dayRender={dayRender} 
+                        event_date={eventDate} 
+                        image={item.event_image} 
+                        key={index} 
+                        latitude={item.latitude} 
+                        longitude={item.longitude}
+                        />
                     )
                 } else {
                     return(
-                        <Event city={item.city} start_time={eventTime} description={item.event_details} event_title={item.event_title} venue_name={item.venue_name} venue_address={item.venue_address} dayOfWeekRender={dayOfWeekRender} monthRender={monthRender} dayRender={dayRender} event_date={eventDate} image={Jazz404} key={index} latitude={item.latitude} longitude={item.longitude}/>
+                        <Event 
+                        city={item.city} 
+                        start_time={eventTime} 
+                        description={item.event_details}
+                         event_title={item.event_title} 
+                         venue_name={item.venue_name} 
+                         venue_address={item.venue_address} 
+                         dayOfWeekRender={dayOfWeekRender} 
+                         monthRender={monthRender} 
+                         dayRender={dayRender} 
+                         event_date={eventDate} 
+                         image={Jazz404} 
+                         key={index} 
+                         latitude={item.latitude} 
+                         longitude={item.longitude}
+                         />
                     )
                 }
                 
@@ -112,36 +131,38 @@ class Main extends Component {
 
             const carouselMainInfo = carouselEvents.map((item, index) => {
                 return (
-                    <CarouselInfo start_time={item.event_start_time} event_title={item.title} venue_name={item.venue_name} venue_address={item.venue_address} latitude={item.latitude} longitude={item.longitude} key={index}/>
+                    <CarouselInfo 
+                        start_time={item.event_start_time}
+                        event_title={item.title}
+                        venue_name={item.venue_name} 
+                        venue_address={item.venue_address} 
+                        latitude={item.latitude} 
+                        longitude={item.longitude} 
+                        key={index}
+                        />
                 )
             })
 
 
-            const displayButton = events.length> 5 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
+    const displayButton = events.length> 5 ? <button className="show-more-button btn" onClick={this.showMoreEvents}>MORE EVENTS</button> : <span> </span>
            
             
 
-            const topDisplay = this.props.searchQuery ? this.props.searchQuery : "Birmingham - Alabama";
+    const topDisplay = this.props.searchQuery ? this.props.searchQuery : "Birmingham - Alabama";
             return (
                
                 <div>
-                  
                     <Top city_name={topDisplay} />
-                    
-                    <div className="container-fluid">
-                        <CarouselSlider events={carouselEvents}/>
-                    </div>
-             
+                        <div className="container-fluid">
+                             <CarouselSlider events={carouselEvents}/>
+                        </div>
                     {allEvents}
-              
                     <div className="container-fluid">
                         <div className="row">
-                        <div className="col-xs-12 text-center">
+                            <div className="col-xs-12 text-center">
+                                 {displayButton}
 
-                    
-                        {displayButton}
-
-                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>

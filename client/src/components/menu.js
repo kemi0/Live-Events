@@ -39,18 +39,10 @@ class Menu extends Component {
     toggleSearchBar() {
         const { isSearchInputActive } = this.state;
 
-        // Ternary equivalent to using if / else
         isSearchInputActive ? 
             this.setState({ isSearchInputActive: false }) : 
             this.setState({ isSearchInputActive: true });
-        
-        // if(this.state.isSearchInputActive){
-        //         this.setState({ isSearchInputActive : false});
-        // } else {
-        //     this.setState({ 
-        //         isSearchInputActive : true,      
-        //     });
-        // } 
+    
     }
 
     render() {
@@ -68,10 +60,6 @@ class Menu extends Component {
                             <span></span>             
                         </div>                 
                     </div>
-
-                        {/*  <div className="title">
-                        <span></span>
-                         </div> */}
                          
                         <SearchIcon toggleSearchBar={ this.toggleSearchBar.bind(this) }/>
                         
@@ -133,12 +121,8 @@ class Menu extends Component {
                                             </animate></rect></g></svg>
 
                                 </div>
-                        </div>
-                        
-                              
-                        
-                        <MenuLinks menuStatus={menuStatus}/>
-                        
+                        </div> 
+                        <MenuLinks menuStatus={menuStatus}/>  
                 </div>
                 { isSearchInputActive ? <SearchBar searchBarCallBack= {this.props.searchBarCallBack} search={this.props.search} /> : <div></div> }
             </div>

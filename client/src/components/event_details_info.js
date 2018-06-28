@@ -6,10 +6,6 @@ class EventDetailsSecondPage extends Component {
     }
 
         render(){
-            // console.log("this is the event image:",this.props);
-
-
-
             return(
                 <div className="row main-event-display-container">
                    

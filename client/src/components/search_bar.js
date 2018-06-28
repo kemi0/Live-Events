@@ -10,47 +10,16 @@ class SearchBar extends Component {
         };
     }
 
-
     componentDidUpdate(){
         if (this.input) {
             this.input.focus();
         }
     }
-    // updateSearch(e){
-    //     this.setState({ term: e.target.value.substr(0,20)});
-        
-    // render() {
-    //     const tempStyle = {
-    //         color: '#000',
-    //     };
-
-    //     if (this.state.isSearchInputActive) {
-    //         return (
-    //             <form onSubmit={(e) => this.handleSubmit(e)}>
-    //                 <input
-    //                     placeholder={this.state.placeholder}
-    //                     ref={e => this.input = e}
-    //                     className="search_toolbar"
-    //                     style={tempStyle}
-    //                     value={this.state.term}
-    //                     onChange={e => this.setState({ term: e.target.value })}
-    //                 />
-    //             </form>
-    //         );
-    //      } else {
-    //         return <div className="fa fa-search search_toolbar" onClick={this.toggleSearchBar}></div>
-    //      } 
-
-    // }
-
+   
     handleSubmit(e){
         e.preventDefault();
-
-
         this.props.searchBarCallBack(this.state.term);
         this.props.search(this.state.term)
-
-        // this.props.history.push('')
     }
 
     onInputChange(term) {
