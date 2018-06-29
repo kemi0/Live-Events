@@ -37,7 +37,6 @@ class CarouselInfo extends Component {
                                 <div className="month-date">
                                 <p className="carousel-month">{monthRender}</p>
                                 <p className="carousel-day"> {dayRender}</p>
-                          
                              </div>
                         </div>
                     </div>

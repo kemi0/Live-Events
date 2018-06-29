@@ -1,7 +1,7 @@
-# Live Music App
+# Live Music Events
 
 ### Overview
-Developed  applaction front end utilizing React. Making Axios to a 3-tier Node/Expres backend tying into a MySQL database. 
+Developed  front end utilizing React. Making Axios to a 3-tier Node/Expres backend tying into a MySQL database. 
 
 ### Live Music Dev Team
 - Jean Paul

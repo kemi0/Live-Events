@@ -291,29 +291,22 @@ img{
     margin: 0;
 }
 
-.carousel-day{
+.carousel-month, 
+.carousel-date,
+.carousel-day
+{
+    color: floralwhite;
     font-size:1.3em;
-    color:white;
 }
 
-.carousel-month, .carousel-date{
-    color:white;
-}
 
-.carousel-date{
-    font-size:1em;
-}
-
-.carousel-month{
-    font-size:1em;
-}
-
-.artist-title{
-    font-size:1.3em;
+.artist-title,
+.time,
+.venue
+{
+    font-size:1.5em;
     color:white;
     font-weight:bold;
-    padding-left:2%;
-
 }
 
 /* Bootstrap Overrides */
@@ -364,6 +357,33 @@ img{
     margin: 0;
     font-weight: 700;
     padding-bottom:10%;
+
+}
+.title-text{
+    font-size: 3rem;
+    padding: 0px;
+    margin: 0px;
+}
+.title-modal{
+    text-align: center;
+    text-decoration: underline;
+    /* padding-bottom: 0px; */
+}
+.modal_date,
+.modal_time,
+.modal_address,
+.modal_address-info {
+    font-weight: 800;
+    font-size: 2rem;
+
+} 
+.date-before,
+.time-before,
+.addres-before{
+    color: lightslategray;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
 }
 .event-btn {
     width: 25%;
@@ -371,6 +391,7 @@ img{
     position: relative;
     opacity:0.8;
     font-weight: 900;
+    border-width: 3px;
 }
 
 .event-btn:hover{
@@ -506,7 +527,6 @@ padding-top: 0.4em;
     border: 1px solid black;
     width:100%;
     height:20em;
-    /* height: 100%; */
     z-index: 20;
     position: relative;
 }
@@ -549,8 +569,8 @@ padding-top: 0.4em;
     position: absolute;
     width: 100%;
     border: black 2px solid;
-    height: 5em;
-    font-size: 12vh;
+    height: 3em;
+    font-size: 1px;
     box-shadow:#e0d8d8 5px 5px 5px;
     top: 75px;
     z-index: 1;
@@ -563,7 +583,7 @@ padding-top: 0.4em;
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 99999; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -587,14 +607,22 @@ padding-top: 0.4em;
 }
 
 .close-button {
-    background-color: hotpink;
+    display: block;
+    margin: 33px auto;
     color:white;
     font-size: 28px;
     font-weight: bold;
-    position: absolute;
     right: 40%;
     bottom:10px;
-    /* margin-top: 20px; */
+    margin-top:2em;
+    background-color:#fe7b47; 
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    font:helvetica;
+    font-style: bold;
+    box-shadow:grey 5px 5px;
+    cursor: pointer;
 }
 
 .close:hover,
@@ -602,6 +630,9 @@ padding-top: 0.4em;
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+.event-description{
+    font-size: 2rem;
 }
 
 .mapThing{

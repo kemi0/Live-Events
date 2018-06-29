@@ -13,12 +13,12 @@ class AboutEvent extends Component {
 
     render() {
         const eventDetails=this.props
-        const comingSoon="details coming soon.."
+        const comingSoon="Events Details were not avaiable, Please Try again.."
     
         if( this.props.description === "No data" || this.props.description === " br "){
             return(
                 <div className="comingSoon">
-                <p>{comingSoon}</p>
+                     <p>{comingSoon}</p>
                 </div>
             )
         }
@@ -32,15 +32,14 @@ class AboutEvent extends Component {
     <div className="container-fluid">
         <div className="row about-event-display-text">
             <div className="col-xs-12 text-center">
-                <p>ABOUT THIS EVENT</p>
+                <p>Find more details..</p>
             </div>
         </div>
     </div>
     <div className="row">
-    <div className="col-xs-12">
-        <p>{this.props.description}
-        </p>
-    </div>
+        <div className="col-xs-12">
+             <p className="event-description">{this.props.description} </p>
+        </div>
     </div>
 </div>
 

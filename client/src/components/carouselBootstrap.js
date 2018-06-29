@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import CarouselInfo from './mainCarousel';
 
 
-// this the carousel for the first page I dont know hwere to pass props between these two
 class CarouselSlider extends Component{
     constructor(...props){
         super(...props);
-        this.state = {
+        // this.state = {
 
-        };
+        // };
 
         this.props.events.map( eventData => {
             if (eventData.event_image === "No Image"){
@@ -60,10 +59,8 @@ class CarouselSlider extends Component{
                                 <CarouselInfo current_event={this.props.events[4]} />
                             </div>
                         
-                     </div>
-                    
-                           
                         </div>
+                    </div>
                 </div>
         )
     }
