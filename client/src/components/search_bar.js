@@ -28,8 +28,9 @@ class SearchBar extends Component {
 
     render() {
         const tempStyle = {
-            color: '#A9A9A9',
-            fontSize:13,
+            color: '#000',
+            fontSize: '2rem',
+            fontweight: 800,
         };
 
         return (
