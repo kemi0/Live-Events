@@ -24,6 +24,9 @@ header {
     padding: 0.5%;
 
 }
+#search-i {
+    padding-top: 7px;
+}
 .search_toolbar{
     position: absolute;
     right: 0;
@@ -547,8 +550,8 @@ padding-top: 0.4em;
     width: 100%;
     border: black 2px solid;
     height: 5em;
-    font-size: 0.9em;
-    box-shadow: grey 5px 5px 5px;
+    font-size: 12vh;
+    box-shadow:#e0d8d8 5px 5px 5px;
     top: 75px;
     z-index: 1;
     padding:2%;
