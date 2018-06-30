@@ -52,7 +52,7 @@ class Event extends Component {
                         </div>
                         <div className="col-xs-4">
                             <p className="title">{this.props.event_title.substring(0, 20)+"..."}</p>
-                            <p className="time">{this.props.start_time} PM</p>
+                            {/* <p className="time">{this.props.start_time} PM</p> */}
                             <p className="venue_name">{this.props.venue_name}</p>
                         </div>
 
