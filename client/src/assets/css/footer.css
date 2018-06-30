@@ -1,5 +1,5 @@
 body {
-    font: 11px "Oswald", sans-serif;
+  
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
     margin: auto;
@@ -11,33 +11,33 @@ body {
 .footer-list-top {
     width: 33.333%;
   }
-ul {
+/* ul {
     list-style: none;
-  }
+  } */
   
 a {
     text-decoration: none;
   }
   
-  .generic-anchor {
+   .generic-anchor {
     color: white;
-  }
+   }
   .generic-anchor:visited {
     color: #fbfbfb;
   }
   .generic-anchor:hover {
     color: #ccc;
-  }
+  } 
   
   .flex-rw {
+    display: flex;
     width: 100%; 
     margin-top: 50px;
-    display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
   }
   
   
-  .footer-list-top > li {
+  /* .footer-list-top > li {
     padding-top: 3vh;
     text-align: center;
     padding-bottom: 10px;
@@ -47,13 +47,14 @@ a {
     padding: 10px 0 5px 0;
     color: #fff;
     font: 2.3vw "Oswald", sans-serif;
-  }
-  
+  } */
+/*   
   .footer-list-anchor {
     font: 1.3em "Open Sans", sans-serif;
-  }
+  } */
   
   .footer-social-section {
+    display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
@@ -65,14 +66,19 @@ a {
     position: relative;
     z-index: 2;
     padding: 0 20px;
+    justify-content: space-around;
+    display: flex;
+    width:100%;
+    position: relative;
+    padding: 1vh;
   }
 
   .footer-social-overlap {
     background-color:#16c5a6;
+    
   }
   
   .footer-social-connect {
-    display: flex;
     align-items: center;
     font: 3.5em "Oswald", sans-serif;
     color: #fff;
