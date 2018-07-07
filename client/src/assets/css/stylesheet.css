@@ -75,12 +75,12 @@ header {
   .barsSvg-left{
     position: relative;
     opacity: 0.7;
-    left: 5%;
+    left:-1%;
   }
 
   .barsSvg-right{
     position: relative;
-    left: -7%;
+    left: -2%;
     opacity: 0.7;
     z-index: 0; 
   }
@@ -386,7 +386,7 @@ img{
     display: inline-block;
 }
 .event-btn {
-    width: 25%;
+    width: 29%;
     border-radius: 19px;
     position: relative;
     opacity:0.8;
