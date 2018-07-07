@@ -21,44 +21,27 @@ class CarouselSlider extends Component{
     }
     
     render(){
+        //setting the limit of the carousel to hold less than 5 items
+        //critical part in the search functionality for genre 
+        const clippedEvents = this.props.events.slice(0, 5);
+        const eventIndicators = clippedEvents.map((event, index) => (
+            <li key={index} data-target="#carousel" data-slide-to={index} className={!index ? "active" : ""}></li>
+        ));
+        const eventSlides = clippedEvents.map((event, index) => (
+            <div key={index} className={`item ${!index ? "active" : ""}`}>
+                <img src={event.event_image}/>
+                <CarouselInfo current_event={event} />
+            </div>
+        ));
+
         return(
                 <div className="row">
                     <div id="carousel" className="carousel slide col-xs-12" data-ride="carousel">
                         <ol className="carousel-indicators">
-                            <li data-target="#carousel" data-slide-to="0" className="active"></li>
-                            <li data-target="#carousel" data-slide-to="1"></li>
-                            <li data-target="#carousel" data-slide-to="2"></li>
-                            <li data-target="#carousel" data-slide-to="3"></li>
-                            <li data-target="#carousel" data-slide-to="4"></li>
-                            <li data-target="#carousel" data-slide-to="5"></li>
+                            {eventIndicators}
                         </ol>
                         <div className="carousel-inner" role="listbox">
-                            <div className="item active">
-                               <img src={this.props.events[0].event_image}/>
-                                <CarouselInfo current_event={this.props.events[0]} />
-                            </div>
-
-                            <div className="item">
-                                <img src={this.props.events[1].event_image}/>
-                                <CarouselInfo current_event={this.props.events[1]} />
-                            </div>
-                        
-                            <div className="item">
-                            <img src={this.props.events[2].event_image}/>
-                            <CarouselInfo current_event={this.props.events[2]} />
-                                
-                            </div>    
-
-                            <div className="item">
-                                <img src={this.props.events[3].event_image}/>
-                                <CarouselInfo current_event={this.props.events[3]} />
-                            </div>
-
-                            <div className="item">
-                                <img src={this.props.events[4].event_image}/>
-                                <CarouselInfo current_event={this.props.events[4]} />
-                            </div>
-                        
+                            {eventSlides}
                         </div>
                     </div>
                 </div>
