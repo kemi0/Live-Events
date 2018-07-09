@@ -7,20 +7,20 @@ class MenuLinks extends Component {
         this.state = {
                     links: [
                         {
-                            text: 'Sign Up',
+                            text: 'Contact',
                             link: '#',
                             icon: 'add me',
                         },
-                        {
-                            text: 'Sign In',
-                            link: '#',
-                            icon: 'add me'
-                        },
-                        {
-                            text: 'By Genre',
-                            link: '#',
-                            icon: 'add me',
-                        }
+                        // {
+                        //     text: 'Sign In',
+                        //     link: '#',
+                        //     icon: 'add me'
+                        // },
+                        // {
+                        //     text: 'By Genre',
+                        //     link: '#',
+                        //     icon: 'add me',
+                        // }
                         // ,{
                         //     text: '***Add More links here***',
                         //     link: '#',

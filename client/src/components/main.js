@@ -30,7 +30,7 @@ class Main extends Component {
         if(nextProps.events.length < 5){
             numberOfEvents = nextProps.events.length;
         } 
-        const firstFiveEvents = nextProps.events.splice(0, numberOfEvents);
+        const firstFiveEvents = nextProps.events.slice(0, numberOfEvents);
         this.populateEvents(JSON.parse(JSON.stringify(firstFiveEvents)));
     }
 
