@@ -93,7 +93,6 @@ header {
             transform: translateX(-50%);
     font-weight: 300;
     font-size: 2em;
-    line-height: 70px;
   }
   
   #hambmenu {
@@ -541,6 +540,11 @@ padding-top: 0.4em;
 .embed-responsive-16by9{
     padding-bottom: 58.25%;
 }
+.title-txt{
+    font-size: 1.9rem;
+    font-weight: 400;
+    color:#38c5a3;
+}
 
 /* suggested events carousel */
 
@@ -549,6 +553,19 @@ padding-top: 0.4em;
     background: purple;
     width:100%;
     height:5em;
+}
+@media screen and (max-width: 1159px){
+    .title-txt{
+        font-size: 1.9rem;
+    }
+    #menu{
+        width: 85%;
+    }
+ }
+@media screen and (max-width: 910px){
+#menu{
+    width: 85%;
+}
 }
 @media screen and (max-width: 580px) {
     .modal_date,
@@ -584,6 +601,10 @@ padding-top: 0.4em;
             font-size: 1rem;
      }
   }
+/* 
+  @media screen and (max-width: 320px){
+
+  } */
 
  
   /* inner-info container for second page*/
