@@ -33,7 +33,7 @@ class MenuLinks extends Component {
         let links = this.state.links.map(( item, index) => 
               <li key={index} ref={index+ 1}> 
                 <i aria-hidden="true" className={`fa ${item.icon}`}></i>
-                <a href={item.link} target="_blank">{item.text}</a>
+                <a className="title-txt" href={item.link} target="_blank">{item.text}</a>
             </li>
         );
         return (
