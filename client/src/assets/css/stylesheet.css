@@ -93,7 +93,7 @@ header {
             transform: translateX(-50%);
     font-weight: 300;
     font-size: 2em;
-    line-height: 60px;
+    line-height: 70px;
   }
   
   #hambmenu {
@@ -174,7 +174,7 @@ header {
   #menu {
     position: absolute;
     top: 60px;    
-    height: calc(100vh - 60px);
+    height: calc(80vh - 60px);
     width: 210px;
     background-color:white;
     z-index: 1;
@@ -550,13 +550,42 @@ padding-top: 0.4em;
     width:100%;
     height:5em;
 }
-
-@media screen and (max-width: 420px) {
-    .menubar span {
-      font-size: 1.2em;
+@media screen and (max-width: 580px) {
+    .modal_date,
+    .modal_time,   
+    .modal_address,
+    .modal_address-info{
+        font-size: 1.2rem
     }
   }
+@media screen and (max-width: 320px) {
+    #hambmenu span {
+        width: 80%;
+    }
+    .lds-equalizer{
+        width: 74%;
+    }
+    .logo{
+        width: 25%;
+    }
+    #search-i{
+        font-size: 6vh;
+    }
+    .event-btn{
+        width: 33%;
+    }
+    li a{
+       padding-left: 9vh; 
+    }
+    .modal_date,
+    .modal_time,
+    .modal_address, 
+    .modal_address-info {
+            font-size: 1rem;
+     }
+  }
 
+ 
   /* inner-info container for second page*/
 
   .inner-info-container{
