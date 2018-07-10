@@ -551,10 +551,31 @@ padding-top: 0.4em;
     height:5em;
 }
 
-@media screen and (max-width: 420px) {
-    .menubar span {
-      font-size: 1.2em;
+@media screen and (min-width: 320px) {
+    #hambmenu span {
+        width: 80%;
     }
+    .lds-equalizer{
+        width: 74%;
+    }
+    .logo{
+        width: 25%;
+    }
+    #search-i{
+        font-size: 7vh;
+    }
+    .event-btn{
+        width: 33%;
+    }
+    li a{
+       padding-left: 9vh; 
+    }
+    .modal_date,
+     .modal_time,
+     .modal_address, 
+     .modal_address-info {
+            font-size: 1rem;
+     }
   }
 
   /* inner-info container for second page*/
