@@ -11,9 +11,6 @@ body {
 .footer-list-top {
     width: 33.333%;
   }
-/* ul {
-    list-style: none;
-  } */
   
 a {
     text-decoration: none;
@@ -35,23 +32,6 @@ a {
     margin-top: 50px;
     flex-flow: row;
   }
-  
-  
-  /* .footer-list-top > li {
-    padding-top: 3vh;
-    text-align: center;
-    padding-bottom: 10px;
-  }
-  
-  .footer-list-header {
-    padding: 10px 0 5px 0;
-    color: #fff;
-    font: 2.3vw "Oswald", sans-serif;
-  } */
-/*   
-  .footer-list-anchor {
-    font: 1.3em "Open Sans", sans-serif;
-  } */
   
   .footer-social-section {
     display: flex;

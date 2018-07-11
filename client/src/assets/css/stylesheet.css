@@ -27,7 +27,6 @@ header {
 #search-i {
     padding-top: 1%;
     font-size: 3.3rem;
-    /* padding-top: 7px; */
 }
 .search_toolbar{
     position: absolute;
@@ -283,7 +282,8 @@ img{
 
 }
 
-.caption-left > p, .caption-right > p {
+.caption-left > p,
+.caption-right > p {
     margin: 0;
 }
 
@@ -510,7 +510,12 @@ padding-top: 0.4em;
     /**** FOOTER ****/
     /*-------------*/
    
-.icon .fa-cloud, .fa-heart, .fa-car, .fa-file, .fa-bars, .fa-search{
+.icon .fa-cloud,
+ .fa-heart, 
+ .fa-car, 
+ .fa-file, 
+ .fa-bars, 
+ .fa-search{
     color: white;
     size:2em;
 }
@@ -642,13 +647,12 @@ padding-top: 0.4em;
 
 /* Modal Content/Box */
 .modal-content {
-    /* height: 79vh; */
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
     box-shadow: 5px 15px 5px 0.5 grey;
-    width: 90%; /* Could be more or less, depending on screen size */
+    width: 90%; 
 }
 
 .close-button {
