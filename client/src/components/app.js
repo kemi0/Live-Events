@@ -30,9 +30,6 @@ class App extends Component {
 
 			return genre.indexOf(term) >= 0;
 		});
-
-		console.log('filtered events\n', filteredEvents);
-
 		if (filteredEvents.length) {
 		this.setState({ filteredEvents });
 		}
