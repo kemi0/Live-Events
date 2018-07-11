@@ -25,7 +25,9 @@ header {
 
 }
 #search-i {
-    padding-top: 7px;
+    padding-top: 1%;
+    font-size: 3.3rem;
+    /* padding-top: 7px; */
 }
 .search_toolbar{
     position: absolute;
@@ -210,13 +212,9 @@ header {
   }
 
   .fa{
-      margin-top: 10px;
-      font-size: 39px;
-        /* color: black; */
-      padding-right: 8px;
-      /* position: relative;; 
-      right: 10px;
-      top: 5px; */
+    padding-left: 20%;
+    margin-top: 4%;
+    font-size: 3rem;
   }
 
   /*------------------- */
@@ -366,7 +364,6 @@ img{
 .title-modal{
     text-align: center;
     text-decoration: underline;
-    /* padding-bottom: 0px; */
 }
 .modal_date,
 .modal_time,
@@ -468,7 +465,7 @@ img{
      height:100%;
      width:70%;
      border:solid black 1px;
-     background-color:pe;
+     background-color:pink;
      opacity:0.7;
  }
 
@@ -493,6 +490,10 @@ img{
 font-size:0.8em;
 line-height: 1;
 padding-top: 0.4em;
+}
+.event-artist-photo p {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 }
   /*-------------------- */
   /*** HARD CODED DOTS ***/
@@ -543,7 +544,7 @@ padding-top: 0.4em;
 .title-txt{
     font-size: 1.9rem;
     font-weight: 400;
-    color:#38c5a3;
+    color:#777;
 }
 
 /* suggested events carousel */
@@ -556,7 +557,8 @@ padding-top: 0.4em;
 }
 @media screen and (max-width: 1159px){
     .title-txt{
-        font-size: 1.9rem;
+        font-size: 2.9rem;
+        padding-left: 4%;
     }
     #menu{
         width: 85%;
@@ -586,7 +588,7 @@ padding-top: 0.4em;
         width: 25%;
     }
     #search-i{
-        font-size: 6vh;
+        font-size: 3.5rem;
     }
     .event-btn{
         width: 33%;
@@ -600,21 +602,18 @@ padding-top: 0.4em;
     .modal_address-info {
             font-size: 1rem;
      }
+     #search-i{
+         padding-right: 1%;
+         padding-top:1%;
+     }
   }
-/* 
-  @media screen and (max-width: 320px){
-
-  } */
-
  
   /* inner-info container for second page*/
 
   .inner-info-container{
       font-size: 0.9em;
-      position: absolute;
   }
   
-
   .search_toolbar_popdown{
     position: absolute;
     width: 100%;
@@ -626,9 +625,6 @@ padding-top: 0.4em;
     z-index: 1;
     padding:2%;
   }
-
-
-  /* modal */
 
   .modal {
     display: none; /* Hidden by default */
@@ -704,7 +700,7 @@ padding-top: 0.4em;
     }
   }
  
-/*LOGO */
+ /**** LOGO ***/
 
 .logo-box{
     height: 100%;
@@ -721,8 +717,6 @@ padding-top: 0.4em;
   
   }
 
-
-  /* event item calendar*/
 
   .dayRender{
       font-size:1.5em;
